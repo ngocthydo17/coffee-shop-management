@@ -13,7 +13,7 @@ This repository contains the automation testing framework for the **Coffee Shop 
 ## Screen
 Login Screen
 
-<img src="https://github.com/user-attachments/assets/490d2223-87b4-4de7-ada4-8a237f25bdfd">
+<img src="https://github.com/user-attachments/assets/490d2223-87b4-4de7-ada4-8a237f25bdfd" >
 
 Home Screen
 
