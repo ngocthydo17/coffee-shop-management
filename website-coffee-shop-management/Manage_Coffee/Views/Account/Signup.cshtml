@@ -1,0 +1,81 @@
+﻿@model Manage_Coffee.Models.SignUpUserModel
+
+@{
+    Layout = null;
+    ViewBag.HideHeaderFooter = true;
+    <link rel="stylesheet" href="~/css/signupmail.css" />
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+</head>
+<body>
+    <div class="signup-container">
+
+        <div class="img-container-signup">
+            <img src="~/css/img/coffee-3759005_640.jpg" alt="Coffee Beans" />
+        </div>
+
+        <div class="signup-form">
+            <form asp-action="Signup" method="post">
+                <h2>ĐĂNG KÝ</h2>
+
+                <div class="ten">
+                    <div class="form-group-signup">
+                        <label asp-for="FirstName" style="color:#1a531b; font-weight:bold;">Tên / FirstName</label>
+                        <input asp-for="FirstName" type="text" maxlength="10" pattern="[A-Za-z\s]+" placeholder="Nhập tên" required />
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+
+                    <div class="form-group-signup">
+                        <label asp-for="LastName" style="color:#1a531b; font-weight:bold;">Họ / LastName</label>
+                        <input asp-for="LastName" type="text" maxlength="10" pattern="[A-Za-z\s]+" placeholder="Nhập họ" required />
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email" type="email" maxlength="50"
+                           pattern="[a-zA-Z0-9._%+-]+&#64;[a-zA-Z0-9.-]+&#46;[a-zA-Z]{2,3}"
+                           placeholder="Nhập email" required />
+                    <span asp-validation-for="Email"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Password">Mật khẩu / Password</label>
+                    <input asp-for="Password" type="password" minlength="8" maxlength="15" pattern="[A-Za-z0-9]+" placeholder="Nhập mật khẩu" required />
+                    <span asp-validation-for="Password"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword">Xác nhận mật khẩu / ConfirmPassword</label>
+                    <input asp-for="ConfirmPassword" type="password" minlength="8" maxlength="15pattern=" [A-Za-z0-9]+" placeholder="Xác nhận mật khẩu" required />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+
+
+                <div class="login" style="margin-left: 70px;">
+                    Đã có tài khoản?
+                    <a style="font-weight:bold;" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+                </div>
+
+                <button type="submit" class="dk-btn">Đăng Ký</button>
+            </form>
+            <div class="login-role-container">
+                <span class="line"></span>
+                <span class="login-role-text">Đăng ký với</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="social-login">
+                <a asp-controller="DKDN" asp-action="Register"> <img src="~/css/icon/icons8-phone-48.png" alt="Email Icon">Số điện thoại</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

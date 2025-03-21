@@ -1,0 +1,143 @@
+﻿@using Manage_Coffee.Models.ViewModels
+@model CartItemViewModel
+@{
+<link rel="stylesheet" href="~/css/cart.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="StyleSheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+<!-- Single Page Header End -->
+<!-- Cart Page Start -->
+<div class="container">
+    <h1>Giỏ hàng</h1>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: left">Sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Tạm tính</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        @if (Model.CartItems.Count > 0)
+        {
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>
+
+                        <div class="product-info">
+                            <!-- Remove icon (X) -->
+                            <a class="remove" asp-controller="Cart" asp-action="Remove" asp-route-id="@item.ProductID" asp-route-idsize="@item.SizeID">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                            <!-- Product Image -->
+                            <img alt="" height="60" src="~/css/img/@item.Anh" width="60" />
+                            <!-- Product Name, Size, and Notes -->
+                            <div class="nd_sp">
+                                <span>
+                                    <a asp-action="Detail" asp-controller="SanPham" asp-route-id="@item.ProductID">
+                                        @item.Ten
+                                        @if (item.Kits != null && item.Kits.Any())
+                                        {
+                                            foreach (var i in item.Kits)
+                                            {
+                                                <p>@i.MaSpNavigation.Ten - @i.SoLuong</p>
+
+                                                // Kiểm tra xem có kích thước nào trong CTKIT không
+                                                var ctKit = item.CTKITs.FirstOrDefault(ct => ct.MaKit == i.MaKit && ct.MaSp == i.MaSp && ct.MaSize==item.SizeID);
+                                                if (ctKit != null)
+                                                {
+                                                    // Hiển thị kích thước nếu không phải "SZ001"
+                                                    if (ctKit.MaSize != "SZ001")
+                                                    {
+                                                        <p> - @ctKit.MaSizeNavigation.Ten</p>
+                                                    }
+                                                }
+                                                if (i != item.Kits.Last())
+                                                {
+                                                    <p></p>
+                                                }
+                                            }
+                                        }
+
+                                    </a>
+                                </span>
+                                @if (!item.SanPhams.Any(sp => sp.Maloai == "L0004" || sp.Maloai == "L0005"))
+                                {
+                                    <p> @item.SizeName</p>
+                                    <p>@item.DaName</p>
+                                    <p>@item.DuongName</p>
+                                    <p>
+                                        @if (item.Toppings != null && item.Toppings.Count > 0)
+                                        {
+                                        <p>
+                                                @foreach (var topping in item.Toppings)
+                                                {
+                                                <a>@topping.Ten </a>
+                                                }
+                                        </p>
+                                        }
+                                       
+                                    </p>
+
+                                } 
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        @String.Format(formatMoney, "{0:c00}", item.Dongia)
+                    </td>
+                    <td>
+                        <div class="quantity">
+                            <a asp-controller="Cart" asp-action="Decrease" asp-route-id="@item.ProductID" asp-route-idsize="@item.SizeID">
+                                -
+                            </a>
+                            <input class="text" type="text" name="quantity" value="@item.Soluong" autocomplete="off" size="1" />
+                            <a asp-controller="Cart" asp-action="Increase" asp-route-id="@item.ProductID" asp-route-idsize="@item.SizeID">
+                                +
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <p>
+                            @String.Format(formatMoney, "{0:c00}",
+                                     Model.CartItems
+                                     .Where(X => X.ProductID == item.ProductID && X.SizeID == item.SizeID)
+                                     .Sum(X => X.Soluong * (X.Dongia + X.TriGia + X.Toppings.Sum(t => t.Dongia)))
+                                     )
+                        </p>
+                    </td>
+                </tr>
+
+            }
+        }
+        else
+        {
+            <tr>
+                <td>Giỏ hàng rỗng</td>
+            </tr>
+        }
+    </table>
+
+
+    <div class="total">
+        <div class="tongtien">
+            <span>Tổng tiền:</span>
+            <span class="total-amount">
+                @String.Format(formatMoney, "{0:c00}", Model.GrandTotal)
+            </span>
+        </div>
+        <div class="tieptucmua">
+            <div class="shopping" style="color:white;">
+                <a class="mua" href="@Url.Action("Sanpham1", "SanPhams")">Tiếp tục mua sắm</a>
+            </div>
+
+            <a class="checkout" asp-action="Checkout" asp-controller="Cart">Thanh toán </a>
+        </div>
+    </div>
+</div>
+

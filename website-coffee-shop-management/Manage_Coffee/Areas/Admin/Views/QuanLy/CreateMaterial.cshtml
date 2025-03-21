@@ -1,0 +1,155 @@
+﻿@model Manage_Coffee.Models.PhieuNhapXuat
+
+
+
+
+<form method="post" asp-action="Create">
+    <h2>Phiếu nhập xuất nguyên vật liệu</h2>
+    <div class="them-sp">
+
+        <div>
+            <label>Loại phiếu</label>
+            <select name="loai">
+                <option value="Nhập">Nhập</option>
+                <option value="Xuất">Xuất</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Nhà cung cấp</label>
+            <select name="maCcap">
+                @foreach (var ncc in ViewBag.NhaCungCapList)
+                {
+                    <option value="@ncc.MaCcap">@ncc.Ten</option>
+                }
+            </select>
+        </div>
+
+        <div id="product-list">
+            <div class="product-item">
+                <label>Nguyên vật liệu</label>
+                <select name="maNvlList">
+                    @foreach (var nvl in ViewBag.NguyenVatLieu)
+                    {
+                        <option value="@nvl.MaNvl">@nvl.Ten</option>
+                    }
+                </select>
+
+                <label>Số lượng</label>
+                <input type="number" name="soLuongList" min="1" required />
+            </div>
+        </div>
+
+        <button type="button" onclick="addProduct()">Thêm sản phẩm</button>
+    </div>
+
+    <div class="taophieu">
+
+        <div>
+            <label>Địa chỉ</label>
+            <input type="text" name="diaChi" required />
+        </div>
+
+        <button type="submit">Tạo phiếu</button>
+    </div>
+</form>
+
+<script>
+    function addProduct() {
+        const productItem = document.querySelector('.product-item').cloneNode(true);
+        document.getElementById('product-list').appendChild(productItem);
+    }
+</script>
+<style>
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        color: #1a531b;
+        /*margin-bottom: 20px;*/
+        font-size: 27px;
+    }
+    /* Form Container */
+    form {
+        width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Section for "Thêm sản phẩm" */
+    .them-sp {
+        background-color: #ffffff;
+        padding: 1px 15px 15px 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .them-sp div {
+            margin-bottom: 15px;
+        }
+
+    .product-item {
+        margin-bottom: 10px;
+    }
+
+    /* Section for "Tạo phiếu" */
+    .taophieu {
+        background-color: #ffffff;
+        padding: 1px 15px 15px 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .taophieu div {
+            margin-bottom: 15px;
+        }
+
+    /* Labels */
+    form label {
+        font-size: 18px;
+        color: #07522E;
+        margin-bottom: 5px;
+        display: block;
+        margin-top: 20px;
+    }
+
+    /* Select and Input Styles */
+    form select,
+    form input[type="text"],
+    form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    /* Button Styles */
+    form button[type="button"],
+    form button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #07522E;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    form button[type="button"] {
+        background-color: #07522E;
+        margin-top: 10px;
+    }
+
+        form button[type="button"]:hover,
+        form button[type="submit"]:hover {
+            background-color: #003300;
+        }
+
+</style>

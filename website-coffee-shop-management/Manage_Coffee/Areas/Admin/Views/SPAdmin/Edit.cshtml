@@ -1,0 +1,205 @@
+﻿@model Manage_Coffee.Models.SanPham
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+<div class="edit-sp">
+
+    <form method="post" asp-action="Edit">
+
+        <h1>Chỉnh sửa sản phẩm</h1>
+
+        <input type="hidden" id="maSp" name="MaSp" value="@Model.MaSp" />
+
+        <div class="form-group">
+            <label for="ten" class="edi-tensp">Tên Sản Phẩm:</label>
+            <input type="text" id="ten" name="Ten" class="form-control" value="@Model.Ten" required />
+        </div>
+
+        <div class="form-group">
+            <label for="dongia" class="edi-tensp">Đơn Giá:</label>
+            <input type="number" id="dongia" name="Dongia" class="form-control" value="@Model.Dongia" required />
+        </div>
+
+        <div class="form-group">
+            <label for="dvt" class="edi-tensp">Đơn Vị Tính:</label>
+            <input type="text" id="dvt" name="Dvt" class="form-control" value="@Model.Dvt" required />
+        </div>
+
+        <div class="form-group">
+            <label for="mota" class="edi-tensp">Mô Tả:</label>
+            <textarea id="mota" name="Mota" class="ghichu-sp" required>@Model.Mota</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="anh" class="edi-tensp">Đường Dẫn Ảnh:</label>
+            <input type="text" id="anh" name="Anh" class="form-control" value="@Model.Anh" />
+        </div>
+
+        <div class="form-group-sp">
+            <div class="ten-tt">
+
+                <label for="trangThai" class="edi-tensp">Trạng Thái:</label>
+            </div>
+
+            <input type="hidden" name="TrangThai" value="false" />
+
+            <input type="checkbox" id="trangThai" name="TrangThai" value="true" @(Model.TrangThai ? "checked" : "") />
+        </div>
+
+        <div class="form-group">
+            <label for="maloai" class="edi-tensp">Loại:</label>
+            <select id="maloai" name="Maloai" class="form-control" required>
+                <option value="">-- Chọn Loại --</option>
+                @if (ViewData["LoaiList"] is List<Manage_Coffee.Models.Loai> cate)
+                {
+                    foreach (var loai in cate)
+                    {
+                        <option value="@loai.Maloai"
+                                selected="@(loai.Maloai == Model.Maloai ? "selected" : "")">
+                            @loai.Ten
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="maTopping" class="edi-tensp">Topping:</label>
+            <select id="maTopping" name="MaTopping" class="form-control">
+                <option value="">-- Chọn Topping --</option>
+                @if (ViewData["ToppingList"] is List<Manage_Coffee.Models.SanPham> toppingList)
+                {
+                    foreach (var topping in toppingList)
+                    {
+                        <option value="@topping.MaSp"
+                                selected="@(topping.MaSp == Model.MaTopping ? "selected" : "")">
+                            @topping.Ten
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="sua-sp">Lưu Thay Đổi</button>
+    </form>
+</div>
+<div class="quayve-sp">
+    <a href="@Url.Action("Index", "SPAdmin")" class="back-sp">Trở về</a>
+</div>
+<style>
+    .edit-sp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 900px;
+        font-family: Arial, sans-serif;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 400px; /* Đặt độ rộng theo như hình */
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 31px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #07522E; /* Màu tối hơn cho tiêu đề */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .edi-tensp {
+        margin-left: 7px;
+        font-size: 18px;
+        margin-bottom: 5px;
+        display: block;
+        color: #07522E;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    .ghichu-sp {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-left: 15px;
+        vertical-align: middle;
+        margin-bottom: 10px;
+    }
+
+    /* Nút thêm sản phẩm */
+    .sua-sp {
+        background-color: #07522E; /* Màu nâu đậm giống với hình */
+        color: #fff;
+        padding: 12px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+        .them-sp:hover {
+            background-color: #258457; /* Màu nâu tối hơn khi hover */
+        }
+
+    /* Nút trở về */
+    .quayve-sp {
+        margin-left: 50px;
+        margin-bottom: 30px;
+    }
+
+    .back-sp {
+        background-color: #07522E;
+        color: white;
+        padding: 10px 20px; /* Khoảng cách bên trong nút */
+        font-size: 16px; /* Kích thước chữ */
+        border: none; /* Xóa đường viền mặc định */
+        border-radius: 5px; /* Bo góc cho nút */
+        text-decoration: none; /* Xóa gạch chân mặc định */
+        transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi khi hover */
+    }
+
+        .back-sp:hover {
+            background-color: #8B4513;
+            color: #fff;
+        }
+
+    .form-group-sp {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .checkbox-tt {
+        transform: scale(1.2);
+        vertical-align: middle;
+    }
+</style>

@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+    @inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Manage_Coffee</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Manage_Coffee.styles.css" asp-append-version="true" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&display=swap" rel="stylesheet">
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-xxxxx" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM5mNu3ueDQ4WnFwZr12HOh2Aa6VCh5QpvoOGs+" crossorigin="anonymous">
+    <!-- Crisp Live Chat -->
+    <script type="text/javascript">
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "7253fe12-c2ab-4087-b417-5e4b98c2d9e4";
+        (function () {
+            d = document;
+            s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
+
+</head>
+<body>
+    <div id="wrapped">
+        @if (ViewBag.HideHeaderFooter != true)
+        {
+            <header>
+                <div id="header">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/css/img/logo2.png" style="height: 50px; width: 130px;" /></a>
+
+                    <div id="menu">
+                        <div class="item">
+                            <a class="@(ViewContext.RouteData.Values["action"].ToString() == "Index" && ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "active" : "")"
+                               asp-action="Index" asp-controller="Home">
+                                Trang Chủ
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a class="@(ViewContext.RouteData.Values["action"].ToString() == "Sanpham1" && ViewContext.RouteData.Values["controller"].ToString() == "SanPhams" ? "active" : "")"
+                               asp-action="Sanpham1" asp-controller="SanPhams">
+                                Sản Phẩm
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a class="@(ViewContext.RouteData.Values["action"].ToString() == "LienHe" && ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "active" : "")"
+                               asp-action="LienHe" asp-controller="Home">
+                                Liên Hệ
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a class="@(ViewContext.RouteData.Values["action"].ToString() == "CuaHang" && ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "active" : "")"
+                               asp-action="CuaHang" asp-controller="Home">
+                                Cửa hàng
+                            </a>
+                        </div>
+                    </div>
+                    @*   <div>
+                <div>
+                <a>
+                <p>
+                <!-- Hiển thị hình ảnh dựa trên vai trò của khách hàng -->
+                @{
+                string role = HttpContextAccessor.HttpContext.Session.GetString("UserRole") ?? "Khách"; // Lấy role từ Session
+                string roleDisplay = "";
+                string imageUrl = "";
+
+                switch (role)
+                {
+                case "Bạc":
+                <img src="~/css/img/vang.png" style="height: 40px; width: 50px;" />
+                break;
+                case "Vàng":
+                <img src="~/css/img/dong.png" style="height: 40px; width: 50px;" />
+                break;
+                case "Đồng":
+                <img src="~/css/img/bac.png" style="height: 40px; width: 50px;" />
+                break;
+                default:
+                roleDisplay = "Bạn có vai trò: <strong>Khách</strong>";
+                break;
+                }
+                }
+
+                <p>@Html.Raw(roleDisplay)</p>
+                @if (!string.IsNullOrEmpty(imageUrl))
+                {
+                <img src="@imageUrl" alt="@role" style="width: 100px; height: auto;" />
+                }
+                </p>
+                </a>
+                </div>
+                </div> *@
+
+                    <div id="actions">
+                        <div style="padding-left: 10px">
+                            <a asp-action="Cart" asp-controller="Cart">
+                                <img src="~/css/img/icons8-shopping-cart-64 (1).png" style="height: 48px; width: 48px;" />
+                            </a>
+                        </div>
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("UserName") == null && !_signInManager.IsSignedIn(User))
+                        {
+                            <div class="button-container">
+                                <a style="text-decoration:none;" asp-controller="DKDN" asp-action="Register">
+                                    <button class="button_dk">Đăng ký</button>
+                                </a>
+                                <a style="text-decoration:none;" asp-controller="DKDN" asp-action="Login">
+                                    <button class="button_dn">Đăng nhập</button>
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="user-dropdown">
+                                <div onclick="toggle()" class="user-dropdown-btn">
+                                    <div class="user_img">
+                                        <!-- Hiển thị hình ảnh dựa trên vai trò của khách hàng -->
+                                        @{
+                                            string role = HttpContextAccessor.HttpContext.Session.GetString("UserRole") ?? "Khách"; // Lấy role từ Session
+                                            string imageUrl = "";
+
+                                            switch (role)
+                                            {
+                                                case "Bạc":
+                                                    <img src="~/css/img/star-bac.png" />
+                                                    break;
+                                                case "Vàng":
+                                                    <img src="~/css/img/star-vang.png" />
+                                                    break;
+                                                case "Đồng":
+                                                    <img src="~/css/img/star-dong.png" />
+                                                    break;
+                                                default:
+                                                    <img src="~/css/img/icons8-male-user-48.png" />
+                                                    break;
+                                            }
+                                        }
+                                        @*   <img src="@imageUrl" style="height: 40px; width: 50px;" /> *@
+                                    </div>
+                                    <span><i class="fa-solid fa-angle-down"></i></span>
+                                </div>
+                                <div class="dropdown-content">
+                                    @if (_signInManager.IsSignedIn(User))
+                                    {
+                                        <ul class="user-dropdown-list">
+                                            <li class="user-dropdown-list-item">
+                                                <a asp-controller="KhachHang" asp-action="ThongTinKhachHang"><i class="fa-solid fa-user"></i>Thông tin cá nhân</a>
+                                            </li>
+                                            <li class="user-dropdown-list-item">
+                                                <a asp-area="" asp-controller="OrderHistory" asp-action="Index"><i class="fa-solid fa-list"></i>Lịch sử đơn hàng</a>
+
+                                            </li>
+                                            <li class="user-dropdown-list-item">
+                                                <form asp-controller="Account" id="logout" asp-action="Logout" method="post">
+                                                    <button id="log_out" type="submit"><i class="fa-solid fa-arrow-right-from-bracket"></i>Đăng xuất</button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    }
+                                    else if (HttpContextAccessor.HttpContext.Session.GetString("UserName") != null)
+                                    {
+                                        <ul class="user-dropdown-list">
+                                            <li class="user-dropdown-list-item">
+                                                <a asp-controller="KhachHang" asp-action="ThongTinKhachHang"><i class="fa-solid fa-user"></i>Thông tin cá nhân</a>
+                                            </li>
+                                            <li class="user-dropdown-list-item">
+                                                <a asp-area="" asp-controller="OrderHistory" asp-action="Index"><i class="fa-solid fa-list"></i>Lịch sử đơn hàng</a>
+                                            </li>
+                                            <li class="user-dropdown-list-item">
+                                                <form asp-controller="DKDN" asp-action="Logout" method="post">
+                                                    <button type="submit">
+                                                        <i class="fa-solid fa-arrow-right-from-bracket"></i>Đăng xuất
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </header>
+        }
+
+        <div>
+            @RenderBody()
+        </div>
+        @if (ViewBag.HideHeaderFooter != true)
+        {
+            <div id="footer">
+                <div class="footer-container">
+                    <!-- Le Petit Cafe Info -->
+                    <div class="footer-section">
+                        <h3>Le Petit cafe’</h3>
+                        <p>Chào mừng bạn đến với Le Petit cafe’, nơi mà chúng tôi tạo ra những trải nghiệm hương vị tuyệt vời nhất dành cho những người yêu thích cà phê.</p>
+
+                        <div class="social-icons">
+
+                            <img src="~/css/icon/icons8-facebook-50.png" alt="Local Icon" width="50" height="50">
+
+                            <img src="~/css/icon/icons8-instagram-50.png" alt="Local Icon" width="50" height="50">
+
+                            <img src="~/css/icon/icons8-tiktok-50.png" alt="Local Icon" width="50" height="50">
+
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="footer-section">
+                        <h3>Liên Hệ</h3>
+                        <p>Công ty CPTM & DV ThreeBags</p>
+
+                        <p>
+                            <img src="~/css/icon/local-footer.png" alt="Local Icon" width="25" height="25">
+                            828 Sư Vạn Hạnh, Quận 10, Thành phố Hồ Chí Minh
+                        </p>
+                        <p>
+                            <img src="~/css/icon/icons8-phone-100.png" alt="Local Icon" width="25" height="25">
+                            0123456789
+                        </p>
+                        <p>
+                            <img src="~/css/icon/icons8-mail.png" alt="Local Icon" width="24" height="24">
+                            lepetitcafe@gmail.com
+                        </p>
+                    </div>
+
+                    <!-- Customer Feedback -->
+                    <div class="footer-section">
+                        <iframe width="360" height="200" src="https://www.youtube.com/embed/wLOvG5Jzhrk?si=FEvympN_6mW1Gd7L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        @* <h3>Ý kiến của khách hàng</h3>
+                    <div class="feedback-form">
+                    <input type="email" placeholder="Nhập email của bạn" />
+                    <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Gửi
+                    </button>
+                    </div> *@
+                    </div>
+
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright 2020 ©, All Rights Reserved Công ty CPTM & DV ThreeBags</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        const userDropdown = document.querySelector('.user-dropdown');
+        const userDropdownList = userDropdown.querySelector('.user-dropdown-list');
+        let dropdownVisible = false; // Biến trạng thái để theo dõi việc hiển thị
+
+        // Hàm để hiển thị dropdown
+        function showDropdown() {
+            userDropdownList.style.display = 'block'; // Hiện dropdown
+            dropdownVisible = true; // Cập nhật trạng thái
+        }
+
+        // Hàm để ẩn dropdown
+        function hideDropdown() {
+            userDropdownList.style.display = 'none'; // Ẩn dropdown
+            dropdownVisible = false; // Cập nhật trạng thái
+        }
+
+        // Toggle dropdown khi nhấn vào userDropdown
+        userDropdown.addEventListener('click', function (event) {
+            event.stopPropagation(); // Ngăn chặn sự kiện click lan truyền
+            if (dropdownVisible) {
+                hideDropdown(); // Nếu đang mở, ẩn dropdown
+            } else {
+                showDropdown(); // Nếu đang ẩn, hiện dropdown
+            }
+        });
+        // Ẩn dropdown khi click ra ngoài userDropdown
+        window.addEventListener('click', function (event) {
+            if (!userDropdown.contains(event.target)) {
+                hideDropdown(); // Ẩn dropdown nếu click ra ngoài
+            }
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

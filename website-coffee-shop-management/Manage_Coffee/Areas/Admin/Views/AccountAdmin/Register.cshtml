@@ -1,0 +1,243 @@
+﻿@model Manage_Coffee.Areas.Admin.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<link rel="stylesheet" href="~/css/order.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+
+
+
+<div class="dk-container">
+
+    <div class="dk-form">
+
+        <form asp-action="Register" method="post">
+            <h2>Đăng ký tài khoản nhân viên</h2>
+
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="Ten">Họ tên:</label>
+                <input type="text" id="Ten" name="Ten" asp-for="Ten" maxlength="50" pattern="[A-Za-z\s]+" placeholder="Nhập tên" required />
+            </div>
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="Sdt">Số điện thoại:</label>
+                <input type="number" id="Sdt" name="Sdt" asp-for="Sdt" maxlength="10" inputmode="numeric" pattern="\d{10,11}" placeholder="Nhập số điện thoại" required />
+            </div>
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="Mkhau">Mật khẩu:</label>
+                <input type="password" id="Mkhau" name="Mkhau" asp-for="Mkhau" minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="Nhập mật khẩu" required />
+            </div>
+            <div class="input-group">
+                <label>Giới tính:</label>
+                <select id="GioiTinh" name="GioiTinh" asp-for="GioiTinh">
+                    <option value="true">Nữ</option>
+                    <option value="false">Nam</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="Chucvu">Chức vụ:</label>
+                <select id="Chucvu" name="Chucvu" asp-for="Chucvu">
+                    @if (ViewBag.ShowManagerOption == true && ViewBag.ShowManagerOption != null)
+                    {
+                        <option value="Quản lý">Quản lý</option>
+                    }
+                    <option value="Phục vụ">Phục vụ</option>
+                </select>
+            </div>
+
+            @if (ViewBag.ShowManagerOption == true)
+            {
+                <div class="input-group">
+                    <label for="inputMaCn">Mã chi nhánh:</label>
+                    <input type="text" id="inputMaCn" name="inputMaCn" required />
+                </div>
+            }
+            else
+            {
+                <input type="hidden" name="inputMaCn" value="@ViewBag.BranchCode" />
+            }
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="Diachi">Địa chỉ:</label>
+                <input type="text" id="Diachi" name="Diachi" asp-for="Diachi" maxlength="100" required />
+            </div>
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="NgaySinh">Ngày tháng năm sinh</label>
+                <input type="date" id="NgaySinh" name="NgaySinh" asp-for="NgaySinh" required />
+            </div>
+            <button type="submit" class="dk-btn">Đăng Ký</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    @if (ViewBag.ShowManagerOption == true)
+    {
+        <button class="quaylai-nv">
+            @Html.ActionLink("Quay lại", "Index", "ThongKeTong", new { area = "Admin" }, new { @class = "btn btn-primary" })
+        </button>
+    }
+    else
+    {
+        <button class="quaylai-nv">
+            @Html.ActionLink("Quay lại", "LoadEmployee", "QuanLy", new { area = "Admin" }, new { @class = "btn btn-primary" })
+        </button>
+    }
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div style="color: green;">@TempData["Success"]</div>
+}
+
+<style>
+    .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px; /* Khoảng cách giữa các dòng */
+        border-radius: 5px;
+    }
+
+        .input-group label {
+            margin-top: 9px;
+            margin-right: 10px; /* Khoảng cách giữa nhãn và select box */
+        }
+
+    #GioiTinh, #Chucvu {
+        border-radius: 6px;
+        height: 35px;
+    }
+
+    .dk-container {
+        margin-left: 35%;
+        margin-top: 20px;
+        flex-direction: row-reverse; /* Đảo thứ tự: ảnh sang phải, form sang trái */
+        align-items: center;
+        justify-content: center;
+        height: 800px;
+        position: relative; /* Set position to relative */
+        display: flex;
+        width: 500px;
+        background-color: rgba(255, 255, 255, 0.9); /* White background with reduced opacity */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.8); /* Slightly reduced opacity for inner section */
+        z-index: 2; /* Bring the container above the overlay */
+    }
+
+
+    .dk-form {
+        height: 640px;
+        width: 500px;
+        /*max-width: 500px;*/ /* Use max-width instead of fixed width */
+        padding: 60px 30px;
+        display: flex;
+        margin-right: auto;
+        justify-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.8); /* Optional for contrast */
+        z-index: 2; /* Ensure it's above the overlay */
+    }
+
+        .dk-form form input[type="number"],
+        .dk-form form input[type="password"] {
+            /*width: 100%;*/
+            padding: 12px;
+            margin: 7px 0;
+            border: 2px solid #1a531b;
+            font-size: 16px;
+        }
+
+    .input-group {
+        margin-top: 10px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 366px;
+    }
+
+        .input-group input {
+            border-radius: 9px !important;
+            width: 365px;
+            padding: 12px;
+            border: 2px solid #004400;
+            font-size: 16px;
+        }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        color: #1a531b;
+        /*margin-bottom: 20px;*/
+        font-size: 27px;
+    }
+
+    .dk-btn {
+        margin: 0;
+        font-family: Arial;
+        width: 365px;
+    }
+    /* Buttons */
+    .dk-form form button {
+        padding: 12px;
+        background-color: #07522E;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 9px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+
+    .dk-form .dangky a {
+        color: #07522E;
+        text-decoration: none;
+    }
+
+    .dk-form .dangky a {
+        text-decoration: underline;
+    }
+
+    .dk-form .dangky {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dk-form label {
+        color: #1a531b;
+    }
+
+
+    .quaylai-nv {
+        margin-left: 45px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        border-radius: 5px;
+        width: 150px;
+        height: 45px;
+        color: white;
+        background-color: #07522E;
+    }
+
+        .quaylai-nv:hover {
+            color: #414042;
+            background-color: #E9DFB8;
+        }
+
+        .quaylai-nv a {
+            text-decoration: none;
+            color: white;
+        }
+</style>

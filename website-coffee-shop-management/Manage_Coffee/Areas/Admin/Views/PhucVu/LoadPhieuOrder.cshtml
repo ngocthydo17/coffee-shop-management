@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Manage_Coffee.Models.PhieuOrder>
+<link rel="stylesheet" href="~/css/order.css" />
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+
+@if (Model == null || !Model.Any())
+{
+    <p>Không có đơn hàng nào</p>
+}
+else
+{
+
+    <div class="bill1">
+        <h1>Danh sách đơn hàng</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã đơn hàng</th>
+                    <th>Số bàn</th>
+                    <th>Ngày giờ đặt</th>
+                    <th>Tổng tiền</th>
+                    <th>Phương thức thanh toán</th>
+                    <th>Tên khách hàng</th>
+                    <th>Tên nhân viên</th>
+                    <th>Mã chi nhánh</th>
+                    <th>Số điện thoại</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.MaOrder</td>
+                        <td>@order.Soban</td>
+                        <td>@order.Ngaygiodat</td>
+                        <td>@order.Tongtien.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</td>
+                        <td>@order.Pttt</td>
+                        <td>@order.Ten</td>
+                        <td>@order.MaNv</td>
+                        <td>@order.MaCn</td>
+                        <td>@order.Sdt</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<style>
+    h1 {
+        margin-bottom:20px
+
+        ;
+        color: #1b7033;
+        margin-top: 20px;
+        TEXT-ALIGN: center;
+    }
+
+    thead tr {
+        color: #414042;
+        background-color: #E9DFB8 !important;
+    }
+
+    /* Hàng lẻ: 1, 3, 5,... */
+    table tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    /* Hàng chẵn: 2, 4, 6,... */
+    table tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    table, th, tr, td {
+        border: 2px solid;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #868585;
+    }
+
+    table {
+        margin-bottom: 25px;
+        margin-left: 8%;
+        width: 85%;
+        border-collapse: collapse;
+    }
+
+    td {
+        height: 45px;
+        width: 120px;
+        text-align: center;
+    }
+
+    th {
+        height: 45px;
+    }
+</style>

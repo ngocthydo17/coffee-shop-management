@@ -1,0 +1,239 @@
+﻿@model IEnumerable<Manage_Coffee.Models.SanPham>
+@{
+    ViewData["Title"] = "Index";
+
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+
+}
+@* @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+} *@
+<link rel="stylesheet" href="~/css/order.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+<h1>QUẢN LÝ SẢN PHẨM</h1>
+<div class="addsp">
+    <a href="@Url.Action("Create1", "SPAdmin")" class="khokho">Thêm sản phầm</a>
+</div>
+<div class="trangthai">
+    <table class="table">
+        <thead>
+            <tr style="text-align:center;font-size: 20px; height: 50px;">
+                <th>Ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Đơn vị tính</th>
+                <th>Topping</th>
+                <th>Trạng thái</th>
+                <th>Cập nhật</th>
+                @* <th></th> *@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sanPham in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/css/img/@sanPham.Anh" height="70px" width="70px" />
+                    </td>
+                    <td class="sanpham">@sanPham.Ten</td>
+                    <td>@String.Format(formatMoney, "{0:c00}", sanPham.Dongia)</td>
+                    @* <td>@sanPham.Dongia</td> *@
+                    <td>@sanPham.Dvt</td>
+                    <td>@(sanPham.MaToppingNavigation != null ? sanPham.MaToppingNavigation.Ten : "Không có Topping")</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox"
+                                   id="toggle-@sanPham.MaSp"
+                            @(sanPham.TrangThai ? "checked" : "")
+                                   onchange="thayDoiTrangThai('@sanPham.MaSp', this.checked)">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "SPAdmin", new { id = sanPham.MaSp, area = "Admin" })"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #111212;"></i></a>
+                        <a href="@Url.Action("Detail", "SPAdmin", new { id = sanPham.MaSp, area = "Admin" })"><i class="fa-sharp fa-solid fa-circle-info fa-lg" style="color: #111212;"></i></a>
+                        <button class="btn btn-danger" onclick="confirmDelete('@sanPham.MaSp')"><i class="fa-solid fa-trash fa-lg" style="color: #111212;"></i></button>
+                    </td>
+                    @*    <td>
+                </td>
+                <td>
+                </td> *@
+                    @*  <td></td> *@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function thayDoiTrangThai(maSp, trangThai) {
+        $.ajax({
+            url: '/Admin/SPAdmin/ThayDoiTrangThaiAjax',
+            type: 'POST',
+            data: { maSp: maSp, trangThai: trangThai },
+            headers: {
+                'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+            },
+            success: function (response) {
+                if (!response.success) {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert('Đã xảy ra lỗi khi thay đổi trạng thái.');
+            }
+        });
+    }
+    function confirmDelete(id) {
+        if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+            $.ajax({
+                url: '@Url.Action("DeleteConfirmed", "SPAdmin")',
+                type: 'POST',
+                data: { id: id },
+                success: function (response) {
+                    alert('Sản phẩm đã được xóa thành công.');
+                    // Xóa sản phẩm khỏi bảng hoặc làm mới danh sách sản phẩm
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    alert('Có lỗi xảy ra, vui lòng thử lại.');
+                }
+            });
+        }
+    }
+</script>
+
+<style>
+    .addsp {
+        margin-left: 55px;
+        margin-bottom: 10px;
+    }
+
+    .khokho {
+        background-color: #07522E;
+        color: white;
+        padding: 10px 20px; /* Khoảng cách bên trong nút */
+        font-size: 16px; /* Kích thước chữ */
+        border: none; /* Xóa đường viền mặc định */
+        border-radius: 5px; /* Bo góc cho nút */
+        text-decoration: none; /* Xóa gạch chân mặc định */
+        transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi khi hover */
+    }
+
+        .khokho:hover {
+            background-color: #E9DFB8; /* Màu nền khi hover */
+            color: #414042; /* Màu chữ khi hover */
+        }
+
+    h1 {
+        margin-bottom: 25px;
+        color: #07524E;
+        margin-top: 20px;
+        TEXT-ALIGN: center;
+    }
+
+    .trangthai {
+        display: flex;
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        padding: 40px;
+    }
+
+    thead tr {
+        background-color: #E9DFB8 !important;
+    }
+
+    /* Hàng lẻ: 1, 3, 5,... */
+    table tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    /* Hàng chẵn: 2, 4, 6,... */
+    table tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    table, th, tr, td {
+        border: 2px solid;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #868585;
+    }
+
+    table {
+        width: 85%;
+        border-collapse: collapse;
+    }
+
+    td {
+        width: 120px;
+        text-align: center;
+    }
+
+    th {
+        color: 414042;
+    }
+
+    /* Style cho toggle switch */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+    /* Round slider */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>

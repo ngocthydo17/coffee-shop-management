@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "KHController",
+    "Method": "AddXu",
+    "RelativePath": "api/KHController/AddXu",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "CongXuRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

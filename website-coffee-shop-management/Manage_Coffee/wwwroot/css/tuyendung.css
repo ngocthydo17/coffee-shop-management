@@ -1,0 +1,232 @@
+﻿/* Đặt lại margin và padding */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Bố cục chính */
+.tuyendung {
+    max-width: 1280px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.image-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+.tieude {
+    color: #1a531b;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Ảnh tiêu đề */
+.anhtieude {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+    .anhtieude img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain; /* Đảm bảo ảnh không bị cắt xén */
+    }
+
+.noidung {
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+.tentieude, .section-title {
+    font-size: 25px;
+    color: #1a531b;
+    margin: 20px 0;
+}
+
+.content {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+    .content ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .content ul li {
+            margin: 10px 0;
+        }
+
+            .content ul li::before {
+                content: "•";
+                color: #2d6a4f;
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+
+.apply a {
+    color: #2d6a4f;
+    text-decoration: none;
+}
+
+    .apply a:hover {
+        text-decoration: underline;
+    }
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .tuyendung {
+        width: 95%; /* Co lại cho màn hình nhỏ */
+    }
+
+    .tieude h1 {
+        font-size: 22px; /* Giảm kích thước chữ tiêu đề */
+    }
+
+    .tentieude, .section-title {
+        font-size: 20px;
+    }
+
+    .content {
+        font-size: 14px;
+    }
+
+    .image-container img {
+        height: 300px; /* Điều chỉnh chiều cao ảnh cho di động */
+    }
+
+    .anhtieude img {
+        width: 80%; /* Giảm kích thước ảnh tiêu đề trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 480px) {
+    .tieude h1 {
+        font-size: 18px;
+    }
+
+    .tentieude, .section-title {
+        font-size: 18px;
+    }
+
+    .content {
+        font-size: 13px;
+    }
+
+    .anhtieude img {
+        width: 100%;
+    }
+}
+
+
+/*--------------------------------------------------- Cà phê đường phố ----------------------------------------------------------- */
+
+
+
+/* Bố cục chính */
+.duongpho {
+    max-width: 1280px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.image-container-duongpho img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+.tieudedp {
+    color: #1a531b;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Ảnh tiêu đề */
+.anhtieudedp {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+    .anhtieudedp img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain; /* Đảm bảo ảnh không bị cắt xén */
+    }
+
+.noidungduongpho {
+    margin: 0px 100px 0px 100px;
+    margin-bottom: 25px;
+}
+
+.tentieudedp {
+    font-size: 30px;
+    color: #1a531b;
+    margin: 20px 0;
+}
+
+.contentdp {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Responsive cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .duongpho {
+        width: 95%; /* Giảm độ rộng cho màn hình nhỏ */
+    }
+
+    .noidungduongpho {
+        margin: 0 40px; /* Điều chỉnh margin cho nội dung */
+    }
+
+    .tentieudedp {
+        font-size: 24px; /* Giảm kích thước tiêu đề */
+    }
+
+    .contentdp {
+        font-size: 16px;
+    }
+
+    .image-container-duongpho img {
+        height: 300px; /* Giảm chiều cao ảnh cho thiết bị nhỏ */
+    }
+}
+
+/* Responsive cho màn hình rất nhỏ */
+@media (max-width: 480px) {
+    .noidungduongpho {
+        margin: 0 20px; /* Giảm margin hơn nữa */
+    }
+
+    .tentieudedp {
+        font-size: 20px;
+    }
+
+    .contentdp {
+        font-size: 14px;
+    }
+
+    .image-container-duongpho img {
+        height: 200px; /* Giảm chiều cao ảnh cho thiết bị di động */
+    }
+
+    .anhtieudedp img {
+        width: 90%; /* Giảm kích thước ảnh tiêu đề */
+    }
+}

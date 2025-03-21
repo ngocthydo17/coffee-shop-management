@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/css/nav.css" rel="stylesheet" />
+    <script>
+        const checkbox = document.getElementById('open');
+        const title = document.querySelector('.title');
+
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                title.classList.add('menu_pv-open');
+            } else {
+                title.classList.remove('menu_pv-open');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <input type="checkbox" name="open" id="open">
+            <label for="open" class="open">
+                <i class="fas fa-bars"></i>
+            </label>
+            <div class="menu_pv">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","PhucVu",  new { area = "Admin" })">
+                            <span><i class='bx bx-notepad'></i></span>
+                            Tạo Hóa Đơn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("PendingOrders", "ListOrder", new { area = "Admin" })" class="btn btn-danger">
+                            <span><i class='bx bx-check-square'></i></span>
+                            Xác nhận đơn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Orders", "ListOrder", new { area = "Admin" })" class="btn btn-danger">
+                            <span><i class='bx bx-list-ul'></i></span>
+                            Đơn đặt hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("LoadPhieuOrder", "PhucVu", new { area = "Admin" })" class="btn btn-danger">
+                            <span><i class='bx bx-detail'></i></span>
+                            Danh sách hóa đơn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("LogoutAdmin", "PhucVu", new { area = "Admin" })" class="btn btn-danger">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Đăng xuất
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="title">
+            <img src="~/css/img/logo2.png" style="height: 50px; width: 130px;" />
+        </div>
+        <div class="user-info">
+            <span>
+                <p>@ViewBag.TenNhanVien</p>
+            </span>
+
+        </div>
+    </div>
+    <!-- Main content -->
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="about">
+            <h2>Le Petit Cafe’</h2>
+            <p>Chào mừng bạn đến với Le Petit cafe’, nơi mà chúng tôi tạo ra những trải nghiệm hương vị tuyệt vời nhất dành cho những người yêu thích cà phê.</p>
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-tiktok"></i>
+            </div>
+        </div>
+        <div class="contact-info">
+            <h2>Liên Hệ</h2>
+            <p><strong>Công ty CPTM & DV Le Petit</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i> 828 Sư Vạn Hạnh, Quận 10, Thành phố Hồ Chí Minh</p>
+            <p><i class="fas fa-phone-alt"></i> 0123456789</p>
+            <p><i class="fas fa-envelope"></i> lepetitcafe@gmail.com</p>
+        </div>
+        @* <div class="customer-feedback">
+        <h2>Ý kiến của khách hàng</h2>
+        <input type="text" placeholder="Nhập email của bạn">
+        <button><i class="fas fa-paper-plane"></i> Gửi</button>
+        </div> *@
+        <div class="copyright">
+            Copyright 2020 ©, All Rights Reserved Công ty CPTM & DV Le Petit
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    ul {
+        list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+        padding: 0; /* Bỏ khoảng cách bên trái */
+    }
+
+    li a {
+        text-decoration: none; /* Bỏ gạch dưới */
+        color: white; /* Đặt màu cho văn bản, tùy theo thiết kế của bạn */
+    }
+
+</style>

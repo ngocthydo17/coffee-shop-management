@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Danh sách đánh giá";
+}
+
+<h2>Danh sách đánh giá cho sản phẩm</h2>
+
+@if (ViewBag.DanhSachDanhGia != null && ViewBag.DanhSachDanhGia.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Tên khách hàng</th>
+                <th>Số sao</th>
+                <th>Nhận xét</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var danhGia in ViewBag.DanhSachDanhGia)
+            {
+                <tr>
+                    <td>@danhGia.TenKhachHang</td>
+                    <td>@danhGia.SoSao<i style="margin-bottom:10px;"><img src="~/css/icon/icons8-star-48.png" style="width:36px; height:36px;" /></i></td>
+                    <td>@danhGia.NhanXet</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Chưa có đánh giá nào cho sản phẩm này.</p>
+}
+
+<a asp-action="Details" asp-route-id="@ViewBag.MaSp">
+    <button class="quaylai" type="submit">Quay lại chi tiết sản phẩm </button>
+</a>
+
+<style>
+    /* Style the table */
+    table {
+        margin-left: 5%;
+        width: 90%;
+        border-collapse: collapse;
+        font-family: 'Arial', sans-serif;
+        margin-bottom: 20px;
+    }
+
+    thead th {
+        width: 5%;
+        text-align: center;
+        padding: 10px 0 10px 0;
+        background-color: #fff;
+        font-weight: bold;
+        border-bottom: 2px solid #ddd;
+    }
+
+    tbody tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        padding: 15px 0 15px 0;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Header title style */
+    h2 {
+        margin-top: 20px;
+        font-size: 40px;
+        text-align: center;
+        color: #1b7033;
+        margin-bottom: 30px;
+    }
+
+    /* Button styling */
+    .quaylai {
+        margin: 20px 0 20px 20px;
+        background-color: #1b7033;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .quaylai:hover {
+            background-color: #145624;
+        }
+
+    /* Hide table borders */
+    table, th, td {
+        border: none;
+    }
+
+    /* Special styling for size, total and notes columns */
+    tbody td:nth-child(2),
+    tbody td:nth-child(3) {
+        text-align: center;
+    }
+
+</style>

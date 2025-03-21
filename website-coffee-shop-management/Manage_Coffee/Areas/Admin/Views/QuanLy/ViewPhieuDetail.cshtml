@@ -1,0 +1,185 @@
+﻿@{
+    ViewBag.Title = "Chi tiết phiếu nhập/xuất";
+}
+
+<div class="action-buttons">
+    <a>
+
+        @Html.ActionLink("Quay lại", "LoadPhieuNhapXuat", new { area = "Admin" }, new { @class = "back-home" })
+    </a>
+
+</div>
+
+<h2>Chi Tiết Phiếu @ViewBag.Phieu.Loai</h2>
+
+<div class="detail-nvl">
+
+    <div class="infor-nvl">
+        <p><strong>Mã phiếu:</strong> @ViewBag.Phieu.MaPhieu</p>
+        <p><strong>Ngày lập:</strong> @ViewBag.Phieu.NgayLap.ToString("dd/MM/yyyy")</p>
+        <p><strong>Loại:</strong> @ViewBag.Phieu.Loai</p>
+        <p><strong>Địa chỉ:</strong> @ViewBag.Phieu.Diachi</p>
+        <p><strong>Nhân viên lập:</strong> @ViewBag.Phieu.MaNv</p>
+        <p><strong>Nhà cung cấp:</strong> @ViewBag.Phieu.MaCcap</p>
+    </div>
+    <div class="dsinfo-nvl">
+
+        <h3>Danh sách nguyên vật liệu</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã NVL</th>
+                    <th>Tên NVL</th>
+                    <th>Số lượng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.ChiTietPhieu)
+                {
+                    <tr>
+                        <td>@item.MaNvl</td>
+                        <td>@item.TenNvl</td>
+                        <td>@item.SoLuong</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+       /* Container for order details */
+       .infor-nvl, .dsinfo-nvl {
+           background-color: #fff;
+           padding: 20px;
+           border-radius: 10px;
+           margin: 10px 0;
+           box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+       }
+
+           /* Header for order details */
+           .infor-nvl h2 {
+               text-align: left;
+               font-size: 24px;
+               font-weight: bold;
+               color: #333;
+               margin-bottom: 15px;
+           }
+
+           .infor-nvl p {
+               text-align: left;
+               font-size: 24px;
+
+               color: #333;
+               margin-bottom: 15px;
+           }
+
+
+
+           s
+           .dsinfo-nvl h3 {
+               text-align:center;
+               font-size: 20px;
+               font-weight: bold;
+               color: #333;
+               margin-bottom: 15px;
+           }
+           /* Order details text styling */
+           .infor-nvl, .dsinfo-nvl table {
+               text-align: left;
+               color: #555;
+               font-size: 19px;
+           }
+
+           /* Table styling */
+           .dsinfo-nvl table {
+               width: 100%;
+               border-collapse: collapse;
+           }
+
+           .dsinfo-nvl th {
+               text-align: left;
+               font-weight: bold;
+               color: #333;
+               padding-bottom: 8px;
+               border-bottom: 1px solid #ddd;
+           }
+
+           .dsinfo-nvl td {
+               padding: 10px 0;
+               border-bottom: 1px solid #ddd;
+               font-size: 16px;
+               color: #555;
+           }
+
+               .dsinfo-nvl td:last-child, .dsinfo-nvl th:last-child {
+                   text-align: right;
+               }
+
+       /* Overall layout */
+       .detail-nvl {
+           max-width: 45%;
+           margin: 25px auto;
+           font-family: Arial, sans-serif;
+           color: #333;
+           background-color: #f6f5f3;
+           padding: 20px;
+           border-radius: 10px;
+           box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
+       }
+
+       h2 {
+           font-size: 30px;
+           color: #333;
+           text-align: center;
+       }
+
+       p {
+           text-align: center;
+           color: #777;
+           font-size: 16px;
+       }
+
+
+        .back-home {
+           /*  display: inline-block; */
+           width: 40%;
+           padding: 10px;
+           margin-top: 10px;
+           color: #fff;
+           background-color: #a47c65;
+           text-align: center;
+           border: none;
+           border-radius: 4px;
+           text-decoration: none;
+           font-size: 16px;
+       }
+    .back-home:hover {
+               background-color: #8a634e;
+           }
+
+       .back-home {
+           display: inline-block;
+           width: 8%;
+           padding: 10px;
+           margin-top: 10px;
+           color: #fff;
+           background-color: #a47c65;
+           text-align: center;
+           border: none;
+           border-radius: 4px;
+           text-decoration: none;
+           font-size: 18px;
+       }
+
+           .back-home:hover {
+               background-color: #8a634e;
+           }
+
+       .action-buttons {
+           display: flex;
+           flex-direction: column;
+           gap: 10px;
+       }
+
+</style>

@@ -1,0 +1,833 @@
+{
+  "Files": [
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Manage_Coffee.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Manage_Coffee.bundle.scp.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\css\\StyleSheet.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\StyleSheet1.css",
+      "PackagePath": "staticwebassets\\css\\StyleSheet1.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\about.css",
+      "PackagePath": "staticwebassets\\css\\about.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\avt\\man.gif",
+      "PackagePath": "staticwebassets\\css\\avt\\man.gif"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\avt\\null.png",
+      "PackagePath": "staticwebassets\\css\\avt\\null.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\avt\\woman.gif",
+      "PackagePath": "staticwebassets\\css\\avt\\woman.gif"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\bill.css",
+      "PackagePath": "staticwebassets\\css\\bill.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\cart.css",
+      "PackagePath": "staticwebassets\\css\\cart.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\cus.css",
+      "PackagePath": "staticwebassets\\css\\cus.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\dangky.css",
+      "PackagePath": "staticwebassets\\css\\dangky.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\details.css",
+      "PackagePath": "staticwebassets\\css\\details.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\dndk.css",
+      "PackagePath": "staticwebassets\\css\\dndk.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-email-48.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-email-48.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-facebook-50.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-facebook-50.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-google-48.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-google-48.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-ice-48.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-ice-48.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-instagram-50.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-instagram-50.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-local-50.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-local-50.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-mail-50.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-mail-50.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-mail.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-mail.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-paper-plane-26.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-paper-plane-26.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-phone-100.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-phone-100.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-phone-48.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-phone-48.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-phone-80.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-phone-80.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-star-48.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-star-48.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-star-80.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-star-80.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\icons8-tiktok-50.png",
+      "PackagePath": "staticwebassets\\css\\icon\\icons8-tiktok-50.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\local-footer.png",
+      "PackagePath": "staticwebassets\\css\\icon\\local-footer.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\icon\\sugar.png",
+      "PackagePath": "staticwebassets\\css\\icon\\sugar.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\Untitled-1.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\Untitled-1.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\americano.png",
+      "PackagePath": "staticwebassets\\css\\img\\americano.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\americanocf.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\americanocf.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\bac.png",
+      "PackagePath": "staticwebassets\\css\\img\\bac.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\bacsiu.png",
+      "PackagePath": "staticwebassets\\css\\img\\bacsiu.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\banh.png",
+      "PackagePath": "staticwebassets\\css\\img\\banh.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\banhbonglan.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\banhbonglan.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\banhchocolate.png",
+      "PackagePath": "staticwebassets\\css\\img\\banhchocolate.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\banhkemvicam.png",
+      "PackagePath": "staticwebassets\\css\\img\\banhkemvicam.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\banhmochimatong.png",
+      "PackagePath": "staticwebassets\\css\\img\\banhmochimatong.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\banner2.png",
+      "PackagePath": "staticwebassets\\css\\img\\banner2.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\bmgiambong.png",
+      "PackagePath": "staticwebassets\\css\\img\\bmgiambong.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\botsua.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\botsua.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cafedua.png",
+      "PackagePath": "staticwebassets\\css\\img\\cafedua.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cafesua.png",
+      "PackagePath": "staticwebassets\\css\\img\\cafesua.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cafesuatuoi.png",
+      "PackagePath": "staticwebassets\\css\\img\\cafesuatuoi.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cafetrung.png",
+      "PackagePath": "staticwebassets\\css\\img\\cafetrung.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\camhung.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\camhung.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\capheduongpho.png",
+      "PackagePath": "staticwebassets\\css\\img\\capheduongpho.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cappuccino.png",
+      "PackagePath": "staticwebassets\\css\\img\\cappuccino.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\caramelmacchiato.png",
+      "PackagePath": "staticwebassets\\css\\img\\caramelmacchiato.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cf.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\cf.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cf.png",
+      "PackagePath": "staticwebassets\\css\\img\\cf.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cfden.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\cfden.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\ch2.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\ch2.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\ch3.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\ch3.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\ch_du.png",
+      "PackagePath": "staticwebassets\\css\\img\\ch_du.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\ch_du2.png",
+      "PackagePath": "staticwebassets\\css\\img\\ch_du2.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\ch_du3.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\ch_du3.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\ch_du4.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\ch_du4.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\chcf.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\chcf.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\coffee-3759005_640.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\coffee-3759005_640.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\coffee-beans-5712780_1280.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\coffee-beans-5712780_1280.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\coldbrewsuatuoi.png",
+      "PackagePath": "staticwebassets\\css\\img\\coldbrewsuatuoi.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\coldbrewtruyenthong.png",
+      "PackagePath": "staticwebassets\\css\\img\\coldbrewtruyenthong.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\combo1.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\combo1.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\combo1.png",
+      "PackagePath": "staticwebassets\\css\\img\\combo1.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\combo2.png",
+      "PackagePath": "staticwebassets\\css\\img\\combo2.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\combo3.png",
+      "PackagePath": "staticwebassets\\css\\img\\combo3.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cuahang.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\cuahang.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cuahang3.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\cuahang3.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\cuahangcf.png",
+      "PackagePath": "staticwebassets\\css\\img\\cuahangcf.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\daomieng.png",
+      "PackagePath": "staticwebassets\\css\\img\\daomieng.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\dong.png",
+      "PackagePath": "staticwebassets\\css\\img\\dong.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\duongpho.png",
+      "PackagePath": "staticwebassets\\css\\img\\duongpho.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\h2-img-1.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\h2-img-1.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\hatcaphe.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\hatcaphe.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\hatcaphe1.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\hatcaphe1.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\hatsen.png",
+      "PackagePath": "staticwebassets\\css\\img\\hatsen.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\iconcfdetails.png",
+      "PackagePath": "staticwebassets\\css\\img\\iconcfdetails.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\icons8-coffee-shop-100.png",
+      "PackagePath": "staticwebassets\\css\\img\\icons8-coffee-shop-100.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\icons8-coffee-to-go-50 (1).png",
+      "PackagePath": "staticwebassets\\css\\img\\icons8-coffee-to-go-50 (1).png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\icons8-hot-coffe-100.png",
+      "PackagePath": "staticwebassets\\css\\img\\icons8-hot-coffe-100.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\icons8-male-user-48.png",
+      "PackagePath": "staticwebassets\\css\\img\\icons8-male-user-48.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\icons8-rate-100.png",
+      "PackagePath": "staticwebassets\\css\\img\\icons8-rate-100.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\icons8-shopping-cart-64 (1).png",
+      "PackagePath": "staticwebassets\\css\\img\\icons8-shopping-cart-64 (1).png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\icons8-user-96.png",
+      "PackagePath": "staticwebassets\\css\\img\\icons8-user-96.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\img1.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\img1.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\img2.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\img2.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\img3.png",
+      "PackagePath": "staticwebassets\\css\\img\\img3.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\img4.png",
+      "PackagePath": "staticwebassets\\css\\img\\img4.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\logo2.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\logo2.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\logo2.png",
+      "PackagePath": "staticwebassets\\css\\img\\logo2.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\nendk.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\nendk.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\nendn.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\nendn.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\olongsen.png",
+      "PackagePath": "staticwebassets\\css\\img\\olongsen.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\olongsennong.png",
+      "PackagePath": "staticwebassets\\css\\img\\olongsennong.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\olongtuquytranchau.png",
+      "PackagePath": "staticwebassets\\css\\img\\olongtuquytranchau.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\oolongtuquyvai.png",
+      "PackagePath": "staticwebassets\\css\\img\\oolongtuquyvai.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\phacf.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\phacf.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\star-bac.png",
+      "PackagePath": "staticwebassets\\css\\img\\star-bac.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\star-dong.png",
+      "PackagePath": "staticwebassets\\css\\img\\star-dong.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\star-vang.png",
+      "PackagePath": "staticwebassets\\css\\img\\star-vang.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\suabot.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\suabot.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\suaconbo.png",
+      "PackagePath": "staticwebassets\\css\\img\\suaconbo.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tiramisudau.png",
+      "PackagePath": "staticwebassets\\css\\img\\tiramisudau.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tiramisuvietquac.png",
+      "PackagePath": "staticwebassets\\css\\img\\tiramisuvietquac.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\title_ab.png",
+      "PackagePath": "staticwebassets\\css\\img\\title_ab.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\toppingthach.png",
+      "PackagePath": "staticwebassets\\css\\img\\toppingthach.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tra.png",
+      "PackagePath": "staticwebassets\\css\\img\\tra.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tra1.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\tra1.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tra2.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\tra2.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tra_home.png",
+      "PackagePath": "staticwebassets\\css\\img\\tra_home.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tradaocamsa.png",
+      "PackagePath": "staticwebassets\\css\\img\\tradaocamsa.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tradaocamsanong.png",
+      "PackagePath": "staticwebassets\\css\\img\\tradaocamsanong.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\traivai.png",
+      "PackagePath": "staticwebassets\\css\\img\\traivai.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tranchau.png",
+      "PackagePath": "staticwebassets\\css\\img\\tranchau.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\traxanhespressomarble.png",
+      "PackagePath": "staticwebassets\\css\\img\\traxanhespressomarble.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\traxanhlatte.png",
+      "PackagePath": "staticwebassets\\css\\img\\traxanhlatte.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\traxanhnuocdua.png",
+      "PackagePath": "staticwebassets\\css\\img\\traxanhnuocdua.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tuyendung.jpg",
+      "PackagePath": "staticwebassets\\css\\img\\tuyendung.jpg"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tuyendung1.png",
+      "PackagePath": "staticwebassets\\css\\img\\tuyendung1.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\tuyendung2.png",
+      "PackagePath": "staticwebassets\\css\\img\\tuyendung2.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\img\\vang.png",
+      "PackagePath": "staticwebassets\\css\\img\\vang.png"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\lienhe.css",
+      "PackagePath": "staticwebassets\\css\\lienhe.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\loginAdmin.css",
+      "PackagePath": "staticwebassets\\css\\loginAdmin.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\loginmail.css",
+      "PackagePath": "staticwebassets\\css\\loginmail.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\nav.css",
+      "PackagePath": "staticwebassets\\css\\nav.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\nav2.css",
+      "PackagePath": "staticwebassets\\css\\nav2.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\nav3.css",
+      "PackagePath": "staticwebassets\\css\\nav3.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\order.css",
+      "PackagePath": "staticwebassets\\css\\order.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\pass.css",
+      "PackagePath": "staticwebassets\\css\\pass.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\pay.css",
+      "PackagePath": "staticwebassets\\css\\pay.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\signupmail.css",
+      "PackagePath": "staticwebassets\\css\\signupmail.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\sosanh.css",
+      "PackagePath": "staticwebassets\\css\\sosanh.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\thanhtoan.css",
+      "PackagePath": "staticwebassets\\css\\thanhtoan.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\thongke.css",
+      "PackagePath": "staticwebassets\\css\\thongke.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\css\\tuyendung.css",
+      "PackagePath": "staticwebassets\\css\\tuyendung.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\video\\video1.mp4",
+      "PackagePath": "staticwebassets\\video\\video1.mp4"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\video\\video17.mp4",
+      "PackagePath": "staticwebassets\\video\\video17.mp4"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\video\\video2.mp4",
+      "PackagePath": "staticwebassets\\video\\video2.mp4"
+    },
+    {
+      "Id": "F:\\Nam3\\DBCLPM\\cafe2\\cafe2\\cafe\\doan\\Test\\Manage_Coffee\\wwwroot\\video\\video3.mp4",
+      "PackagePath": "staticwebassets\\video\\video3.mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Manage_Coffee.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Manage_Coffee.props",
+      "PackagePath": "build\\Manage_Coffee.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Manage_Coffee.props",
+      "PackagePath": "buildMultiTargeting\\Manage_Coffee.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Manage_Coffee.props",
+      "PackagePath": "buildTransitive\\Manage_Coffee.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

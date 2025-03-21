@@ -1,0 +1,147 @@
+﻿/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    width: 90%;
+/*    max-width: 1200px; */    
+    margin: 20px auto;
+}
+.sosanh {
+    width: 90%;
+    padding: 20px;
+    margin: 10px auto;
+}
+.sosanh2 {
+    width: 90%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px auto;
+}
+.sosanh h2 {
+    text-align: center;
+    color: #07522E;
+    margin-bottom: 20px;
+    
+}
+.sosanh2 h2 {
+    text-align: center;
+    color: #07522E;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+/* Form Section */
+.form_section {
+    border: 1px solid #07522E;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form_group_container {
+    display: flex;
+    justify-content: space-between; /* Distributes space evenly */
+    flex-wrap: wrap; /* Allows wrapping to a new line if there's not enough space */
+}
+
+.form_group {
+    flex: 1; /* Allows each form_group to grow and fill available space */
+    margin: 0 10px; /* Adds spacing between each group */
+    min-width: 200px; /* Ensures a minimum width for each group */
+}
+
+/* Adjust label and select styles if necessary */
+label {
+    /*display: block; *//* Ensures the label is on a separate line */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;}
+
+select {
+    width: 100%; /* Makes the select element full width of its container */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+}
+.month-year-container {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Distributes space evenly */
+    margin-top: 5px; /* Adds space between label and select elements */
+}
+
+    .month-year-container select {
+        flex: 1; /* Each select will take equal space */
+        margin-right: 10px; /* Add space between the two selects */
+    }
+
+        .month-year-container select:last-child {
+            margin-right: 0; /* Remove margin from the last select */
+        }
+
+
+/* Results Section */
+.results-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Chart Section */
+.chart-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#toggleButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    #toggleButton:hover {
+        background-color: #0056b3;
+    }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

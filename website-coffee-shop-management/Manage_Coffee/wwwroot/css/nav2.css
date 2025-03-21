@@ -1,0 +1,217 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/*Header*/
+.header {
+    height: 70px;
+    background-color: #07522E;
+    color: white;
+    padding: 10px; /* Để có khoảng cách từ các cạnh */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Đảm bảo căn giữa các phần tử */
+    position: fixed; /* Đặt header cố định */
+    top: 0; /* Ở trên cùng */
+    left: 0; /* Ở bên trái */
+    right: 0; /* Ở bên phải */
+    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+}
+
+body > div {
+    padding-top: 80px; /* Thêm khoảng trống cho header */
+}
+
+.header .title {
+    font-size: 20px;
+    transition: margin-left 0.5s; /* Thêm chuyển động mượt mà */
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Đẩy phần tử này sang bên phải */
+}
+
+    .header .user-info span {
+        margin-right: 10px;
+    }
+
+    .header .user-info i {
+        font-size: 20px;
+    }
+
+    .header .user-info a {
+        text-decoration: none; /* Bỏ gạch dưới */
+        color: white;
+    }
+
+.menu_pv {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    padding-top: 80px;
+    background-color: #212121;
+    transition: 0.5s;
+    transform: translateX(-280px);
+    font-size: 15px;
+}
+
+    .menu_pv ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        transition: 0.3s;
+        padding-left: 25px;
+    }
+
+        .menu_pv ul li:hover {
+            padding-left: 35px;
+            background-color: #445665;
+        }
+
+        .menu_pv ul li a {
+            text-decoration: none;
+            display: block;
+            color: #fff;
+            padding: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#open {
+    display: none;
+}
+
+.open {
+    height: 80px;
+    width: 80px;
+    /*   position:absolute;
+    top: 10px;  
+    left: 10px; 
+    z-index: 1000;*/
+}
+
+    .open i {
+        font-size: 25px;
+        cursor: pointer;
+        padding: 10px 10px;
+        color: white;
+        z-index: 99;
+    }
+
+#open:checked ~ .menu_pv {
+    transition: 0.5s;
+    transform: translateX(0);
+}
+
+#open:checked ~ .open i {
+    transition: 0.5s;
+    margin-left: 190px;
+    position: absolute;
+}
+/* Đẩy title sang bên phải khi menu mở */
+/*.menu-open {
+    margin-right: 500px;  
+}*/
+
+
+/* Footer Styles */
+.footer {
+    background-color: #1f1f1f; /* Dark background */
+    color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+    .footer .about,
+    .footer .contact-info,
+    .footer .customer-feedback {
+        flex: 1;
+        margin: 0 20px;
+    }
+
+    .footer h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .footer p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .footer .social-icons {
+        margin-top: 15px;
+    }
+
+        .footer .social-icons i {
+            font-size: 20px;
+            color: white;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+            .footer .social-icons i:hover {
+                color: #4CAF50; /* Hover color */
+            }
+
+    .footer .contact-info p {
+        margin: 5px 0;
+    }
+
+    .footer .contact-info i {
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .footer .customer-feedback input {
+        padding: 10px;
+        width: 70%;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .footer .customer-feedback button {
+        padding: 10px 20px;
+        background-color: #07522E; /* Green button */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .footer .customer-feedback button:hover {
+            background-color: #218838;
+        }
+
+    .footer .copyright {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #aaa;
+    }
+/*@media (min-width: 1200px) {
+    .menu {
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 280px;
+        padding-top: 80px;
+        background-color: #212121;
+        transition: 0.5s;
+        transform: translateX(-250px);
+    }
+}*/

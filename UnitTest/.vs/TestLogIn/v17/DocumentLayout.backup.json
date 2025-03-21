@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|f:\\nam3\\dbclpm\\test\\testlogin\\testlogin\\testloginsdt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|solutionrelative:testlogin\\testloginsdt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|f:\\nam3\\dbclpm\\test\\testlogin\\testlogin\\testaddproductad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|solutionrelative:testlogin\\testaddproductad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|f:\\nam3\\dbclpm\\test\\testlogin\\testlogin\\testxacnhandon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|solutionrelative:testlogin\\testxacnhandon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|f:\\nam3\\dbclpm\\test\\testlogin\\testlogin\\testprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E252E10B-4272-4438-A112-C54AA8F6ECD0}|TestLogIn\\TestLogIn.csproj|solutionrelative:testlogin\\testprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestLoginSDT.cs",
+              "DocumentMoniker": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestLoginSDT.cs",
+              "RelativeDocumentMoniker": "TestLogIn\\TestLoginSDT.cs",
+              "ToolTip": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestLoginSDT.cs",
+              "RelativeToolTip": "TestLogIn\\TestLoginSDT.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAgwFsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T06:30:20.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestAddProductAD.cs",
+              "DocumentMoniker": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestAddProductAD.cs",
+              "RelativeDocumentMoniker": "TestLogIn\\TestAddProductAD.cs",
+              "ToolTip": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestAddProductAD.cs",
+              "RelativeToolTip": "TestLogIn\\TestAddProductAD.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAgwLsAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T06:15:34.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TestXacNhanDon.cs",
+              "DocumentMoniker": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestXacNhanDon.cs",
+              "RelativeDocumentMoniker": "TestLogIn\\TestXacNhanDon.cs",
+              "ToolTip": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestXacNhanDon.cs",
+              "RelativeToolTip": "TestLogIn\\TestXacNhanDon.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T06:15:29.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TestProfile.cs",
+              "DocumentMoniker": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestProfile.cs",
+              "RelativeDocumentMoniker": "TestLogIn\\TestProfile.cs",
+              "ToolTip": "F:\\Nam3\\DBCLPM\\Test\\TestLogIn\\TestLogIn\\TestProfile.cs",
+              "RelativeToolTip": "TestLogIn\\TestProfile.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T18:44:22.889Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

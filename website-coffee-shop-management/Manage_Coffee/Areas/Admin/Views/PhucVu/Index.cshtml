@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Manage_Coffee.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+<link rel="stylesheet" href="~/css/order.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+<div class="container">
+    <div class="product-list">
+        <!-- Thêm form tìm kiếm -->
+        <div class="search-bar">
+            <form asp-action="LoadProducts" method="get" class="search-form">
+                <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm..." class="form-control" style="display:inline-block; width:400px;" />
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <!-- Danh muc san pham -->
+        <div class="filter-buttons">
+            <div>
+                @await Component.InvokeAsync("CategoryAD")
+            </div>
+        </div>
+        <!-- Hiển thị thông báo nếu không tìm thấy sản phẩm -->
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-warning">
+                @ViewBag.Message
+            </div>
+        }
+        <h2>
+            <i class="fas fa-list">
+            </i>
+            Danh sách sản phẩm
+        </h2>
+        <table>
+            <thread>
+                <tr>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Kích thước</th>
+                    <th></th>
+                </tr>
+            </thread>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.MaSp</td>
+                        <td>@product.Ten</td>
+                        <td> @String.Format(formatMoney, "{0:c00}",product.Dongia)</td>
+                        <td>
+                            @await Component.InvokeAsync("SizeAD")
+                        </td>
+                        <td>
+                            <button class="btn btn-primary add-to-cart" data-id="@product.MaSp">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="cart">
+        @await Html.PartialAsync("_CartPartial", new List<Manage_Coffee.Models.CartItem>())
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.add-to-cart').click(function () {
+            var productId = $(this).data('id');
+            var sizeId = $(this).closest('tr').find('select[name="idsize"]').val(); // Lấy value từ dropdown
+            if (!sizeId) {
+                alert('Vui lòng chọn kích thước trước khi thêm vào giỏ hàng.');
+                return;
+            }
+            addToCart(productId, sizeId);
+        });
+    });
+    // Sự kiện tăng số lượng
+    $(document).on('click', '.increase-quantity', function () {
+        var productId = $(this).data('id');
+        var sizeId = $(this).data('size');
+        updateCart('IncreaseQuantity', productId, sizeId);
+    });
+
+    // Sự kiện giảm số lượng
+    $(document).on('click', '.decrease-quantity', function () {
+        var productId = $(this).data('id');
+        var sizeId = $(this).data('size');
+        updateCart('DecreaseQuantity', productId, sizeId);
+    });
+
+    // Sự kiện xóa sản phẩm
+    $(document).on('click', '.remove-from-cart', function () {
+        var productId = $(this).data('id');
+        var sizeId = $(this).data('size');
+        updateCart('RemoveFromCart', productId, sizeId);
+    });
+
+    function addToCart(productId, sizeId) {
+        $.ajax({
+            url: '/Admin/PhucVu/AddToCart',
+            type: 'POST',
+            data: { productId: productId, idsize: sizeId },
+            success: function (result) {
+                // Cập nhật phần hiển thị giỏ hàng với nội dung mới
+                $('#cart').html(result);
+            },
+            error: function () {
+                alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng.');
+            }
+        });
+    }
+
+    function updateCart(action, productId, sizeId) {
+        $.ajax({
+            url: '/Admin/PhucVu/' + action,
+            type: 'POST',
+            data: { productId: productId, idsize: sizeId },
+            success: function (result) {
+                $('#cart').html(result);
+            },
+            error: function () {
+                alert('Đã xảy ra lỗi khi cập nhật giỏ hàng.');
+            }
+        });
+    }
+</script>

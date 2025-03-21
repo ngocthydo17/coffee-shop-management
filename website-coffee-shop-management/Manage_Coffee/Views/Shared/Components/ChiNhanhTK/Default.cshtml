@@ -1,0 +1,21 @@
+﻿@model List<ChiNhanh>
+@{
+    var defaultSizeId = (string)ViewBag.DefaultSizeId; // Lấy giá trị mặc định từ ViewBag
+}
+<div>
+    <label for="maCN">Chọn chi nhánh:</label>
+    <select name="maCN" id="maCN" onchange="submitForm()">
+        @foreach (var chiNhanh in Model)
+        {
+            <option value="@chiNhanh.MaCn">@chiNhanh.Ten</option>
+        }
+    </select>
+</div>
+
+<script>
+    function submitForm() {
+        // Gửi form hoặc thực hiện một hành động nào đó khi chọn chi nhánh
+        document.getElementById("thongKeForm").submit(); // Đảm bảo rằng bạn có ID cho form
+    }
+</script>
+

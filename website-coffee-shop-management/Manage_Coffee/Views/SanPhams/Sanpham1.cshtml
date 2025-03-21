@@ -1,0 +1,173 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Manage_Coffee.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+<link rel="stylesheet" href="~/css/StyleSheet.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+@*  <script>
+     $(document).ready(function () {
+         $('.post-module').hover(
+             function () {
+                 $(this).find('.description').stop().slideDown(300); // Slide down the description on hover
+             },
+             function () {
+                 $(this).find('.description').stop().slideUp(300); // Slide up when not hovered
+             }
+         );
+     });
+ </script> *@
+
+
+<!-- Hiển thị danh sách loại sản phẩm -->
+<div>
+    @await Component.InvokeAsync("Category")
+
+    <div class="timkiem" style="text-align:center; margin-top:25px;">
+        <form method="get" action="@Url.Action("Sanpham1", "SanPhams")" id="searchForm">
+            <div class="timkiemsp">
+                <input type="text" id="searchInput" name="keyword" placeholder="Tìm kiếm sản phẩm...">
+
+                <button style="background-color: #07522E; border: none; height: 35px; width: 110px; border-radius: 5px; color: white;" type="submit">Tìm kiếm</button>
+            </div>
+            <ul id="suggestions"></ul>
+        </form>
+    </div>
+
+
+
+    <!-- Bảng hiển thị danh sách sản phẩm -->
+    <div class="product-list">
+        @foreach (var item in Model)
+        {
+            <div class="product-card">
+                <a asp-action="Details" asp-route-id="@item.MaSp">
+                    <div class="diuyn">
+                        <td>
+                            <img src="~/css/img/@item.Anh" />
+                        </td>
+                    </div>
+                    <div class="detail">
+                        <h4 class="card_name">@Html.DisplayFor(modelItem => item.Ten)</h4>
+                        @*  <p class="card_price">@Html.DisplayFor(modelItem => item.Dongia) VND</p> *@
+                        <p class="card_price">  @String.Format(formatMoney, "{0:c00}", item.Dongia)</p>
+
+
+                        <button class="cart_product">
+                            <span class="material-icons">shopping_cart</span> <!-- Biểu tượng giỏ hàng -->
+                        </button>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+
+    <!-- Phân trang -->
+    <div class="tttrang" style="display: flex; text-align: center; justify-content: center;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</div>
+    @if (Model.PageCount > 1)
+    {
+        <div class="sotrang" style="padding-bottom: 20px;">
+            @Html.PagedListPager(Model, page => Url.Action("Sanpham1", new { category = ViewBag.Query["category"], page }))
+    </div>
+    }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var normalizedKeyword = $(this).val(); // Lấy giá trị từ input
+
+                // Gửi yêu cầu AJAX để lấy gợi ý
+                if (normalizedKeyword.length > 0) {
+                    $.ajax({
+                        url: '@Url.Action("GetSuggestions", "SanPhams")',
+                        type: 'GET',
+                        data: { keyword: normalizedKeyword },
+                        success: function (data) {
+                            var suggestionsList = $('#suggestions');
+                            suggestionsList.empty(); // Xóa danh sách hiện tại
+                            if (data.length > 0) {
+                                $.each(data, function (index, item) {
+                                    suggestionsList.append('<li class="suggestion-item" data-value="' + item + '">' + item + '</li>');
+                                });
+
+
+                            } else {
+                                suggestionsList.append('<li>Không có gợi ý nào</li>');
+                            }
+                            $('.suggestion-item').on('click', function () {
+                                var selectedProduct = $(this).data('value');
+                                $('#searchInput').val(selectedProduct); // Set input to selected value
+
+                                // Submit the form to navigate to Sanpham1 with the selected keyword
+                                $('#searchForm').submit();
+                            });
+                        }
+                    });
+                } else {
+                    $('#suggestions').empty(); // Xóa danh sách nếu không có từ khóa
+                }
+            });
+
+
+        });
+    </script>
+
+
+
+    <style>
+        .timkiem {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        /* Định dạng cho input tìm kiếm */
+        #searchInput {
+            width: 37%;
+            height: 35px;
+            border: 1px solid #ccc; /* Viền xung quanh input */
+            border-radius: 5px; /* Bo tròn góc */
+            padding: 0 10px; /* Padding bên trong */
+            font-size: 14px; /* Kích thước chữ */
+        }
+
+        /* Định dạng cho nút tìm kiếm */
+        button {
+            background-color: #07522E; /* Màu nền */
+            border: none; /* Không có viền */
+            height: 35px;
+            width: 110px;
+            border-radius: 5px; /* Bo tròn góc */
+            color: white; /* Màu chữ */
+            cursor: pointer; /* Con trỏ khi hover */
+            margin-left: 5px; /* Khoảng cách giữa input và button */
+        }
+
+        /* Định dạng cho danh sách gợi ý */
+        #suggestions {
+            list-style-type: none; /* Không có ký hiệu cho danh sách */
+            padding: 0; /* Xóa padding */
+            margin-top: 30px; /* Khoảng cách trên */
+            border: 1px solid #ccc; /* Viền xung quanh danh sách gợi ý */
+            border-radius: 5px; /* Bo tròn góc */
+            background-color: white; /* Màu nền cho danh sách */
+        }
+
+            /* Định dạng cho từng mục trong danh sách gợi ý */
+            #suggestions li {
+                padding: 10px; /* Khoảng cách bên trong từng mục */
+                cursor: pointer; /* Con trỏ khi hover */
+            }
+
+                /* Định dạng cho mục gợi ý khi hover */
+                #suggestions li:hover {
+                    background-color: #f0f0f0; /* Màu nền khi hover */
+                }
+
+    </style>

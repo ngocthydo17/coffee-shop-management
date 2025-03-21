@@ -1,0 +1,79 @@
+﻿@model Manage_Coffee.Models.KhachHang
+<link rel="stylesheet" href="~/css/cus.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0-beta3/css/all.min.css" />
+
+
+<div class="container_cus">
+    <div class="card">
+        <div class="title_card">
+            <h5>Thông tin khách hàng</h5>
+        </div>
+        <div class="image_card">
+            @{
+                string imagePath;
+                if (Model.GioiTinh == true) // Nếu giới tính là Nam
+                {
+                    imagePath = Url.Content("~/css/avt/man.gif");
+                }
+                else if (Model.GioiTinh == false) // Nếu giới tính là Nữ
+                {
+                    imagePath = Url.Content("~/css/avt/woman.gif");
+                }
+                else // Nếu giới tính null
+                {
+                    imagePath = Url.Content("~/css/avt/null.png");
+                }
+            }
+            <img src="@imagePath" alt="Giới tính khách hàng" />
+        </div>
+        <div class="card_body">
+            <div class="content">
+                @* <div class="col-md-4 font-weight-bold">Tên:</div>
+                <div class="col-md-8">@Model.Ten</div> *@
+                <span class="title">Tên:</span>
+                <span class="nd">@Model.Ten</span>
+            </div>
+            <div class="content">
+                <span class="title">Địa chỉ:</span>
+                <span class="nd">@Model.Diachi</span>
+            </div>
+            <div class="content">
+                <span class="title">Số điện thoại:</span>
+                <span class="nd">@Model.Sdt</span>
+            </div>
+            <div class="content">
+                <span class="title">Email:</span>
+                <span class="nd">@Model.Email</span>
+            </div>
+            <div class="content">
+                <span class="title">Hạng thành viên:</span>
+                <span class="nd">
+                    <input type="text" @* class="form-control-plaintext" *@ value="@Model.Role" readonly />
+                </span>
+            </div>
+            <div class="content">
+                <span class="title">Giới tính:</span>
+                <span class="nd">
+                    @(Model.GioiTinh.HasValue ? (Model.GioiTinh == true ? "Nam" : "Nữ") : "")
+                </span>
+            </div>
+        </div>
+        <div class="action">
+            <a href="/" class="btn_card1">
+                <i class="fa-solid fa-chevron-left"></i> <!-- Biểu tượng mũi tên quay lại -->
+            </a>
+            <a href="@Url.Action("ChinhSuaThongTin", "KhachHang", new { id = Model.MaKh })" class="btn_card2">Cập nhật</a>
+        </div>
+    </div>
+</div>
+@* <style>
+    .card-header {
+        background-color: #007bff;
+    }
+
+    .font-weight-bold {
+        font-weight: 600;
+    }
+</style> *@
+
+

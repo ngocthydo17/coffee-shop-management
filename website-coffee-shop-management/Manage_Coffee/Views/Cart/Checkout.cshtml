@@ -1,0 +1,407 @@
+﻿@* @model IEnumerable<Manage_Coffee.Models.CartItem> *@
+@model Manage_Coffee.Models.ViewModels.CartItemViewModel
+@{
+	ViewData["Title"] = "Checkout";
+	var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+<link rel="stylesheet" href="~/css/pay.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="StyleSheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+@if (TempData["Error"] != null)
+{
+	<div class="alert alert-danger">
+		@TempData["Error"]
+	</div>
+}
+
+
+<h1>Thanh toán</h1>
+<div class="container">
+	<form asp-action="Checkout">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<form asp-action="Checkout" asp-controller="Cart">
+					<div>
+						<div class="section-title">
+							<h5>@* <i class="fa-solid fa-circle-info"></i> *@Thông tin thanh toán</h5>
+						</div>
+						<div class="giongKH">
+							<input type="checkbox" name="GiongKhachHang" id="GiongKhachHang" value="false">
+							<label for="GiongKhachHang">Giống thông tin khách hàng?</label>
+						</div>
+						<div class="info">
+							<div class="form">
+								<label class="form-label ">Người nhận hàng<sup>*</sup></label>
+								<input type="text" name="HoTen" class="form-control">
+							</div>
+
+							<div class="form">
+								<label class="form-label">Địa chỉ nhận hàng<sup>*</sup></label>
+								<input type="text" name="DiaChi" class="form-control" placeholder="123 Lê Lợi, Quận 1">
+							</div>
+
+							<div class="form">
+								<label class="form-label">Điện thoại<sup>*</sup></label>
+								<input type="text" name="DienThoai" class="form-control">
+							</div>
+							<div class="form">
+								<label class="form-label">Ghi chú:</label>
+								<textarea name="GhiChu" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Ghi chú"></textarea>
+							</div>
+							@* <div class="form">
+							<label for="MaCn">Chọn Chi Nhánh:</label>
+							@await Component.InvokeAsync("ChiNhanh")
+							</div> *@
+							<div class="diuyn2">
+								<div class="section-title">
+									<h5>@* <i class="fa-solid fa-hand-holding-dollar"></i> *@ Phương thức thanh toán</h5>
+								</div>
+								<div class="form-inline">
+									<label style="margin-right: 40px;">Số xu hiện có: <span id="userPoints" class="highlight">@ViewBag.SoXu xu</span> </label>
+									<label for="pointsInput">Nhập số xu muốn sử dụng:</label>
+									<input type="number" id="pointsInput" name="SoXu" class="form-control" min="0" max="@ViewBag.SoXu" value="0">
+								</div>
+								<div class="payment-methods">
+									<div class="pay1">
+										<form asp-action="Checkout" asp-controller="Cart">
+											<input type="hidden" id="SelectedDiscount" name="MaKm" value="" />
+											<input type="hidden" id="FinalTotal" name="totalValue" value="" />
+											<input type="hidden" id="SelectedBranch" name="MaCn" value="" />
+											<button type="submit" class="tienmat">Tiền mặt</button>
+										</form>
+										<div>
+											
+											<input type="submit" name="payment" class="btn2" value="Thanh toán VNPay">
+
+										</div>
+									</div>
+									<div class="pay2">
+										<div id="paypal-button-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						@* 	<button type="submit" class="btn border-secondary text-uppercase text-primary w-100 mt-2">Đặt hàng</button>
+						<div id="paypal-button-container" class="form-item mt-3" style="max-width:1000px;"></div> *@
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-6 col-md-12">
+				<div class="order-summary">
+					<div class="order">
+						<div class="section-title">
+							<h5>@* <i class="fa-solid fa-rectangle-list"></i> *@Đơn hàng của bạn</h5>
+						</div>
+						<table>
+							<thead>
+								<tr>
+									<th>Sản phẩm</th>
+									<th>Đơn giá</th>
+									<th>Số lượng</th>
+									<th>Kích cỡ</th>
+									<th>Yêu cầu </th>
+									<th>Tạm tính</th>
+									@* <th scope="col">Total</th> *@
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model.CartItems)
+								{
+									<tr>
+										<td style="font-weight: bold;">@item.Ten</td>
+										<td>@String.Format(formatMoney, "{0:c00}", item.Dongia)</td>
+										<td>@item.Soluong</td>
+
+										@if (!item.SanPhams.Any(sp => sp.Maloai == "L0004" && sp.Maloai=="L0005"))
+										{
+											<td>@item.SizeName</td>
+											<td>
+												<div>@item.DaName</div>
+												<div>@item.DuongName</div>
+
+												@if (item.Toppings != null && item.Toppings.Count > 0)
+												{
+													@foreach (var topping in item.Toppings)
+													{
+														<div>
+															<span>@topping.Ten</span> -
+															<span>@String.Format(formatMoney, "{0:c00}", topping.Dongia) </span>
+														</div>
+													}
+												}
+												else
+												{
+													<div>Không có topping</div>
+												}
+											</td>
+
+										}
+										else
+										{
+											<td>@item.SizeName</td>
+										}
+										<td>	@String.Format(formatMoney, "{0:c00}", item.Total)</td>
+									</tr>
+								}
+							</tbody>
+
+						</table>
+						<div>
+							<label for="MaCn">Chọn chi nhánh: </label>
+							@await Component.InvokeAsync("ChiNhanh")
+						</div>
+						<div class="dis">
+							<p>Chọn mã giảm giá: </p>
+							<select id="DiscountCode">
+								<option value="">Chọn mã giảm giá</option>
+								@foreach (var discount in Model.Discounts)
+								{
+									// Chuyển đổi ngày hiện tại và ngày của mã khuyến mãi
+									var currentDate = DateTime.Now;
+									var ngayApDung = discount.Ngayapdung;
+									var ngayHetHan = discount.Ngayhethan;
+
+									// Chỉ hiển thị các mã có số lượng > 0 và còn trong khoảng thời gian hợp lệ
+									if (discount.Soluong > 0 && ngayApDung <= currentDate && ngayHetHan >= currentDate)
+									{
+										<option value="@discount.MaKm">@discount.Ten - Áp dụng cho hoá đơn:@discount.Hanmuc</option>
+									}
+								}
+							</select>
+						</div>
+					</div>
+					<div class="total">
+						<div class="section-title">
+							<h5>@* <i class="fa-solid fa-calculator"></i> *@Tổng cộng</h5>
+						</div>
+						<hr />
+						<div class="total-section">
+							<div class="total-label">Tổng đơn hàng:</div>
+							@* 							<div class="total-value">$@Model.CartItems.Sum(p => p.Total).ToString("#,##0")</div>
+							*@							<div class="total-value">@Model.CartItems.Sum(p => p.Total).ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</div>
+
+						</div>
+					
+
+						<div class="total-section">
+							@* <div class="total-label">Tổng thanh toán:</div> *@
+							@* <div class="total-value">@Model.CartItems.Sum(p => p.Total).ToString("C")</div> *@
+							<span>Tổng thanh toán: </span>
+							<span id="totalValue">@Model.CartItems.Sum(p => p.Total).ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</span>
+						</div>
+					</div>
+
+
+					@* 	<div class="diuyn1">
+					<div class="payment-methods">
+					<button>
+					<i class="fas fa-money-bill-wave"></i> Tiền mặt
+					</button>
+					</div>
+					<div id="paypal-button-container" style="width:550px"></div>
+					</div> *@
+					@* <div class="order-button">
+					<button type="submit">Đặt hàng</button>
+					</div> *@
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- Checkout Page End -->
+@section Scripts {
+	<script src="https://www.paypal.com/sdk/js?client-id=@ViewBag.PaypalClientdId"></script>
+	<script>
+		var discounts = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Discounts));
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			// Khi người dùng thay đổi mã giảm giá
+			$("#DiscountCode").change(function () {
+				var discountValue = $(this).val(); // Lấy giá trị từ dropdown
+				$("#SelectedDiscount").val(discountValue);
+
+				// Lấy tổng gốc
+				var subtotal = @Model.CartItems.Sum(p => p.Total); // Tổng giá ban đầu
+				var discounts = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Discounts)); // Chuyển đổi Discounts thành JSON
+				var validDiscount = null; // Khởi tạo biến cho mã giảm giá hợp lệ
+
+				// Kiểm tra mã giảm giá dựa trên hạn mức
+				validDiscount = discounts.find(discount => {
+					var hanMuc = discount.Hanmuc;
+					return discount.MaKm === discountValue && subtotal >= hanMuc;
+				});
+				if (!validDiscount) {
+					alert("Mã giảm giá không hợp lệ hoặc không đáp ứng điều kiện.");
+					$("#DiscountCode").val(""); // Reset lại dropdown
+					$("#SelectedDiscount").val(""); // Reset hidden input
+					return; // Thoát nếu không hợp lệ
+				}
+				var currentTotal = subtotal;
+				// Cập nhật tổng giá trị sau khi áp dụng giảm giá
+				if (validDiscount) {
+					var discountAmount = validDiscount.GiaTri; // Giả sử đây là phần trăm giảm giá
+					currentTotal = subtotal - (subtotal * discountAmount / 100); // Tổng sau khi trừ giảm giá
+				}
+
+				// Trừ số xu nếu có
+				updateTotalWithPoints(currentTotal);
+			});
+
+			// Khi người dùng nhập số xu
+			$("#pointsInput").on("input", function () {
+				var points = parseInt($(this).val()) || 0;
+				var userPoints = parseInt($("#userPoints").text()) || 0;
+
+				if (points > userPoints) {
+					alert("Số xu không được vượt quá xu hiện có.");
+					$(this).val(userPoints);
+					points = userPoints;
+				}
+
+				// Lấy tổng gốc
+				var subtotal = @Model.CartItems.Sum(p => p.Total);
+
+				// Kiểm tra xem có mã giảm giá nào đang được chọn không
+				var discountValue = $("#DiscountCode").val();
+				var currentTotal = subtotal;
+
+				// Nếu có mã giảm giá thì tính tổng tiền sau khi giảm giá
+				if (discountValue) {
+					var discounts = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Discounts)); // Chuyển đổi Discounts thành JSON
+					var validDiscount = discounts.find(discount => discount.MaKm === discountValue);
+
+					if (validDiscount) {
+						var discountAmount = validDiscount.GiaTri; // Phần trăm giảm giá
+						currentTotal = subtotal - (subtotal * discountAmount / 100); // Tổng sau khi giảm giá
+					}
+				}
+
+				// Cập nhật tổng tiền sau khi trừ xu
+				var newTotal = currentTotal - points;
+
+				// Cập nhật lại hiển thị tổng tiền và giá trị ẩn theo định dạng tiền VND
+				$('#totalValue').text(newTotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }));
+				$("#FinalTotal").val(newTotal.toFixed(2));
+			});
+
+			// Hàm để trừ số xu vào tổng tiền đã cập nhật
+			function updateTotalWithPoints(currentTotal) {
+				var points = parseInt($("#pointsInput").val()) || 0;
+				var userPoints = parseInt($("#userPoints").text()) || 0;
+
+				if (points > userPoints) {
+					points = userPoints; // Đảm bảo số xu không vượt quá giới hạn
+				}
+
+				var newTotal = currentTotal - points; // Trừ số xu vào tổng đã cập nhật
+
+				// Cập nhật lại hiển thị tổng tiền và giá trị ẩn theo định dạng tiền VND
+				$('#totalValue').text(newTotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }));
+				$("#FinalTotal").val(newTotal.toFixed(2));
+			}
+		});
+
+		$(document).ready(function () {
+			$("#GiongKhachHang").change(function () {
+				if ($(this).prop("checked")) {
+
+					$("#HoTen").val("@Model.KhachHang?.Ten");
+					$("#DiaChi").val("@Model.KhachHang?.Diachi");
+					$("#DienThoai").val("@Model.KhachHang?.Sdt");
+				} else {
+					$("#HoTen").val("");
+					$("#DiaChi").val("");
+					$("#DienThoai").val("");
+					// $(this).val(false);
+					// $(".delivery-info").removeClass("d-none");
+				}
+			});
+		});
+
+		$(document).ready(function () {
+			$("#BranchDropdown").change(function () {
+				var selectedBranch = $(this).val(); // Lấy giá trị từ dropdown
+				$("#SelectedBranch").val(selectedBranch); // Cập nhật hidden input
+			});
+		});
+		// Cập nhật khi tạo đơn hàng
+		paypal.Buttons({
+			createOrder: (data, actions) => {
+
+				var selectedDiscount = $("#SelectedDiscount").val() || ""; // Nếu null thì thành chuỗi rỗng
+				var finalTotal = $("#FinalTotal").val() || "0";  // Lấy tổng giá trị sau giảm
+				var selectedBranch = $("#SelectedBranch").val();
+				var pointsInput = $("#pointsInput").val() || 0;
+				return fetch("/Cart/create-paypal-order", {
+					method: "post",
+					headers: {
+						'Content-Type': 'application/json' // Thêm header nếu cần
+					},
+					body: JSON.stringify({
+						// Gửi mã giảm giá và tổng giá trị
+						MaKm: selectedDiscount,
+						totalValue: finalTotal,
+						MaCn: selectedBranch,
+						SoXu: pointsInput
+					})
+				}).then((response) => {
+					if (!response.ok) {
+						return response.json().then(error => { throw error; });
+					}
+
+					return response.json();
+				}).then((order) => order.id)
+					.catch(error => alert(error.message));
+			},
+			onApprove: (data, actions) => {
+				var selectedDiscount = $("#SelectedDiscount").val() || ""; // Nếu null thì thành chuỗi rỗng
+				var finalTotal = $("#FinalTotal").val() || "0";  // Lấy tổng giá trị sau giảm
+				var selectedBranch = $("#SelectedBranch").val();
+				var pointsInput = $("#pointsInput").val();
+				//return fetch(`/Cart/capture-paypal-order?orderId=${data.orderID}`, {
+
+				return fetch("/Cart/capture-paypal-order?orderId=${data.orderID}", {
+					method: "post",
+					headers: {
+						'Content-Type': 'application/json' // Thêm header nếu cần
+					},
+					body: JSON.stringify({
+						// Gửi mã giảm giá và tổng giá trị
+						MaKm: selectedDiscount,
+						totalValue: finalTotal,
+						MaCn: selectedBranch,
+						SoXu: pointsInput,
+					})
+				}).then((response) => {
+					// Trả về JSON từ API
+					return response.json();
+				})
+					.then((result) => {
+						// Đảm bảo rằng `result` có chứa `maPhieuonl`
+						if (result.maPhieuonl) {
+							// Sử dụng `maPhieuonl` từ kết quả trả về để chuyển hướng
+							window.location.href = `/Cart/XemHoaDon?maPhieuonl=${result.maPhieuonl}&soxu=${pointsInput}`;
+						} else {
+							throw new Error("Không lấy được maPhieuonl từ server.");
+						}
+					}).catch(error => alert(error.message));
+			}
+		}).render('#paypal-button-container');
+
+	</script>
+
+}
+<style>
+	.invalid-discount {
+		color: red; /* Màu chữ đỏ */
+		background-color: #f8d7da; /* Nền màu hồng nhạt */
+	}
+
+	.valid-discount {
+		color: green; /* Màu chữ xanh */
+		background-color: #d4edda; /* Nền màu xanh nhạt */
+	}
+
+</style>

@@ -1,0 +1,208 @@
+﻿@model List<Manage_Coffee.Areas.Admin.Models.DoanhThu> // Đổi tên không gian cho đúng
+
+@{
+    ViewData["Title"] = "So Sánh Doanh Thu";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    <link rel="stylesheet" href="~/css/sosanh.css" />
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+
+<div class="container">
+    <div class="sosanh">
+        <h2>So Sánh Doanh Thu</h2>
+        <!-- Form Section -->
+        <div class="form_section">
+            <form id="comparisonForm" action="@Url.Action("Index", "SoSanh")">
+                <div class="form_group_container">
+                    <div class="form_group">
+                        <label for="maCN" style="margin-bottom: 5px;">Chi Nhánh:</label>
+                        <select name="maCN" id="maCN" onchange="submitForm()">
+                            <option value="CN001" @(ViewBag.maCN == "CN001" ? "selected" : "")>Chi nhánh Quận 1</option>
+                            <option value="CN002" @(ViewBag.maCN == "CN002" ? "selected" : "")>Chi nhánh Quận 10</option>
+                        </select>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="thang1">Chọn tháng thứ nhất:</label>
+                        <div class="month-year-container">
+                            <select id="thang1" name="thang1Month" required onchange="submitForm()">
+                                @for (int month = 1; month <= 12; month++)
+                                {
+                                    <option value="@month" @(month == ViewBag.Thang1Month ? "selected" : "")>@month</option>
+                                }
+                            </select>
+                            <select id="thang1Year" name="thang1Year" required onchange="submitForm()">
+                                @for (int year = DateTime.Now.Year - 5; year <= DateTime.Now.Year; year++)
+                                {
+                                    <option value="@year" @(year == ViewBag.Thang1Year ? "selected" : "")>@year</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="thang2">Chọn tháng thứ hai:</label>
+                        <div class="month-year-container">
+                            <select id="thang2" name="thang2Month" required onchange="submitForm()">
+                                @for (int month = 1; month <= 12; month++)
+                                {
+                                    <option value="@month" @(month == ViewBag.Thang2Month ? "selected" : "")>@month</option>
+                                }
+                            </select>
+                            <select id="thang2Year" name="thang2Year" required onchange="submitForm()">
+                                @for (int year = DateTime.Now.Year - 5; year <= DateTime.Now.Year; year++)
+                                {
+                                    <option value="@year" @(year == ViewBag.Thang2Year ? "selected" : "")>@year</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @if (Model != null && Model.Any())
+    {
+    <div class="sosanh2">
+        <h2>Kết Quả So Sánh Doanh Thu</h2>
+        <!-- Results Table Section -->
+        <div class="results-section">
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                            <th>Doanh thu tháng @ViewBag.Thang1Month</th>
+                            <th>Doanh thu tháng @ViewBag.Thang2Month</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SanPham</td>
+                            <td>@item.DoanhThuThang1</td>
+                            <td>@item.DoanhThuThang2</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Button and Chart Section -->
+        <div class="chart-section">
+            <button id="toggleButton">Hiển thị Biểu Đồ Bar</button>
+            <canvas id="lineChart" width="400" height="200" style="display: none;"></canvas>
+            <canvas id="barChart" width="400" height="200" style="display: block;"></canvas>
+        </div>
+    </div>
+    }
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labels = @Html.Raw(Json.Serialize(Model.Select(x => x.SanPham)));
+    const dataMonth1 = @Html.Raw(Json.Serialize(Model.Select(x => x.DoanhThuThang1)));
+    const dataMonth2 = @Html.Raw(Json.Serialize(Model.Select(x => x.DoanhThuThang2)));
+
+    // Biểu đồ line
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    const lineData = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Doanh thu tháng @ViewBag.Thang1Month',
+                data: dataMonth1,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: true,
+                tension: 0.4 // Tạo hiệu ứng đường cong
+            },
+            {
+                label: 'Doanh thu tháng @ViewBag.Thang2Month',
+                data: dataMonth2,
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                fill: true,
+                tension: 0.4 // Tạo hiệu ứng đường cong
+            }
+        ]
+    };
+
+    const lineConfig = {
+        type: 'line',
+        data: lineData,
+        options: {
+            responsive: true,
+            animation: {
+                duration: 1000,
+                easing: 'easeInOutQuad'
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    const lineChart = new Chart(lineCtx, lineConfig);
+
+    // Biểu đồ bar
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    const barData = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Doanh thu tháng @ViewBag.Thang1Month',
+                data: dataMonth1,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            },
+            {
+                label: 'Doanh thu tháng @ViewBag.Thang2Month',
+                data: dataMonth2,
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+            }
+        ]
+    };
+
+    const barConfig = {
+        type: 'bar',
+        data: barData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    const barChart = new Chart(barCtx, barConfig);
+
+    // Chức năng chuyển đổi biểu đồ
+    document.getElementById('toggleButton').addEventListener('click', function () {
+        const lineChartCanvas = document.getElementById('lineChart');
+        const barChartCanvas = document.getElementById('barChart');
+
+        if (lineChartCanvas.style.display === 'none') {
+            lineChartCanvas.style.display = 'block';
+            barChartCanvas.style.display = 'none';
+            this.textContent = 'Hiển thị Biểu Đồ Bar'; // Cập nhật nút
+        } else {
+            lineChartCanvas.style.display = 'none';
+            barChartCanvas.style.display = 'block';
+            this.textContent = 'Hiển thị Biểu Đồ Line'; // Cập nhật nút
+        }
+    });
+</script>
+
+<script>
+    function submitForm() {
+        document.getElementById("comparisonForm").submit();
+    }
+</script>

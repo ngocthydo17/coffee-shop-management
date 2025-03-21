@@ -1,0 +1,73 @@
+﻿@model Manage_Coffee.Models.SignInModel
+@{
+    Layout = null;
+    ViewBag.HideHeaderFooter = true;
+    <link rel="stylesheet" href="~/css/loginmail.css" />
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Thêm thẻ này -->
+    <title>Đăng Nhập</title>
+</head>
+<body>
+    <div class="mail-container">
+
+        <div class="image-container-login">
+            <img src="~/css/img/coffee-beans-5712780_1280.jpg" alt="Coffee Beans" />
+        </div>
+
+        <div class="mail-form">
+
+            <h2>ĐĂNG NHẬP</h2>
+            <form asp-action="Login">
+
+                <div class="form-group">
+                    <label style="color:#1a531b;">Email</label>
+                    <input asp-for="Email" type="email" maxlength="50"
+                           pattern="[a-zA-Z0-9._%+-]+&#64;[a-zA-Z0-9.-]+&#46;[a-zA-Z]{2,3}"
+                           placeholder="Nhập email" required />
+                    <span asp-validation-for="Email"></span>
+                </div>
+
+                <div class="form-group">
+                    <label style="color:#1a531b;">Mật khẩu/ Password</label>
+                    <input asp-for="Password" type="password" minlength="8" maxlength="15" pattern="[A-Za-z0-9]+" placeholder="Nhập mật khẩu" required />
+                    <span asp-validation-for="Password"></span>
+                </div>
+
+                <div class="form-check">
+                    <a class="form-check-input" style="color: #07522E;text-decoration: none; margin-left:68%;" asp-controller="Account" asp-action="ForgotPassword"> Quên mật khẩu</a>
+                </div>
+
+                <button type="submit" class="login-btn">Đăng nhập</button>
+
+                <div class="signup">
+                    Bạn chưa có tài khoản?
+                    <a style="font-weight:bold;" asp-controller="Account" asp-action="Signup">Đăng Ký</a>
+                </div>
+
+            </form>
+            <div class="login-role-container">
+                <span class="line"></span>
+                <span class="login-role-text">Đăng nhập với</span>
+                <span class="line"></span>
+            </div>
+            <div class="social-login">
+                <a asp-controller="Account" asp-action="LoginWithGoogle">
+                    <img src="~/css/icon/icons8-google-48.png" alt="Google Icon">Google
+                </a>
+                <a asp-controller="DKDN" asp-action="Login"> <img src="~/css/icon/icons8-phone-48.png" alt="Phone Icon">Số điện thoại</a>
+            </div>
+            <div class="back">
+                <a style="font-weight:bold;" asp-controller="Home" asp-action="Index">Quay Về Trang Chủ</a>
+            </div>
+            <div class="login_admin">
+                <a asp-area="Admin" asp-controller="AccountAdmin" asp-action="LoginAdmin">Quản lý </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

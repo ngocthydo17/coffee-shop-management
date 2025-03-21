@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Manage_Coffee.Models.Size>
+@{
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    var defaultSizeId = (string)ViewBag.DefaultSizeId;
+}
+
+
+@if (Model != null && Model.Any())
+{
+    <label style="color:#07522E; font-size:20px; font-weight:bold; margin-bottom:10px;">Upsize nước:</label>
+    <input type="radio" name="idsize" value="SZ001" @(defaultSizeId == "SZ001" ? "checked" : "") style="display:none" />
+    <div class="size-options">
+        @foreach (var size in Model)
+        {
+            <label class="size-button" >
+                <input type="radio" name="idsize" value="@size.MaSize" />
+                <div class="content">
+                    <img src="~/css/img/iconcfdetails.png" alt="Cup Icon" class="size-icon" />
+                    @size.Ten - @String.Format(formatMoney, "{0:c00}", @size.TriGia)
+                    -@size.Trongluong
+                </div>
+            </label>
+        }
+    </div>
+}
+else
+{
+    <p>Không có kích thước nào khả dụng.</p>
+}
+
+<style>
+    .size-options {
+        margin-left:10px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+    .size-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border: 2px solid #228B22;
+        border-radius: 5px;
+        width:30%;
+        height: 55px;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        box-sizing: border-box;
+    }
+        .size-button input {
+            display: none;
+        }
+    .size-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        filter: brightness(0) saturate(100%) invert(38%) sepia(64%) saturate(2724%) hue-rotate(90deg) brightness(90%) contrast(89%);
+    }
+    .size-button:hover {
+        background-color: #e0f0e0;
+        border-color: #66c066;
+    }
+    .size-button input:checked + .content {
+        background-color: #006400;
+        border-color: #006400;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+        .size-button input:checked + .content .size-icon {
+            filter: none;
+        }
+        .size-button input:checked + .content span {
+            color: white;
+        }
+</style>

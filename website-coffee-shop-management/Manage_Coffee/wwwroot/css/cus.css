@@ -1,0 +1,395 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin: 20px 50px;
+}
+
+h3 {
+    text-align: center;
+    color: #07522E;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+/*img {*/
+/*   width: 300px;
+    height: 300px;
+    border-radius: 200px;*/
+/*display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
+.image-container {
+    position: relative;
+    /*height: 100%;*/ /* Chiều cao cố định, có thể thay đổi theo nhu cầu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .image-container img {
+        width: 300px;
+        height: 300px;
+        border-radius: 200px;
+    }
+
+.in4 .form input {
+    border: 2px solid #07522E;
+    cursor: pointer;
+    padding: 5px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.in4 .form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.container_cus {
+    display: flex;
+    justify-content: center; /* Căn ngang giữa */
+    align-items: center; /* Nếu muốn căn dọc giữa */
+    padding: 20px;
+}
+
+.card {
+    border: 4px solid;
+    border-image: linear-gradient(to right, #07522E, #1B8C57, #43A880) 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* background-color: #FFD700;
+    background-image: linear-gradient(to right, #FFD700, #FFDF00, #FFCC00) ;*/
+    width: 30%;
+    padding: 10px 20px;
+    border-radius: 15px;
+    height: 100%;
+}
+
+.title_card {
+    display: flex;
+    justify-content: center; /* Căn ngang giữa */
+    align-items: center;
+}
+
+    .title_card h5 {
+        color: #07522E;
+        font-weight: 600;
+    }
+
+.image_card {
+    display: flex;
+    justify-content: center; /* Căn ngang giữa */
+    align-items: center; /* Căn dọc giữa */
+    margin-bottom: 10px; /* Khoảng cách dưới giữa hình ảnh và phần nội dung */
+    width: 100%;
+}
+
+    .image_card img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+/*.content{
+    margin-bottom: 10px;
+}
+.content .title {
+    font-weight: bold;
+}
+    .content .nd {
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #F5F4F7;
+        width: 100%;
+    }*/
+.content {
+    display: flex;
+    justify-content: space-between; /* Căn đều các phần tử */
+    margin-bottom: 10px; /* Khoảng cách dưới giữa mỗi dòng */
+}
+
+    .content .title {
+        font-weight: bold; /* Nếu bạn muốn tiêu đề nổi bật */
+        width: 40%; /* Đặt kích thước tiêu đề cố định để căn đều */
+    }
+
+    .content .nd {
+        width: 60%; /* Đặt kích thước cho phần nội dung */
+        text-align: left; /* Căn phải nội dung, nếu cần */
+    }
+
+        .content .nd input {
+            border: none;
+        }
+
+.action {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+    .action .btn_card1 i {
+        color: #07522E;
+        height: fit-content;
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .action a {
+        text-decoration: none;
+    }
+
+    .action .btn_card2 {
+        background-color: #07522E;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
+
+@media (max-width: 1200px) {
+    .container {
+        margin: 10px 20px;
+    }
+
+    .card {
+        width: 40%; /* Giảm kích thước card */
+    }
+
+    .content .title {
+        width: 45%; /* Điều chỉnh tỷ lệ */
+    }
+
+    .content .nd {
+        width: 55%;
+    }
+}
+
+/* Media Queries cho màn hình có chiều rộng dưới 992px (máy tính bảng ngang) */
+@media (max-width: 992px) {
+    .card {
+        width: 50%; /* Giảm kích thước card */
+    }
+
+    .content .title {
+        width: 50%; /* Điều chỉnh kích thước tiêu đề và nội dung */
+    }
+
+    .content .nd {
+        width: 50%;
+    }
+}
+
+/* Media Queries cho màn hình có chiều rộng dưới 768px (máy tính bảng dọc, smartphone lớn) */
+@media (max-width: 768px) {
+    .card {
+        width: 70%; /* Tăng kích thước card cho màn hình nhỏ hơn */
+        padding: 15px;
+    }
+
+    .image_card img {
+        width: 120px; /* Giảm kích thước hình ảnh */
+        height: 120px;
+    }
+
+    .content {
+        flex-direction: column; /* Sắp xếp các phần tử theo cột */
+    }
+
+        .content .title,
+        .content .nd {
+            width: 100%; /* Cả tiêu đề và nội dung sẽ chiếm 100% chiều rộng */
+            text-align: left; /* Căn lề trái */
+        }
+
+    .action {
+        justify-content: center; /* Căn giữa các nút */
+    }
+
+        .action .btn_card1,
+        .action .btn_card2 {
+            margin: 5px; /* Khoảng cách giữa các nút */
+        }
+}
+
+/* Media Queries cho màn hình có chiều rộng dưới 576px (smartphone nhỏ) */
+@media (max-width: 576px) {
+    .card {
+        width: 90%; /* Đặt kích thước card cho smartphone */
+        padding: 10px;
+    }
+
+    .image_card img {
+        width: 100px; /* Giảm kích thước hình ảnh cho màn hình nhỏ */
+        height: 100px;
+    }
+
+    .action {
+        flex-direction: column; /* Các nút sẽ xếp thành cột */
+        align-items: center;
+    }
+
+        .action .btn_card1,
+        .action .btn_card2 {
+            width: 100%; /* Các nút sẽ chiếm 100% chiều rộng */
+            text-align: center;
+            margin: 5px 0;
+        }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        margin: 15px 30px; /* Giảm khoảng cách */
+    }
+
+    .card {
+        width: 50%; /* Giảm kích thước thẻ */
+    }
+
+    .content .title {
+        width: 45%; /* Điều chỉnh tỷ lệ cho tiêu đề */
+    }
+
+    .content .nd {
+        width: 55%; /* Điều chỉnh tỷ lệ cho nội dung */
+    }
+}
+
+/* Media Queries cho màn hình có chiều rộng dưới 992px (máy tính bảng ngang) */
+@media (max-width: 992px) {
+    .card {
+        width: 60%; /* Giảm kích thước thẻ hơn nữa */
+        padding: 15px;
+    }
+
+    .content .title {
+        width: 50%; /* Đặt kích thước tiêu đề */
+    }
+
+    .content .nd {
+        width: 50%; /* Đặt kích thước nội dung */
+    }
+
+    .action .btn_card1, .action .btn_card2 {
+        padding: 8px 10px; /* Giảm padding nút */
+    }
+}
+
+/* Media Queries cho màn hình có chiều rộng dưới 768px (máy tính bảng dọc, smartphone lớn) */
+@media (max-width: 768px) {
+    .card {
+        width: 80%; /* Tăng kích thước thẻ để chiếm nhiều không gian hơn */
+        padding: 15px;
+    }
+
+    .image_card img {
+        width: 120px; /* Giảm kích thước hình ảnh */
+        height: 120px;
+    }
+
+    .content {
+        flex-direction: column; /* Sắp xếp các phần tử theo cột */
+        margin-bottom: 15px; /* Tăng khoảng cách giữa các dòng */
+    }
+
+        .content .title,
+        .content .nd {
+            width: 100%; /* Cả tiêu đề và nội dung chiếm toàn bộ chiều rộng */
+            text-align: left; /* Căn lề trái cho nội dung */
+        }
+
+    .action {
+        justify-content: center; /* Căn giữa các nút */
+        flex-direction: row; /* Giữ các nút theo hàng ngang */
+    }
+
+        .action .btn_card1,
+        .action .btn_card2 {
+            margin: 0 10px; /* Tạo khoảng cách giữa các nút */
+        }
+}
+
+/* Media Queries cho màn hình có chiều rộng dưới 576px (smartphone nhỏ) */
+@media (max-width: 576px) {
+    .container {
+        margin: 10px 15px; /* Giảm lề cho màn hình nhỏ */
+    }
+
+    .card {
+        width: 95%; /* Kích thước thẻ gần như toàn màn hình */
+        padding: 10px;
+    }
+
+    .image_card img {
+        width: 100px; /* Giảm kích thước hình ảnh hơn nữa */
+        height: 100px;
+    }
+
+    .content {
+        flex-direction: column; /* Nội dung theo cột */
+        margin-bottom: 15px; /* Tăng khoảng cách giữa các dòng */
+    }
+
+        .content .title,
+        .content .nd {
+            width: 100%; /* Tiêu đề và nội dung full-width */
+            text-align: left; /* Căn trái */
+        }
+
+    .action {
+        flex-direction: column; /* Các nút xếp thành cột */
+        align-items: center; /* Căn giữa các nút */
+        margin-top: 20px;
+    }
+
+        .action .btn_card1,
+        .action .btn_card2 {
+            width: 100%; /* Các nút chiếm toàn bộ chiều rộng */
+            text-align: center; /* Căn giữa chữ trong nút */
+            margin: 5px 0;
+        }
+
+    .btn_card1 i {
+        font-size: 18px; /* Giảm kích thước biểu tượng */
+    }
+}
+
+/* Các phần bổ sung khác cho responsive */
+.image_card img {
+    transition: all 0.3s ease-in-out; /* Tạo hiệu ứng thu phóng */
+}
+
+    .image_card img:hover {
+        transform: scale(1.05); /* Hình ảnh phóng to nhẹ khi hover */
+    }
+
+@media (max-width: 1280px) {
+    .container {
+        margin: 20px 40px; /* Giảm khoảng cách giữa container và viền */
+    }
+
+    .card {
+        width: 40%; /* Giảm kích thước thẻ */
+        padding: 15px;
+    }
+
+    .content .title {
+        width: 45%; /* Điều chỉnh tỷ lệ tiêu đề */
+    }
+
+    .content .nd {
+        width: 55%; /* Điều chỉnh tỷ lệ nội dung */
+    }
+
+    .image_card img {
+        width: 140px; /* Giảm nhẹ kích thước hình ảnh */
+        height: 140px;
+    }
+
+    .action .btn_card1, .action .btn_card2 {
+        padding: 8px 15px; /* Điều chỉnh padding của nút */
+    }
+
+    .action {
+        justify-content: flex-end; /* Đảm bảo nút vẫn căn phải */
+    }
+}

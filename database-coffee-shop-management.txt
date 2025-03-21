@@ -1,0 +1,545 @@
+create database cf29
+go
+use cf29
+go
+CREATE TABLE KhachHang
+(
+  role NVARCHAR(50) NOT NULL,
+  MaKH VARCHAR(50) NOT NULL,
+  Ten NVARCHAR(50),
+  Diachi NVARCHAR(50) ,
+  Matkhau VARCHAR(50)NOT NULL,
+  Gioitinh bit,
+  SDT INT,
+  Email Varchar(Max),
+  Xu int,
+  PRIMARY KEY (MaKH)
+);
+
+CREATE TABLE ChiNhanh
+(
+  MaCN CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  Diachi NVARCHAR(50) NOT NULL,
+  PRIMARY KEY (MaCN)
+);
+
+CREATE TABLE DanhMucKM
+(
+  MaKM CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  GiaTri int NOT NULL,
+  Soluong int not null,
+  Ngayapdung date not null,
+  Ngayhethan date not null,
+  Hanmuc int ,
+  PRIMARY KEY (MaKM)
+);
+
+CREATE TABLE NhanVien
+(
+  MaNV CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  Sdt INT NOT NULL,
+  Mkhau VARCHAR(50) NOT NULL,
+  Chucvu NVARCHAR(50) NOT NULL,
+  Diachi NVARCHAR(50) NOT NULL,
+  Ngaysinh DATE NOT NULL,
+  Gioitinh bit,
+  MaCN CHAR(5) ,
+  PRIMARY KEY (MaNV),
+  FOREIGN KEY (MaCN) REFERENCES ChiNhanh(MaCN)
+);
+
+CREATE TABLE NguyenVatLieu
+(
+  MaNVL CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  Dongia INT NOT NULL,
+  DVT NVARCHAR(50) NOT NULL,
+  Mota NVARCHAR(500) NOT NULL,
+  SoLuong float,
+  Anh VARCHAR(500) NOT NULL,
+  PRIMARY KEY (MaNVL)
+);
+
+CREATE TABLE DanhMucCa
+(
+  Calam VARCHAR(50) NOT NULL,
+  Ngay DATE NOT NULL,
+  MaNV CHAR(5) NOT NULL,
+  PRIMARY KEY (Ngay, MaNV),
+  FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
+);
+
+CREATE TABLE Nhacungcap
+(
+  MaCcap CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  Diachi NVARCHAR(50) NOT NULL,
+  SDT INT NOT NULL,
+  PRIMARY KEY (MaCcap)
+);
+
+CREATE TABLE Loai
+(
+  Maloai CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  PRIMARY KEY (Maloai)
+);
+
+CREATE TABLE Phieudhonl
+(
+  
+  MaPhieuonl CHAR(50) NOT NULL,
+  Ngaygiodat DATETIME NOT NULL,
+  TongTien INT ,
+  DiaChi NVARCHAR(50) NOT NULL,
+  TrangThai BIT,
+  PTTT NVARCHAR(50) ,
+  TienShip INT ,
+  PTNH NVARCHAR(50) ,
+  MaKH VARCHAR(50) NOT NUll,
+  MaCN CHAR(5) NOT NULL,
+  MaKM CHAR(5) ,
+  PRIMARY KEY (MaPhieuonl),
+  FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
+  FOREIGN KEY (MaCN) REFERENCES ChiNhanh(MaCN),
+  FOREIGN KEY (MaKM) REFERENCES DanhMucKM(MaKM)
+);
+
+CREATE TABLE Size
+(
+  MaSize CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  TriGia INT NOT NULL,
+  TrongLuong nvarchar(50),
+  PRIMARY KEY (MaSize)
+);
+CREATE TABLE Da
+(
+  MaDa CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  PRIMARY KEY (MaDa)
+);
+CREATE TABLE Duong
+(
+  MaDuong CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  PRIMARY KEY (MaDuong)
+);
+
+CREATE TABLE PhieuOrder
+(
+  MaOrder CHAR(50) NOT NULL,
+  Ngaygiodat DATETIME NOT NULL,
+  Soban INT NOT NULL,
+  Tongtien INT NOT NULL,
+  Trangthai BIT ,
+  PTTT NVARCHAR(50) ,
+  MaCN CHAR(5) NOT NULL,
+  MaNV CHAR(5) ,
+  Ten Nvarchar(50),
+  Sdt int,
+  MaKM CHAR(5) ,
+  PRIMARY KEY (MaOrder),
+  FOREIGN KEY (MaCN) REFERENCES ChiNhanh(MaCN),
+  FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
+  FOREIGN KEY (MaKM) REFERENCES DanhMucKM(MaKM)
+);
+
+CREATE TABLE SanPham
+(
+  MaSP CHAR(5) NOT NULL,
+  Ten NVARCHAR(50) NOT NULL,
+  Dongia INT NOT NULL,
+  DVT NVARCHAR(50) NOT NULL,
+  MOTA NVARCHAR(500) NOT NULL,
+  Anh VARCHAR(500) NOT NULL,
+  TrangThai bit,
+  Maloai CHAR(5),
+  MaTopping CHAR(5),
+  PRIMARY KEY (MaSP),
+  FOREIGN KEY (Maloai) REFERENCES Loai(Maloai),
+  FOREIGN KEY (MaTopping) REFERENCES SanPham(MaSP)
+);
+
+Create table KIT
+(
+   MaKIT CHAR(5) NOT NULL,
+   MaSP CHAR(5) NOT NULL,
+   SoLuong int,
+   PRIMARY KEY (MaSP, MaKIT),
+   FOREIGN KEY (MaKIT) REFERENCES SanPham(MaSP),
+   FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+);
+
+Create table CTKIT
+(
+   MaKH varchar(50),
+   MaPhieuonl char(50),
+   MaSize char (5),
+   MaKIT CHAR(5) NOT NULL,
+   MaSP CHAR(5) NOT NULL,
+   SoLuong int,
+   PRIMARY KEY (MaSP, MaKIT, MaKH, MaSize,MaPhieuonl),
+   FOREIGN KEY (MaKIT) REFERENCES SanPham(MaSP),
+   FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+   FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
+   FOREIGN KEY (MaSize) REFERENCES Size(MaSize)
+);
+
+CREATE TABLE PhieuNhapXuat
+(
+  MaPhieu CHAR(5) NOT NULL,
+  NgayLap DATE NOT NULL,
+  Loai NVARCHAR(50) NOT NULL,
+  Diachi NVARCHAR(50) NOT NULL,
+  MaNV CHAR(5) NOT NULL,
+  MaCcap CHAR(5),
+  PRIMARY KEY (MaPhieu),
+  FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
+  FOREIGN KEY (MaCcap) REFERENCES Nhacungcap(MaCcap)
+);
+
+CREATE TABLE CTSanPham
+(
+  Soluong INT NOT NULL,
+  Gia INT NOT NULL,
+  TongTien INT NOT NULL,
+  Ghichu NVARCHAR(50),
+  MaOrder CHAR(50),
+  MaSP CHAR(5) NOT NULL,
+  MaKH VARCHAR(50),
+  MaSize CHAR(5) ,
+  PRIMARY KEY (MaOrder, MaSP, MaKH, MaSize),
+  FOREIGN KEY (MaOrder) REFERENCES PhieuOrder(MaOrder),
+  FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+  FOREIGN KEY (MaSize) REFERENCES Size(MaSize)
+);
+
+CREATE TABLE BOM
+(
+  SoLuong float NOT NULL ,
+  MaSP CHAR(5) NOT NULL,
+  MaNVL CHAR(5) NOT NULL,
+  PRIMARY KEY (MaSP, MaNVL),
+  FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+  FOREIGN KEY (MaNVL) REFERENCES NguyenVatLieu(MaNVL)
+);
+
+CREATE TABLE ChitietDanhGia
+(
+  SoSao int NOT NULL ,
+  MaSP CHAR(5) NOT NULL,
+  MaKH VARCHAR(50) NOT NULL,
+  NhanXet Nvarchar(200),
+  PRIMARY KEY (MaSP, MaKH),
+  FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+  FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH)
+);
+
+CREATE TABLE CTPhieu
+(
+  Soluong INT NOT NULL,
+  MaNVL CHAR(5) NOT NULL,
+  MaPhieu CHAR(5),
+  PRIMARY KEY (MaNVL, MaPhieu),
+  FOREIGN KEY (MaNVL) REFERENCES NguyenVatLieu(MaNVL),
+  FOREIGN KEY (MaPhieu) REFERENCES PhieuNhapXuat(MaPhieu)
+);
+
+CREATE TABLE CTSPonl
+(
+  Soluong INT NOT NULL,
+  Gia INT NOT NULL,
+  Tongtien INT NOT NULL,
+  Ghichu NVARCHAR(50),
+  MaSP CHAR(5) NOT NULL,
+  MaPhieuonl CHAR(50),
+  MaKH VarCHAR(50),
+  MaSize CHAR(5) NOT NULL,
+  MaDa CHAR(5) ,
+  MaDuong CHAR(5),
+  PRIMARY KEY (MaSP, MaPhieuonl, MaSize, MaKH, MaDa, MaDuong),
+  FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+  FOREIGN KEY (MaPhieuonl) REFERENCES Phieudhonl(MaPhieuonl),
+  FOREIGN KEY (MaSize) REFERENCES Size(MaSize),
+  FOREIGN KEY (MaDa) REFERENCES Da(MaDa),
+  FOREIGN KEY (MaDuong) REFERENCES Duong(MaDuong)
+);
+CREATE TABLE CtTopping
+(
+MaSP char(5),
+MaTopping char(5),
+MaPhieuonl CHAR(50),
+MaKH char(50),
+PRIMARY KEY (MaSP, MaTopping, MaPhieuonl, MaKH),
+FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+FOREIGN KEY (MaTopping) REFERENCES SanPham(MaSP),
+FOREIGN KEY (MaPhieuonl) REFERENCES Phieudhonl(MaPhieuonl)
+);
+
+
+CREATE TABLE Slider
+(
+MaSL char(5),
+Ten nvarchar(50),
+Anh varchar(max),
+Mota nvarchar(100),
+Trangthai bit
+ PRIMARY KEY (MaSl)
+);
+
+INSERT INTO Loai (Maloai, Ten) 
+VALUES 
+('L0001', N'Trà'),
+('L0002', N'Cafe'),
+('L0003', N'Topping'),
+('L0004', N'Bánh'),
+('L0005', N'Combo');
+ 
+INSERT INTO DanhMucKM (MaKM, GiaTri, Ten, Soluong, Ngayapdung, Ngayhethan, Hanmuc) 
+VALUES 
+('KM001', 20, N'Ưu đãi người mới', 20,'2024-01-01','2024-06-06', 200000 ),
+('KM002', 10, N'Quà noel', 10,'2024-01-01','2024-06-06', 100000);
+INSERT INTO ChiNhanh (MaCN, Ten, Diachi) 
+VALUES 
+('CN001', N'Chi nhánh Quận 1', N'Quận 1, TP.HCM'),
+('CN002', N'Chi nhánh Quận 10', N'Quận 10, TP.HCM');
+
+INSERT INTO KhachHang (role, MaKH, Ten, Diachi, Matkhau, SDT, Email, GioiTinh, Xu) 
+VALUES 
+(N'Vàng', 'KH001', N'Nguyễn Văn A', N'Quận 10, TP.HCM', N'12345', 0909876543, null,1,0),
+(N'Kim Cương', 'KH002', N'Nguyễn Văn B', N'Quận 7, TP.HCM', N'78902', 0909567892, null,1,0),
+(N'Vàng', 'KH003', N'Nguyễn Văn C', N'Quận 2, TP.HCM', N'33333', 0903333333, null,0,0),
+(N'Bạc', 'KH004', N'Nguyễn Văn D', N'Quận 1, TP.HCM', N'123456', 0909856723, null,0,0),
+(N'Đồng', 'KH005', N'Trần Thị E', N'Quận Tân Bình, TP.HCM', N'67890', 0912345678, null,1,0);
+
+INSERT INTO NhanVien (MaNV, Ten, Sdt, Mkhau, Chucvu, Diachi, Ngaysinh, MaCN, GioiTinh) 
+VALUES 
+('NV001', N'Nguyễn Văn A', 0901234567, '123456', N'Phục vụ', N'Quận 1, TP.HCM', '1990-01-01', 'CN001',1),
+('NV002', N'Trần Thị B', 0912345678, '234567', N'Quản lý', N'Quận 10, TP.HCM', '1995-02-02', 'CN001',0),
+('NV003', N'Nguyễn Văn C', 0941256718, '345678', N'Phục vụ', N'Quận 1, TP.HCM', '1990-01-01', 'CN002',1),
+('NV004', N'Trần Thị D', 0999999999, '456789', N'Quản lý', N'Quận 10, TP.HCM', '1995-02-02', 'CN002',0),
+('NV100', N'Nguyễn Gia Quỳnh', 0987654321, '123456', N'Quản lý tổng', N'Quận 10, TP.HCM', '1995-02-02', null,1);
+
+INSERT INTO Nhacungcap (MaCcap, Ten, Diachi, SDT) 
+VALUES 
+('CCAP1', N'Công ty trà xanh', N'Quận 9, TP.HCM', 0901122334),
+('CCAP2', N'Công ty cà phê', N'Quận 5, TP.HCM', 0911223344),
+('CCAP3', N'Công ty thực phẩm', N'Quận 2, TP.HCM', 0901122335),
+('CCAP4', N'Công ty sữa tươi', N'Quận 1, TP.HCM', 0911223346),
+('CCAP5', N'Công ty bánh', N'Quận Tân Phú, TP.HCM', 0901122337);
+
+INSERT INTO Size (MaSize, Ten, TriGia, TrongLuong) 
+VALUES 
+('SZ001', N'Nhỏ', 0, 0),
+('SZ002', N'Vừa', 5000, 0),
+('SZ003', N'Lớn', 10000, 0);
+
+INSERT INTO SanPham (MaSP, Ten, Dongia, DVT, MOTA, Anh, Maloai, MaTopping, Trangthai) 
+VALUES 
+--('SP33', N'Topping thạch', 5000, N'Phần', N'Topping thạch trái cây', 'toppingthach.png', 'L0003', null,1),
+('SP001', N'Trà Xanh Latte', 45000, N'Ly', N'Trà Xanh Latte là sự kết hợp giữa trà xanh thơm mát và sữa nóng, tạo nên thức uống béo ngậy, thanh nhẹ và ngọt dịu, rất thích hợp để thưởng thức bất cứ lúc nào.', 'traxanhlatte.png', 'L0001', null,1),
+('SP002', N'Cà phê sữa', 30000, N'Ly', N'Cà phê sữa đậm đà', 'cafesua.png', 'L0002', null,1),
+('SP005', N'Đào miếng', 10000, N'Phần', N'Miếng đào ngọt lịm', 'daomieng.png', 'L0003', null,1),
+('SP006', N'Trân châu', 10000, N'Phần', N'Trân thơm ngon', 'tranchau.png', 'L0003', null,1),
+('SP007', N'Trái vải', 10000, N'Phần', N'Miếng vải ngọt lịm', 'hatsen.png', 'L0003', null,1),
+('SP008', N'Hạt sen', 10000, N'Phần', N'Hạt sen giòn ngọt', 'hatsen.png', 'L0003', null,1),
+('SP009', N'Americano', 25000, N'Ly', N'Americano là cà phê espresso pha loãng với nước nóng, mang hương vị đậm đà và nhẹ nhàng, lý tưởng cho những ai yêu thích cà phê cân bằng.', 'americano.png', 'L0002',null,1),
+('SP010', N'Americano Nóng', 25000, N'Ly', N'Americano nóng là cà phê espresso được pha loãng với nước nóng, mang đến hương vị đậm đà và ấm áp, thích hợp cho những buổi sáng hoặc những khoảnh khắc thư giãn.', 'americanocf.jpg', 'L0002', null,1),
+('SP011', N'Bạc Xĩu', 25000, N'Ly', N'Bạc Xĩu là sự kết hợp tuyệt vời giữa cà phê phin và sữa đặc, tạo nên hương vị ngọt ngào và béo ngậy. Thức uống này mang đến cảm giác thư giãn và ấm áp, gợi nhớ về những khoảnh khắc bình yên.', 'bacsiu.png', 'L0002', null,1),
+('SP012', N'Cafe Sữa Tươi', 27000, N'Ly', N'Cafe Sữa Tươi là cà phê đen pha phin kết hợp với sữa tươi, tạo nên vị đắng nhẹ, béo thơm. Thức uống này thường uống kèm đá, mang lại cảm giác tươi mát.', 'cafesuatuoi.png', 'L0002', null,1),
+('SP013', N'Cafe Trứng', 30000, N'Ly', N'Cafe Trứng là cà phê đen kết hợp với lòng đỏ trứng đánh bông, tạo lớp kem béo ngậy, mịn màng, vị ngọt và đậm đà.', 'cafetrung.png', 'L0002', null,1),
+('SP014', N'Cappuccino', 27000, N'Ly', N'Cappuccino là một loại cà phê Ý pha từ espresso, sữa nóng và bọt sữa, tạo nên hương vị đậm đà với lớp bọt sữa mịn, nhẹ phía trên.', 'cappuccino.png', 'L0002', null,1),
+('SP015', N'Coldbrew Truyền Thống', 30000, N'Ly', N'Coldbrew Truyền Thống là cà phê pha lạnh nguyên chất, không pha thêm sữa hay đường, mang hương vị đậm đà, ít chua, và thanh mát. Thường được phục vụ với đá để giữ nguyên vị tươi mới.', 'coldbrewtruyenthong.png', 'L0002', null,1),
+('SP016', N'Coldbrew Sữa Tươi', 32000, N'Ly', N'Coldbrew Sữa Tươi là cà phê pha lạnh kết hợp với sữa tươi, tạo hương vị thanh mát, ít chua, và dịu nhẹ hơn so với cà phê pha nóng. Thức uống này thường dùng kèm đá.', 'coldbrewsuatuoi.png', 'L0002', null,1),
+('SP017', N'Trà Olong Sen', 50000, N'Ly', N'Trà Oolong Sen là sự kết hợp giữa trà Oolong hảo hạng và hương sen thơm dịu. Thức uống mang đến vị trà thanh nhẹ, hơi ngọt, với hương sen thoang thoảng, tạo cảm giác thư thái và dễ chịu.', 'olongsen.png', 'L0001', null,1),
+('SP018', N'Trà Olong Sen Nóng', 45000, N'Ly', N'Trà Oolong Sen Nóng là trà Oolong pha nóng kết hợp với hương sen thơm dịu, mang vị trà đậm đà, ấm áp cùng hương sen thanh tao. Thức uống này giúp thư giãn và giữ ấm cơ thể.', 'olongsennong.png', 'L0001', null,1),
+('SP019', N'Trà Olong Trân Châu', 45000, N'Ly', N'Olong Tứ Quý Trân Châu là trà Oolong Tứ Quý kết hợp với trân châu mềm dai, mang vị trà thơm mát và ngọt nhẹ, tạo cảm giác thú vị khi uống.', 'olongtuquytranchau.png', 'L0001', null,1),
+('SP020', N'Trà Đào Cam Sả', 40000, N'Ly', N'Trà Đào Cam Sả là sự kết hợp giữa trà thơm, đào ngọt, cam tươi và hương sả, mang đến vị thanh mát, chua ngọt và hương thơm dễ chịu, tạo cảm giác sảng khoái.', 'tradaocamsa.png', 'L0001', null,1),
+('SP021', N'Olong Tứ Quý Vải', 45000, N'Ly', N'Olong Tứ Quý Vải là trà Oolong Tứ Quý kết hợp với hương vị vải tươi ngọt ngào, mang đến trải nghiệm thơm mát, thanh nhẹ và dịu dàng khi thưởng thức.', 'oolongtuquyvai.png	', 'L0001', null,1),
+('SP022', N'Trà Đào Cam Sả Nóng', 35000, N'Ly', N'Trà Đào Cam Sả Nóng là trà nóng kết hợp với đào ngọt, cam tươi và hương sả, mang đến vị ấm áp, thanh mát và hương thơm dễ chịu, rất thích hợp cho những ngày lạnh.', 'tradaocamsanong.png	', 'L0001', null,1),
+('SP023', N'Trà Xanh Espresso', 55000, N'Ly', N'Trà Xanh Espresso là sự kết hợp độc đáo giữa trà xanh tươi mát và espresso đậm đà, mang đến hương vị thanh nhẹ, đắng hấp dẫn và thơm ngon.', 'traxanhespressomarble.png', 'L0001', null,1),
+('SP024', N'Trà Xanh Nước Dừa', 40000, N'Ly', N'Trà Xanh Nước Dừa là sự kết hợp giữa trà xanh thơm mát và nước dừa ngọt mát, mang đến hương vị thanh nhẹ, tươi refreshing, rất thích hợp để giải khát trong những ngày hè oi ả.', 'traxanhnuocdua.png', 'L0001', null,1),
+('SP025', N'Bánh Mì Giăm Bông', 25000, N'Phần', N'Bánh Mì giòn tan', 'bmgiambong.png', 'L0004', null,1),
+('SP026', N'Bánh Chocolate', 25000, N'Phần', N'Bánh Chocolate thom ngon', 'banhchocolate.png', 'L0004', null,1),
+('SP027', N'Tiramisu Dâu', 25000, N'Phần', N'Tiramisu ngọt ngào', 'tiramisudau.png', 'L0004', null,1),
+('SP028', N'Tiramusi Việt Quất', 25000, N'Phần', N'Tiramisu ngọt ngào', 'tiramisuvietquac.png', 'L0004', null,1),
+('SP029', N'Bánh Mochi Mật Ong', 25000, N'Phần', N'Bánh Mochi mềm thơm', 'banhmochimatong.png', 'L0004', null,1),
+('SP031', N'Bánh Kem Vị Cam ', 25000, N'Phần', N'Bánh kem mềm thơm', 'banhmochimatong.png', 'L0004', null,1),
+('SP030',N'Cafe Đen', 25000,N'Phần',N'Đậm đà cà phê','cfden.jpg','L0002',null,1),
+('SP032', N'Bánh bông lan', 25000, N'Phần', N'Bánh bông lan mềm thơm', 'banhbonglan.jpg', 'L0004', null,1),
+('SP033', N'Buổi sáng vui vẻ', 49000, N'Phần', N'Combo trà xanh latte và bánh mochi tạo nên một trải nghiệm ẩm thực tinh tế, hòa quyện giữa hương vị trà xanh thanh mát và độ dẻo mềm của bánh mochi', 'combo1.jpg', 'L0005', null,1),
+('SP034', N'Buổi sáng thoải mái', 25000, N'Phần', N'Combo cà phê sữa tươi và bánh mì dăm bông là sự kết hợp tuyệt vời giữa vị đắng ngọt của cà phê và hương vị thơm ngon, béo ngậy của dăm bông trong bánh mì.', 'combo2.png', 'L0005', null,1),
+('SP035', N'Buổi sáng tiện ích', 25000, N'Phần', N'Combo cà phê sữa và bánh bông lan là sự kết hợp hoàn hảo giữa vị đắng ngọt của cà phê và hương vị mềm mại, thơm ngon của bánh.', 'combo3.png', 'L0005', null,1);
+
+INSERT INTO KIT (MaKIT, MaSP, SoLuong) 
+VALUES 
+('SP033', 'SP001', 1),
+('SP033', 'SP029', 1),
+('SP034', 'SP012', 1),
+('SP034', 'SP025', 1),
+('SP035', 'SP002', 1),
+('SP035', 'SP032', 1);
+
+INSERT INTO NguyenVatLieu (MaNVL, Ten, Dongia, DVT, Mota, Anh, Soluong)
+VALUES 
+('NVL01', N'Lá trà xanh', 100000, N'Kg', N'Lá trà xanh tươi ngon', 'tra.jpg',10),
+('NVL02', N'Cà phê hạt', 220000, N'Kg', N'Hạt cà phê rang xay', 'ca_phe.jpg',20),
+('NVL03', N'Bột sữa', 90000, N'Kg', N'Bột sữa chất lượng', 'bot_sua.jpg',50),
+('NVL04', N'Sữa tươi', 220000, N'Lít', N'Sữa tươi nguyên chất', 'sua_tuoi.jpg',10),
+('NVL05', N'Sữa chua', 6000, N'Hộp', N'Sữa chua tiệt trùng', 'sua_chua.jpg',2);
+
+INSERT INTO Phieudhonl (MaPhieuonl, Ngaygiodat, TongTien, DiaChi, TrangThai, PTTT, TienShip, PTNH, MaKH, MaCN, MaKM)
+VALUES 
+('PONL1', '2024-09-24 10:00:00', 100000, N'Quận 1, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH001', 'CN001','KM002'),
+('PONL2', '2024-09-23 10:00:00', 120000, N'Quận 10, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH002', 'CN002', null),
+('PONL3', '2024-09-22 10:00:00', 120000, N'Quận 7, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH003', 'CN001', null),
+('PONL4', '2024-09-24 10:30:00', 140000, N'Quận 1, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH004', 'CN002', null),
+('PONL5', '2024-09-23 10:02:00', 125000, N'Quận 2, TP.HCM', 1, N'Tiền mặt', 20000, null, 'KH002', 'CN001', null),
+('PONL6', '2024-01-24 10:00:00', 100000, N'Quận 1, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH001', 'CN001','KM002'),
+('PONL7', '2024-01-23 10:00:00', 120000, N'Quận 10, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH002', 'CN002', null),
+('PONL8', '2024-02-22 10:00:00', 120000, N'Quận 7, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH003', 'CN001', null),
+('PONL9', '2024-02-24 10:30:00', 140000, N'Quận 1, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH004', 'CN002', null),
+('PONL10', '2024-03-23 10:02:00', 125000, N'Quận 2, TP.HCM', 1, N'Tiền mặt', 20000, null, 'KH002', 'CN001', null),
+('PONL11', '2024-03-24 10:00:00', 100000, N'Quận 1, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH001', 'CN002','KM002'),
+('PONL12', '2024-04-23 10:00:00', 120000, N'Quận 10, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH002', 'CN002', null),
+('PONL13', '2024-04-22 10:00:00', 120000, N'Quận 7, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH003', 'CN001', null),
+('PONL14', '2024-05-24 10:30:00', 140000, N'Quận 1, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH004', 'CN002', null),
+('PONL15', '2024-05-23 10:02:00', 125000, N'Quận 2, TP.HCM', 1, N'Tiền mặt', 20000, null, 'KH002', 'CN001', null),
+('PONL16', '2024-06-24 10:00:00', 100000, N'Quận 1, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH001', 'CN001','KM002'),
+('PONL17', '2024-06-23 10:00:00', 120000, N'Quận 10, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH002', 'CN002', null),
+('PONL18', '2024-07-22 10:00:00', 120000, N'Quận 7, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH003', 'CN001', null),
+('PONL19', '2024-07-24 10:30:00', 140000, N'Quận 1, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH004', 'CN002', null),
+('PONL20', '2024-08-23 10:02:00', 125000, N'Quận 2, TP.HCM', 1, N'Tiền mặt', 20000, null, 'KH002', 'CN001', null),
+('PONL21', '2024-08-24 10:00:00', 100000, N'Quận 1, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH001', 'CN002','KM002'),
+('PONL22', '2024-09-23 10:00:00', 120000, N'Quận 10, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH002', 'CN002', null),
+('PONL23', '2024-09-22 10:00:00', 120000, N'Quận 7, TP.HCM', 1, N'Chuyển khoản', 15000, 'Ngân hàng A', 'KH003', 'CN001', null),
+('PONL24', '2024-10-24 10:30:00', 140000, N'Quận 1, TP.HCM', 1, N'Tiền mặt', 15000, null, 'KH004', 'CN002', null),
+('PONL25', '2024-10-23 10:02:00', 125000, N'Quận 2, TP.HCM', 1, N'Tiền mặt', 20000, null, 'KH002', 'CN001', null);
+
+INSERT INTO CTSPonl (Soluong, Gia, Tongtien, Ghichu, MaSP, MaPhieuonl, MaKH, MaSize,MaDa,MaDuong) 
+VALUES 
+(1, 50000, 50000, N'Không đá', 'SP021', 'PONL6', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 50000, 50000, N'Không đá', 'SP022', 'PONL6', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 50000, 50000, N'Không đá', 'SP023', 'PONL7', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 70000, 70000, N'Không đá', 'SP024', 'PONL7', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 50000, N'Không đá', 'SP013', 'PONL8', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 35000, N'Không đá', 'SP014', 'PONL8', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 40000, N'Không đá', 'SP015', 'PONL9', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 45000, N'Không đá', 'SP012', 'PONL9', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 40000, N'Không đá', 'SP013', 'PONL10', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 30000, N'Không đá', 'SP026', 'PONL10', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 25000, N'Không đá', 'SP009', 'PONL11', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 35000, N'Không đá', 'SP008', 'PONL11', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 40000, N'Không đá', 'SP007', 'PONL12', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 50000, N'Không đá', 'SP006', 'PONL13', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 45000, N'Không đá', 'SP010', 'PONL14', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 55000, N'Không đá', 'SP009', 'PONL15', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 65000, N'Không đá', 'SP011', 'PONL15', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 75000, N'Không đá', 'SP022', 'PONL16', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 45000, N'Không đá', 'SP023', 'PONL17', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 30000, N'Không đá', 'SP021', 'PONL18', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 35000, N'Không đá', 'SP014', 'PONL18', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 25000, N'Không đá', 'SP015', 'PONL19', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 45000, N'Không đá', 'SP002', 'PONL20', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 40000, N'Không đá', 'SP002', 'PONL21', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 45000, N'Không đá', 'SP002', 'PONL22', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 35000, N'Không đá', 'SP002', 'PONL23', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 25000, N'Không đá', 'SP002', 'PONL24', 'KH001', 'SZ001','DD001','NQ001'),
+(1, 30000, 30000, N'Không đá', 'SP002', 'PONL25', 'KH001', 'SZ001','DD001','NQ001');
+
+INSERT INTO PhieuOrder (MaOrder, Ngaygiodat, Soban, Tongtien, Trangthai, PTTT, MaCN, MaNV, Ten, Sdt, MaKM)
+VALUES 
+('PO001', '2024-01-05 10:15:00', 1, 140000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO002', '2024-02-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO003', '2024-03-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO004', '2024-04-05 10:15:00', 1, 20000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO005', '2024-05-05 10:15:00', 1, 30000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO006', '2024-06-05 10:15:00', 1, 55000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO007', '2024-07-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO008', '2024-08-05 10:15:00', 1, 100000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO009', '2024-09-05 10:15:00', 1, 120000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO010', '2024-10-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN001', 'NV001', N'Khách A', 0901111111, NULL),
+('PO013', '2024-01-05 10:15:00', 1, 140000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO014', '2024-02-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO015', '2024-03-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO016', '2024-04-05 10:15:00', 1, 20000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO017', '2024-05-05 10:15:00', 1, 30000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO018', '2024-06-05 10:15:00', 1, 55000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO019', '2024-07-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO020', '2024-08-05 10:15:00', 1, 100000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO021', '2024-09-05 10:15:00', 1, 120000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL),
+('PO022', '2024-10-05 10:15:00', 1, 50000, 1, N'Tiền mặt', 'CN002', 'NV003', N'Khách A', 0901111111, NULL);
+
+INSERT INTO CTSanPham (Soluong, Gia, TongTien, Ghichu, MaOrder, MaSp, MaKH, MaSize)
+VALUES 
+(1, 50000, 50000, 'Mua SP007', 'PO001', 'SP007', 'KH001', 'SZ001'),
+(1, 25000, 25000, 'Mua SP008', 'PO002', 'SP008', 'KH002', 'SZ001'),
+(1, 40000, 40000, 'Mua SP009', 'PO003', 'SP009', 'KH003', 'SZ001'),
+(1, 30000, 30000, 'Mua SP010', 'PO004', 'SP010', 'KH004', 'SZ001'),
+(1, 50000, 50000, 'Mua SP011', 'PO005', 'SP011', 'KH005', 'SZ001'),
+(1, 50000, 50000, 'Mua SP012', 'PO006', 'SP012', 'KH006', 'SZ001'),
+(1, 60000, 60000, 'Mua SP013', 'PO007', 'SP013', 'KH007', 'SZ001'),
+(1, 60000, 60000, 'Mua SP014', 'PO008', 'SP014', 'KH008', 'SZ001'),
+(1, 350000, 350000, 'Mua SP014', 'PO009', 'SP014', 'KH009', 'SZ001'),
+(1, 30000, 30000, 'Mua SP015', 'PO010', 'SP015', 'KH010', 'SZ001'),
+(1, 40000, 40000, 'Mua SP016', 'PO013', 'SP016', 'KH011', 'SZ001'),
+(1, 50000, 50000, 'Mua SP023', 'PO014', 'SP023', 'KH012', 'SZ001'),
+(1, 60000, 60000, 'Mua SP024', 'PO015', 'SP024', 'KH013', 'SZ001'),
+(1, 40000, 40000, 'Mua SP025', 'PO016', 'SP025', 'KH014', 'SZ001'),
+(1, 60000, 60000, 'Mua SP026', 'PO017', 'SP026', 'KH015', 'SZ001'),
+(1, 50000, 50000, 'Mua SP023', 'PO018', 'SP023', 'KH016', 'SZ001'),
+(1, 50000, 50000, 'Mua SP024', 'PO019', 'SP024', 'KH017', 'SZ001'),
+(1, 50000, 50000, 'Mua SP021', 'PO020', 'SP021', 'KH018', 'SZ001'),
+(1, 50000, 50000, 'Mua SP019', 'PO021', 'SP019', 'KH019', 'SZ001'),
+(1, 50000, 50000, 'Mua SP018', 'PO022', 'SP018', 'KH020', 'SZ001');
+INSERT INTO BOM (SoLuong, MaSP, MaNVL) 
+VALUES 
+(1, 'SP001', 'NVL01'),
+(0.5, 'SP002', 'NVL02'),
+(2, 'SP006', 'NVL03'),
+(0.3, 'SP005', 'NVL03'),
+(1, 'SP005', 'NVL02');
+
+INSERT INTO ChitietDanhGia (SoSao, MaSP, MaKH, NhanXet) 
+VALUES 
+(5, 'SP001', 'KH001', null),
+(5, 'SP002', 'KH002', null),
+(4, 'SP010', 'KH003', null),
+(5, 'SP007', 'KH001', null),
+(4, 'SP008', 'KH002', null);
+
+INSERT INTO PhieuNhapXuat (MaPhieu, NgayLap, Loai, Diachi, MaNV, MaCcap) 
+VALUES 
+('PNX01', '2024-09-24', N'Nhập', N'Kho Quận 1', 'NV002', 'CCAP1'),
+('PNX02', '2024-09-24', N'Xuất', N'Kho Quận 1', 'NV002', null),
+('PNX03', '2024-09-24', N'Nhập', N'Kho Quận 10', 'NV004', 'CCAP2'),
+('PNX04', '2024-09-24', N'Xuất', N'Kho Quận 10', 'NV004', null),
+('PNX05', '2024-09-24', N'Nhập', N'Kho Quận 10', 'NV004', 'CCAP3');
+
+INSERT INTO DanhMucCa (Calam, Ngay, MaNV) 
+VALUES 
+(N'Ca sáng', '2024-09-24', 'NV001'),
+(N'Ca sáng', '2024-09-24', 'NV003');
+
+
+INSERT INTO CTPhieu (Soluong, MaNVL, MaPhieu) 
+VALUES 
+(10, 'NVL01', 'PNX01'),
+(5, 'NVL02', 'PNX02'),
+(5, 'NVL01', 'PNX03'),
+(5, 'NVL03', 'PNX04'),
+(5, 'NVL04', 'PNX05');
+INSERT INTO Da (MaDa, Ten) 
+VALUES 
+('DD001', N'Bình thường'),
+('DD002', N'Ít đá'),
+('DD003', N'Không đá');
+INSERT INTO Duong (MaDuong, Ten) 
+VALUES 
+('NQ001', N'Bình thường'),
+('NQ002', N'Ít đường'),
+('NQ003', N'Không đường');

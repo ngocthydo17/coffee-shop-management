@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Đăng Nhập";
+    <link href="~/css/loginAdmin.css" rel="stylesheet" />
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <video id="myVideo" autoplay muted loop>
+        <source src="/video/video3.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div class="login-container">
+
+        <div class="image-container">
+            <img src="~/css/img/coffee-beans-5712780_1280.jpg" alt="Coffee Beans" />
+        </div>
+
+        <div class="login-form">
+            <h2>Đăng Nhập</h2>
+
+            <form asp-action="Login" method="post">
+
+                <div class="input-group" style="border-radius: 5px;color:#1a531b;">
+                    <label for="sdt">Số điện thoại</label>
+                    <input type="number" name="sdt" required />
+                </div>
+
+                <div class="input-group" style="border-radius: 5px;color:#1a531b;">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" name="password" required />
+                </div>
+
+                <button type="submit" class="login-btn">Đăng Nhập</button>
+            </form>
+        </div>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <p style="color:red">@ViewBag.Error</p>
+    }
+</body>
+</html>

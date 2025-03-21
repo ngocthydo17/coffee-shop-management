@@ -1,0 +1,219 @@
+﻿@model Manage_Coffee.Models.ViewModels.HoaDonViewModel
+
+@{
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+    // ViewData["Title"] = "Hóa Đơn Đặt Hàng";
+    <link rel="icon" href="path/to/favicon.ico">
+    <link href="~/css/bill.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+}
+
+<div class="bill_container">
+    <div class="bill_left">
+        <div class="horizontal-container">
+            <img width="60" height="60" src="https://img.icons8.com/color/96/verified-account--v1.png" alt="verified-account--v1" />
+            <h4>Cảm ơn bạn đã đặt hàng</h4>
+        </div>
+        <div id="bill_in4">
+            <div id="left">
+                <h5>Thông tin đơn hàng</h5>
+                <p><strong>Ngày Đặt:</strong> @Model.Ngaygiodat.ToString("dd/MM/yyyy HH:mm")</p>
+                <p><strong>Địa Chỉ:</strong> @Model.DiaChi</p>
+                <p><strong>Phương Thức Thanh Toán:</strong> @Model.Pttt</p>
+                <p><strong>Phương Thức Nhận Hàng:</strong> @Model.Ptnh</p>
+                <p>
+                    <strong>Trạng thái đơn hàng:</strong>
+                    @if (@Model.TrangThai == false)
+                    {
+                        <strong style="color: red">Chưa xác nhận </strong>
+                    }
+                    else @if (Model.TrangThai == true)
+                    {
+                        <strong style="color: green">Đã xác nhận</strong>
+                    }
+                </p>
+            </div>
+            <div id="right">
+                <p style="font-weight: bold; color:#07522E">Thông tin khách hàng</p>
+                <p><strong>Tên Khách Hàng:</strong> @Model.TenKhachHang</p>
+                <p><strong>Email:</strong> @Model.EmailKhachHang</p>
+                <p style="font-weight: bold;  color:#07522E">Thông tin chi nhánh</p>
+                <p><strong>Tên Chi Nhánh:</strong> @Model.TenChiNhanh</p>
+                @if (!string.IsNullOrEmpty(Model.TenKhuyenMai))
+                {
+                    <p><strong>Khuyến Mãi:</strong> @Model.TenKhuyenMai</p>
+                }
+                else
+                {
+                    <p><strong>Khuyến Mãi:</strong> Không có</p>
+                }
+            </div>
+        </div>
+        <div class="button">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Quay Lại Trang Chủ</a>
+            <!-- Nút mở modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#emailModal">
+                Gửi hóa đơn
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="emailModalLabel">Nhập Email để Gửi Hóa Đơn</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form gửi email -->
+                            <form asp-action="SendInvoice" method="post">
+                                <input type="hidden" name="maPhieuonl" value="@TempData["MaPhieuonl"]" />
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email" required />
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Gửi hóa đơn</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bill_right">
+        <h5>Chi tiết đơn hàng</h5>
+        <hr />
+        <div class="sp">
+            @foreach (var item in Model.ChiTietSanPham)
+            {
+                <div class="item">
+                    <span>
+                        @item.Ten
+                        @if (item.Kits != null && item.Kits.Any())
+                        {
+                            foreach (var i in item.Kits)
+                            {
+                                <span>@i.MaSpNavigation.Ten - @i.SoLuong</span>
+
+                                // Kiểm tra xem có kích thước nào trong CTKIT không
+                                var ctKit = item.CTKITs.FirstOrDefault(ct => ct.MaKit == i.MaKit && ct.MaSp == i.MaSp && ct.MaSize == item.MaSize);
+                                if (ctKit != null)
+                                {
+                                    // Hiển thị kích thước nếu không phải "SZ001"
+                                    if (ctKit.MaSize != "SZ001")
+                                    {
+                                        <span> (Size: @ctKit.MaSizeNavigation.Ten)</span>
+                                    }
+                                }
+                                if (i != item.Kits.Last())
+                                {
+                                    <span>, </span>
+                                }
+                            }
+                        }
+                    </span>
+         
+                    <span class="price">     @String.Format(formatMoney, "{0:c00}", @item.Gia)</span>
+                </div>
+                <p>x @item.Soluong</p>
+                <p>@item.TenSize</p>
+                <p>@item.TenDa</p>
+                <p>@item.TenDuong</p>
+                @foreach (var items in Model.ChiTiettopping.Where(t => t.MaSp == item.MaSp))
+                {
+                    <p>@items.TenTopping</p>
+                }
+            }
+        </div>
+        <h5 style="margin-top: 10px">Tổng cộng</h5>
+        <hr />
+        <div class="total">
+            <span>Thành tiền</span>
+         
+            <span class="price">    @String.Format(formatMoney, "{0:c00}", Model.ChiTietSanPham.Sum(p => p.Tongtien))</span>
+        </div>
+        <div class="shipping">
+            <span>Phí giao hàng</span>
+        
+            <span class="price">      @String.Format(formatMoney, "{0:c00}", Model.TienShip.HasValue ? Model.TienShip.Value : "Miễn phí")</span>
+        </div>
+        <div class="discount">
+            @if (!string.IsNullOrEmpty(Model.MaKm))
+            {
+                <span>Giảm giá(@Model.TenKhuyenMai):</span>
+                <span class="price"> -@Model.GiaTrikm % </span>
+            }
+        </div>
+        <div class="xu">
+            <span>Số xu:</span>
+            - @if (ViewBag.SoXu != null)
+            {
+                @ViewBag.SoXu
+            }
+            else
+            {
+                @Model.SoXu
+            }
+        </div>
+        <div class="final-section">
+            <div class="final-total">
+                <span>Tổng tiền</span>
+          
+                <span class="price">           @String.Format(formatMoney, "{0:c00}", Model.TongTien)</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@* <form asp-action="SendInvoice" method="post">
+    <input type="hidden" name="maPhieuonl" value="@TempData["MaPhieuonl"]" />
+    <input type="email" name="email" required />
+    <button type="submit">Gửi hóa đơn</button>
+</form> *@
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var alertMessage = @Html.Raw(Json.Serialize(TempData["AlertMessage"]));
+            var alertType = @Html.Raw(Json.Serialize(TempData["AlertType"]));
+
+            if (alertMessage) {
+                Swal.fire({
+                    icon: alertType, // 'success' hoặc 'warning'
+                    title: alertType === "success" ? "Thành công" : "Thông báo",
+                    text: alertMessage,
+                    showConfirmButton: true,
+                }).then((result) => {
+                    // Kiểm tra xem người dùng đã nhấn nút "OK" không
+                    if (result.isConfirmed) {
+                        // Chuyển hướng về trang sản phẩm
+                        window.location.href = '@Url.Action("Sanpham1", "SanPhams")'; // Thay thế "Index" và "SanPham" với tên action và controller của bạn
+                    }
+                });
+            }
+        });
+    </script>
+}
+
+<!---->
+@*    @if (!string.IsNullOrEmpty(Model.MaKm) && Model.Role == "Vang")
+    {
+        <tr>
+            <th>Giảm Giá (@Model.TenKhuyenMai):</th>
+              <td> -@(Model.ChiTietSanPham.Sum(p => p.Tongtien) * 0.10) <!-- Giảm 10% nếu role Vang -->
+        </tr>
+    } *@
+
+
+
+

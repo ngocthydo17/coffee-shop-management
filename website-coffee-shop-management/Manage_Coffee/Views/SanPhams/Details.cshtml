@@ -1,0 +1,282 @@
+﻿@model Manage_Coffee.ViewModels.ProductDetailViewModel
+
+@{
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    var maKh = ViewBag.makh;
+}
+
+<link href="~/css/details.css" rel="stylesheet" />
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<div class="product-container">
+    <!-- Phần hình ảnh -->
+    <div class="product-image">
+        <img src="~/css/img/@Model.Product.Anh" width="350" height="350" />
+
+        <div class="mota">
+            <dd class="motasp">
+                @Html.DisplayFor(model => model.Product.Mota)
+                <br />
+                @if (!string.IsNullOrEmpty(ViewBag.KitInfo))
+                {
+                    <p>@Html.Raw(ViewBag.KitInfo)</p>
+                }
+            </dd>
+        </div>
+    </div>
+
+    <!-- Phần nội dung -->
+    <div class="product-content">
+        <dl class="thydo" style="padding:25px 0 0 12px;">
+            <dd class="tensp">
+                @Html.DisplayFor(model => model.Product.Ten)
+                <span class="sosao">
+                    (
+                    <a asp-action="DanhGia" asp-controller="SanPhams"
+                       asp-route-ten="@Model.Product.Ten"
+                       asp-route-masp="@Model.Product.MaSp"
+                       asp-route-dongia="@Model.Product.Dongia"> @ViewBag.AverageRating <i style="margin-bottom:10px;"> <img src="~/css/icon/icons8-star-48.png" width="40" height="40" /></i> </a>
+
+                    @ViewBag.RatingCount <a asp-action="DanhSachDanhGia" asp-route-maSp="@ViewBag.MaSp">đánh giá</a>
+                    )
+                </span>
+            </dd>
+            <dd class="giasp">
+                @String.Format(formatMoney, "{0:c00}", @Model.Product.Dongia)
+            </dd>
+        </dl>
+
+        <form asp-action="Add" asp-controller="Cart" method="post" style="padding:0 0 0 12px;">
+            <input type="hidden" name="id" value="@Model.Product.MaSp" />
+            @if (!(bool)ViewBag.IsInKit)
+            {
+                if (@Model.Product.Maloai == "L0003" || @Model.Product.Maloai == "L0004")
+                {
+
+                }
+                else if (@Model.Product.Maloai == "L0002")
+                {
+                    @await Component.InvokeAsync("Size")
+                    @await Component.InvokeAsync("Da")
+                    @await Component.InvokeAsync("Duong")
+                }
+
+                else if (@Model.Product.Maloai == "L0001")
+                {
+                    <!-- Hiển thị danh sách kích thước (Sizes) -->
+                    @await Component.InvokeAsync("Size")
+                    @await Component.InvokeAsync("Da")
+                    @await Component.InvokeAsync("Duong")
+                    @await Component.InvokeAsync("SelectTopping")
+                }
+            }
+            else
+            {
+                @await Component.InvokeAsync("SizeCB")
+
+            }
+
+            @* <label style="color:#07522E; font-size:20px; font-weight:bold;" for="ghiChu">Ghi chú:</label>
+            <textarea name="ghiChu" id="ghiChu" rows="3" cols="50"></textarea> *@
+
+            <div class="button-group">
+                <button type="submit">Thêm vào giỏ hàng</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+<h4>Sản phẩm đi kèm </h4>
+<div class="similar-products">
+    @foreach (var sp in Model.SanPhamTuongTu)
+    {
+        <div class="product-item">
+            <a asp-action="Details" asp-route-id="@sp.MaSp">
+                <div class="anhkem">
+                    <img src="~/css/img/@sp.Anh" />
+                </div>
+
+                <div class="noidung-kem">
+                    <h4 class="theten">@sp.Ten</h4>
+                    <p class="thegia"> @String.Format(formatMoney, "{0:c00}", @sp.Dongia)</p>
+
+                    <button class="cart_kem">
+                        <span class="material-icons">Thêm vào giỏ</span>
+                    </button>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+ @* <div id="videoContainer" style="display: none;">
+     <video id="myVideo" style="width: 100%;">
+         <source src="~/video/video2.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+     </video>
+
+     <button id="closeButton">Đóng</button>
+ </div> *@
+
+<!-- Hộp thoại tùy chỉnh -->
+@* <div id="customAlert" style="display: none;">
+    <div class="hienthi">
+        <p style="font-size: 22px;text-align: center;">Nếu bạn xem tiếp video, bạn sẽ được cộng 100 Xu.</p>
+        <div class="xemtiep-tat">
+            <button id="continueButton">Xem tiếp</button> | <button id="cancelButton">Tắt</button>
+        </div>
+    </div>
+</div> *@
+
+<script>
+    let videoEnded = false; // Cờ để kiểm tra video đã kết thúc
+
+    function getCurrentTime() {
+        return new Date().getTime();
+    }
+
+    function shouldShowAd() {
+        const lastShownTime = localStorage.getItem('lastAdTime');
+        const accessCount = localStorage.getItem('accessCount');
+
+        const twoMinutes = 15 * 60 * 1000; // 2 phút
+        const now = getCurrentTime();
+
+        if (lastShownTime && (now - lastShownTime) < twoMinutes && accessCount < 15) {
+            return false;
+        }
+
+        return true;
+    }
+
+    if (shouldShowAd()) {
+        const videoContainer = document.getElementById('videoContainer');
+        const video = document.getElementById('myVideo');
+
+        videoContainer.style.display = 'block'; // Hiện video container
+        video.play(); // Phát video
+        localStorage.setItem('lastAdTime', getCurrentTime());
+        localStorage.setItem('accessCount', 0);
+
+        video.onended = function () {
+            videoEnded = true; // Đánh dấu video đã kết thúc
+            alert("Cảm ơn bạn đã xem video! Bạn đã được cộng 100 Xu.");
+            const customerId = '@maKh';
+            const requestBody = {
+                MaKh: customerId,
+                Xu: 100
+            };
+
+            fetch(`/api/KHController/AddXu`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Cộng Xu thành công!");
+                    } else {
+                        console.log("Có lỗi xảy ra khi cộng Xu.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Có lỗi xảy ra:", error);
+                });
+
+            // Đóng video
+            videoContainer.style.display = 'none';
+        };
+    } else {
+        let accessCount = localStorage.getItem('accessCount') || 0;
+        localStorage.setItem('accessCount', ++accessCount);
+    }
+
+    // Đóng video khi nhấn nút
+    document.getElementById('closeButton').onclick = function () {
+        const videoContainer = document.getElementById('videoContainer');
+        const video = document.getElementById('myVideo');
+
+        video.pause(); // Tạm dừng video
+        videoContainer.style.display = 'none'; // Ẩn video container
+
+        // Hiện hộp thoại tùy chỉnh
+        document.getElementById('customAlert').style.display = 'block';
+    };
+
+    // Chức năng cho nút "Xem tiếp"
+    document.getElementById('continueButton').onclick = function () {
+        const videoContainer = document.getElementById('videoContainer');
+        const video = document.getElementById('myVideo');
+
+        videoContainer.style.display = 'block'; // Hiện lại video container
+        video.play(); // Tiếp tục phát video
+        document.getElementById('customAlert').style.display = 'none'; // Ẩn hộp thoại
+    };
+
+    // Chức năng cho nút "Tắt"
+    document.getElementById('cancelButton').onclick = function () {
+        document.getElementById('customAlert').style.display = 'none'; // Ẩn hộp thoại
+    };
+
+    // Tạm dừng video khi chuyển tab
+    document.addEventListener('visibilitychange', function () {
+        const video = document.getElementById('myVideo');
+        if (document.visibilityState === 'hidden') {
+            video.pause(); // Tạm dừng video khi tab không còn hiển thị
+        } else {
+            // Chỉ phát lại video nếu video đã dừng
+            if (video.currentTime > 0 && video.paused) {
+                video.play(); // Phát lại video khi tab được hiển thị trở lại
+            }
+        }
+    });
+</script>
+<style>
+    #closeButton {
+        margin-right: 75px;
+        margin-top: 20px;
+        float: right;
+        padding: 10px 20px;
+        background-color: #07522E;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        #closeButton:hover {
+            background-color: #003514;
+        }
+
+    #myVideo {
+        display: block;
+        margin: 60px auto 0 auto;
+        width: 90%;
+        height: 80%;
+    }
+
+    #videoContainer {
+        height: 100%;
+        width: 100%;
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background-color: rgba(279, 279, 279, 0.8);
+        padding: 20px;
+        /* border-radius: 10px; */
+    }
+
+</style>

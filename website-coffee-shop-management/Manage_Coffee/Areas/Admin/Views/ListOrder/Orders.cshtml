@@ -1,0 +1,105 @@
+﻿@model List<Manage_Coffee.Models.Phieudhonl>
+@* <link rel="stylesheet" href="~/css/order.css" />
+ *@<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Danh sách đơn đặt hàng";
+    Layout = ViewData["Layout"]?.ToString(); // Sử dụng layout từ ViewData
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+<div class="order2">
+    <h1>Danh sách đơn đặt hàng</h1>
+
+    @if (ViewBag.Message != null)
+    {
+        <p>@ViewBag.Message</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã Phiếu</th>
+                    <th>Ngày giờ đặt</th>
+                    <th>Tổng tiền</th>
+                    <th>Địa chỉ</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr id="order-@order.MaPhieuonl">
+                        <td>@order.MaPhieuonl</td>
+                        <td>@order.Ngaygiodat.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@String.Format(formatMoney, "{0:c00}", order.TongTien)</td>
+                        @* <td>@order.TongTien</td> *@
+                        <td>@order.DiaChi</td>
+                        <td id="status-@order.MaPhieuonl">
+                            @if (@order.TrangThai == true)
+                            {
+                                <p>Đã xác nhận</p>
+                            }
+                            else
+                            {
+                                <p>Đã hủy</p>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<style>
+
+
+    h1 {
+        margin-bottom: 20px;
+        color: #1b7033;
+        margin-top: 20px;
+        TEXT-ALIGN: center;
+    }
+
+    thead tr {
+        color: #414042;
+        background-color: #E9DFB8 !important;
+    }
+
+    /* Hàng lẻ: 1, 3, 5,... */
+    table tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    /* Hàng chẵn: 2, 4, 6,... */
+    table tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    table, th, tr, td {
+        border: 2px solid;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #868585;
+    }
+
+    table {
+        margin-bottom: 25px;
+        margin-left: 8%;
+        width: 85%;
+        border-collapse: collapse;
+    }
+
+    td {
+        height: 45px;
+        width: 120px;
+        text-align: center;
+    }
+
+    th {
+        height: 45px;
+    }
+</style>

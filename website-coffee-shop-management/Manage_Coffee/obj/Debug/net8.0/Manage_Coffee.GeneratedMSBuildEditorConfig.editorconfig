@@ -1,0 +1,299 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Manage_Coffee
+build_property.RootNamespace = Manage_Coffee
+build_property.ProjectDir = F:\Nam3\DBCLPM\cafe2\cafe2\cafe\doan\Test\Manage_Coffee\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\Nam3\DBCLPM\cafe2\cafe2\cafe\doan\Test\Manage_Coffee
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/AccountAdmin/LoginAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudEFkbWluXExvZ2luQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/AccountAdmin/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudEFkbWluXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/ListOrder/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTGlzdE9yZGVyXE9yZGVycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/ListOrder/PendingOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTGlzdE9yZGVyXFBlbmRpbmdPcmRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/PhucVu/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGh1Y1Z1XENoZWNrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/PhucVu/CheckoutSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGh1Y1Z1XENoZWNrb3V0U3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/PhucVu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGh1Y1Z1XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/PhucVu/LoadPhieuOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGh1Y1Z1XExvYWRQaGlldU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/PhucVu/_CartPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGh1Y1Z1XF9DYXJ0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/QuanLy/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUXVhbkx5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/QuanLy/CreateMaterial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUXVhbkx5XENyZWF0ZU1hdGVyaWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/QuanLy/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUXVhbkx5XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/QuanLy/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUXVhbkx5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/QuanLy/LoadEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUXVhbkx5XExvYWRFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/QuanLy/LoadPhieuNhapXuat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUXVhbkx5XExvYWRQaGlldU5oYXBYdWF0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/QuanLy/ViewPhieuDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUXVhbkx5XFZpZXdQaGlldURldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/SoSanh/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU29TYW5oXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/SPAdmin/Create1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU1BBZG1pblxDcmVhdGUxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/SPAdmin/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU1BBZG1pblxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/SPAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU1BBZG1pblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/SPAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU1BBZG1pblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/ThongKeTong/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGhvbmdLZVRvbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Areas/Admin/Views/ThongKe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGhvbmdLZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Account/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWdudXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Cart/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Cart/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Cart/PaymentFail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxQYXltZW50RmFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Cart/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Cart/XemHoaDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxYZW1Ib2FEb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/DKDN/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcREtETlxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/DKDN/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcREtETlxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Home/CuaHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDdWFIYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Home/LienHe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaWVuSGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Home/TuyenDung.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUdXllbkR1bmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/KhachHang/ChinhSuaThongTin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXENoaW5oU3VhVGhvbmdUaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/KhachHang/ThongTinKhachHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXFRob25nVGluS2hhY2hIYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/OrderHistory/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJIaXN0b3J5XERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/OrderHistory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJIaXN0b3J5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/SanPhams/DanhGia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcRGFuaEdpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/SanPhams/DanhSachDanhGia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcRGFuaFNhY2hEYW5oR2lhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/SanPhams/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/SanPhams/Sanpham1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcU2FucGhhbTEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/CategoryAD/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlBRFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/Category/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/ChiNhanhTK/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2hpTmhhbmhUS1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/ChiNhanh/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2hpTmhhbmhcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/Da/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGFcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/Duong/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRHVvbmdcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/SelectTopping/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2VsZWN0VG9wcGluZ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/SizeAD/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2l6ZUFEXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/SizeCB/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2l6ZUNCXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Components/Size/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2l6ZVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/_Layout1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/_Layout2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/_Layout3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/_LoginInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Nam3/DBCLPM/cafe2/cafe2/cafe/doan/Test/Manage_Coffee/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-r0rjhsdwx8

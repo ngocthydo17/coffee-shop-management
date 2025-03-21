@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Manage_Coffee.Models.Loai>
+
+<div style="text-align:center; margin-top:35px;">
+    @foreach (var item in Model)
+    {
+
+        <a class="loai" asp-area="Admin" asp-controller="PhucVu" asp-action="Index" asp-route-category="@item.Maloai"> @item.Ten </a>
+
+    }
+</div>
+<style>
+    .loai {
+        color: #07522E;
+        text-decoration: none;
+        font-size: 25px;
+        padding-bottom: 50px;
+        margin: 50px;
+    }
+</style>

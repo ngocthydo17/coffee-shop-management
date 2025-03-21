@@ -1,0 +1,71 @@
+﻿@model List<Manage_Coffee.Models.CartItem>
+<link rel="stylesheet" href="~/css/order.css" />
+@{
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+<h2>
+    <i class="fas fa-shopping-cart">
+    </i>
+    Giỏ hàng
+</h2>
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Số lượng</th>
+                <th>Tên sản phẩm</th>
+                <th>Kích thước</th>
+                @* <th>Trị giá</th> *@
+                <th>Đơn giá</th>
+                <th>Tổng tiền</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <!-- Nút giảm số lượng -->
+                        <button class="btn btn-secondary decrease-quantity" data-id="@item.ProductID" data-size="@item.SizeID">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <span>@item.Soluong</span>
+                        <!-- Nút tăng số lượng -->
+                        <button class="btn btn-secondary increase-quantity" data-id="@item.ProductID" data-size="@item.SizeID">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </td>
+                    <td>@item.Ten</td>
+                    <td>@item.SizeName - @item.TriGia</td> <!-- Hiển thị ID hoặc tên size nếu có -->
+                    @*                     <td>@item.TriGia</td> <!-- Hiển thị trị giá -->
+            *@       
+                    <td> @String.Format(formatMoney, "{0:c00}", @item.Dongia)</td>
+                   <td> @String.Format(formatMoney, "{0:c00}", item.Soluong * (item.Dongia + item.TriGia)) </td >
+                    <td>
+                        <!-- Nút xóa sản phẩm -->
+                        <button class="btn btn-danger remove-from-cart" data-id="@item.ProductID" data-size="@item.SizeID">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="total">
+        <span>Tổng số tiền:</span>
+        <span class="amount"> @String.Format(formatMoney, "{0:c00}",(Model.Sum(i => i.Soluong * (i.Dongia + i.TriGia))))</span>
+    </div>
+    @*     <p><strong>Tổng số tiền: @(Model.Sum(i => i.Soluong * (i.Dongia + i.TriGia))) VND</strong></p> *@
+    <button class="checkout" onclick="location.href='@Url.Action("Checkout", "PhucVu", new { area = "Admin" })'">
+        Thanh toán
+    </button>
+}
+else
+{
+    <p>Giỏ hàng của bạn hiện đang trống.</p>
+}

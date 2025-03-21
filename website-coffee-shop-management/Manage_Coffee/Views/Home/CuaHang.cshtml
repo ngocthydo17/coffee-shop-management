@@ -1,0 +1,234 @@
+﻿@{
+    ViewData["Title"] = "CuaHang";
+    <link rel="icon" href="path/to/favicon.ico">
+    <link href="~/css/lienhe.css" rel="stylesheet" />
+}
+
+
+<div id="cuahang" style="margin-bottom:35px;margin-top35px; ">
+    <h2 style="color:#07522E;">Các chi nhánh cửa hàng</h2>
+    <div id="list-cuahang">
+        <div class="item3" onclick="changeMap('tay-ninh')">
+            <div class="hinh">
+                <img src="~/css/img/cuahangcf.png" alt="Chi nhánh Tây Ninh" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh Tây Ninh</div>
+                <div class="detail">17 Lạc Long Quân, Hiệp Hòa, Hiệp Tân, Hòa Thành, Tây Ninh</div>
+            </div>
+        </div>
+
+        <div class="item3" onclick="changeMap('ca-mau')">
+            <div class="hinh">
+                <img src="~/css/img/ch2.jpg" alt="Chi nhánh Cà Mau" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh Cà Mau</div>
+                <div class="detail">128A Nguyễn Tất Thành, Phường 8, Cà Mau</div>
+            </div>
+        </div>
+
+        <div class="item3" onclick="changeMap('hcm')">
+            <div class="hinh">
+                <img src="~/css/img/ch3.jpg" alt="Chi nhánh HCM" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh HCM</div>
+                <div class="detail">32 Trường Sơn, Phường 2, Tân Bình, Tp Hồ Chí Minh</div>
+            </div>
+        </div>
+
+        <div class="item3" onclick="changeMap('dong-nai')">
+            <div class="hinh">
+                <img src="~/css/img/cuahang.jpg" alt="Chi nhánh Đồng Nai" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh Đồng Nai</div>
+                <div class="detail">141 Hai Bà Trưng, Long Thành, Đồng Nai</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    ViewData["Title"] = "LienHe";
+}
+<link rel="icon" href="path/to/favicon.ico">
+<link href="~/css/lienhe.css" rel="stylesheet" />
+<div class="map">
+    <iframe id="branchMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.4275901248297!2d106.12499407398863!3d11.303424949254241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310b6a58c0ac34a1%3A0xc0c528bfbc49377b!2zMTcgTOG6oWMgTG9uZyBRdcOibiwgS2h1IHBo4buRIDQsIEhvw6AgVGjDoG5oLCBUw6J5IE5pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1729758399499!5m2!1svi!2s" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<script>
+    function changeMap(item3) {
+        var map = document.getElementById('branchMap');
+        if (item3 === 'tay-ninh') {
+            map.src = "https://maps.google.com/maps?q=17%20Lac%20Long%20Quan,%20Hoa%20Thanh,%20Tay%20Ninh&t=&z=13&ie=UTF8&iwloc=&output=embed";
+        } else if (item3 === 'ca-mau') {
+            map.src = "https://maps.google.com/maps?q=128%20Nguyen%20Tat%20Thanh,%20Phuong%208,%20Ca%20Mau&t=&z=13&ie=UTF8&iwloc=&output=embed";
+        } else if (item3 === 'hcm') {
+            map.src = "https://maps.google.com/maps?q=32%20Truong%20Son,%20Tan%20Binh,%20Ho%20Chi%20Minh&t=&z=13&ie=UTF8&iwloc=&output=embed";
+        } else if (item3 === 'dong-nai') {
+            map.src = "https://maps.google.com/maps?q=141%20Hai%20Ba%20Trung,%20Long%20Thanh,%20Dong%20Nai&t=&z=13&ie=UTF8&iwloc=&output=embed";
+        }
+    }
+</script>
+
+
+@* <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBat7CO2z3dYywzYS3TzdiVHWkC0na-GTc&callback=initMap">
+</script>
+
+<div id="map" style="width: 100%; height: 510px;"></div>
+
+<script>
+    function initMap() {
+        // Tạo đối tượng bản đồ
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 5,
+            center: { lat: 14.770037779173293, lng: 108.53981016032041 }, // Vị trí trung tâm bản đồ (ví dụ: Thái Lan)
+        });
+
+        // Danh sách các vị trí
+        var locations = [
+            { lat: 11.3036301033772, lng: 106.12763336757901, title: "17 Lạc Long Quân, Hòa Thành, Tây Ninh" },
+            { lat: 10.782531301753535, lng: 106.95611553688592, title: "141 Hai Bà Trưng, Long Thành, Đồng Nai" },
+            { lat: 10.888294715798647, lng: 106.4043905092379, title: "114 Lê Lợi, Đức Hòa, Long An" },
+            { lat: 10.8092913743186, lng: 106.66495988106487, title: "32 Trường Sơn, Quận Tân Bình, Thành phố Hồ Chí Minh" }
+        ];
+
+        // Thêm các marker vào bản đồ
+        locations.forEach(function (location) {
+            var marker = new google.maps.Marker({
+                position: { lat: location.lat, lng: location.lng },
+                map: map,
+                title: location.title,
+            });
+
+            // Hiển thị thông tin khi nhấp vào marker
+            var infoWindow = new google.maps.InfoWindow({
+                content: location.title,
+            });
+
+            marker.addListener('click', function () {
+                infoWindow.open(map, marker);
+            });
+        });
+    }
+</script>
+ *@
+
+
+@* @{
+    ViewData["Title"] = "CuaHang";
+    <link rel="icon" href="path/to/favicon.ico">
+    <link href="~/css/lienhe.css" rel="stylesheet" />
+}
+
+
+<div id="cuahang" style="margin-bottom:35px;margin-top35px;">
+    <h2 style="color:#07522E;">Các chi nhánh cửa hàng</h2>
+    <div id="list-cuahang">
+        <div class="item3" onclick="focusBranch('tay-ninh')">
+            <div class="hinh">
+                <img src="~/css/img/cuahangcf.png" alt="Chi nhánh Tây Ninh" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh Tây Ninh</div>
+                <div class="detail">17 Lạc Long Quân, Hiệp Hòa, Hiệp Tân, Hòa Thành, Tây Ninh</div>
+            </div>
+        </div>
+
+        <div class="item3" onclick="focusBranch('ca-mau')">
+            <div class="hinh">
+                <img src="~/css/img/ch2.jpg" alt="Chi nhánh Cà Mau" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh Cà Mau</div>
+                <div class="detail">128A Nguyễn Tất Thành, Phường 8, Cà Mau</div>
+            </div>
+        </div>
+
+        <div class="item3" onclick="focusBranch('hcm')">
+            <div class="hinh">
+                <img src="~/css/img/ch3.jpg" alt="Chi nhánh HCM" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh HCM</div>
+                <div class="detail">32 Trường Sơn, Phường 2, Tân Bình, Tp Hồ Chí Minh</div>
+            </div>
+        </div>
+
+        <div class="item3" onclick="focusBranch('dong-nai')">
+            <div class="hinh">
+                <img src="~/css/img/cuahang.jpg" alt="Chi nhánh Đồng Nai" />
+            </div>
+            <div class="info">
+                <div class="name">Chi nhánh Đồng Nai</div>
+                <div class="detail">141 Hai Bà Trưng, Long Thành, Đồng Nai</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="map" style="width: 100%; height: 510px;"></div>
+
+<script>
+    let map;
+    const branchLocations = {
+        "tay-ninh": { lat: 11.3036301033772, lng: 106.12763336757901, title: "Chi nhánh Tây Ninh" },
+        "ca-mau": { lat: 9.176076, lng: 105.152421, title: "Chi nhánh Cà Mau" },
+        "hcm": { lat: 10.8092913743186, lng: 106.66495988106487, title: "Chi nhánh HCM" },
+        "dong-nai": { lat: 10.782531301753535, lng: 106.95611553688592, title: "Chi nhánh Đồng Nai" }
+    };
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 7,
+            center: { lat: 10.762622, lng: 106.660172 }
+        });
+
+        // Tạo marker cho tất cả các chi nhánh
+        for (const key in branchLocations) {
+            const location = branchLocations[key];
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: location.title
+            });
+
+            // Thêm InfoWindow để hiển thị thông tin khi click
+            const infoWindow = new google.maps.InfoWindow({
+                content: location.title
+            });
+
+            marker.addListener('click', () => {
+                infoWindow.open(map, marker);
+            });
+        }
+    }
+
+    // Hàm focus vào chi nhánh được chọn
+    function focusBranch(branch) {
+        const location = branchLocations[branch];
+        map.setCenter(location);
+        map.setZoom(15);
+
+        // Hiển thị InfoWindow cho chi nhánh được chọn
+        const infoWindow = new google.maps.InfoWindow({
+            content: location.title
+        });
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: location.title
+        });
+        infoWindow.open(map, marker);
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBat7CO2z3dYywzYS3TzdiVHWkC0na-GTc&callback=initMap">
+</script>
+
+ *@

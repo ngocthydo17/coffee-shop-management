@@ -1,0 +1,309 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+}
+
+
+<div class="slider">
+    <div class="list">
+        <div class="item">
+            <img src="~/css/img/img1.jpg" />
+        </div>
+        <div class="item">
+            <img src="~/css/img/img2.jpg" />
+        </div>
+       @*  <div class="item">
+            <img src="~/css/img/img3.png" />
+        </div> *@
+        <div class="item">
+            <img src="~/css/img/img4.png" />
+        </div>
+        <!-- <div class="item">
+            <img src="img/5.jpg" alt="">
+        </div> -->
+    </div>
+    <div class="buttons">
+        <button id="prev"><</button>
+        <button id="next">></button>
+    </div>
+    <ul class="dots">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+      @*   <li></li> *@
+@*         <li></li>
+ *@    </ul>
+</div>
+
+
+@* <div id="wp-banner" style="margin:10px">
+    <div id="banner">
+        <img src="~/css/img/banner2.png" class="size-banner" />
+    </div>
+</div> *@
+
+@* <div id="wp-about">
+    <div id="about">
+        <div class="left">
+            <img src="~/css/img/cuahang3.jpg" />
+        </div>
+        <div class="right">
+            <ul>
+                <h1 style=" color:#07522E">GIỚI THIỆU</h1>
+                <h2>Le Petit - Chạm đến hương vị Pháp đích thực</h2>
+                <br />
+                <p>Le Petit là quán cà phê nhỏ xinh mang phong cách Pháp, nằm ở góc yên tĩnh giữa lòng thành phố. Với không gian ấm cúng và hương vị cà phê đậm đà, Le Petit là nơi lý tưởng để bạn thư giãn và tận hưởng những khoảnh khắc bình yên.</p>
+
+                <p>Đội ngũ nhân viên nhiệt tình và chuyên nghiệp sẽ luôn đảm bảo rằng bạn được phục vụ tốt nhất. Le Petit còn nổi tiếng với các loại cà phê đặc biệt được pha chế tỉ mỉ và đậm đà hương vị.</p>
+
+                <p>Le Petit là điểm đến lý tưởng để bạn có thể tận hưởng một ly cà phê ngon, thư giãn và trò chuyện cùng bạn bè hoặc tận hưởng thời gian riêng tư.</p>
+
+                <p>Hãy ghé thăm và khám phá không gian tuyệt vời này!</p>
+            </ul>
+        </div>
+    </div>
+</div> *@
+
+<div class="ve-lepetit">
+    <div class="nd-velepetit  animate__animated animate__slideInDown">
+        <h1>Về Le Petit</h1>
+        <h2> Le Petit - HÀNH TRÌNH CHINH PHỤC PHONG VỊ MỚI</h2>
+        <p>
+            Hành trình luôn bắt đầu từ việc chọn lựa nguyên liệu kỹ càng từ các vùng đất trù phú, cho đến việc bảo quản, pha chế từ bàn tay nghệ nhân.
+            Qua những nỗ lực không ngừng, Le Petit luôn hướng đến...
+        </p>
+        <div>
+            <a asp-area="Home" asp-action="LienHe">
+                <button type="submit" class="xemthem">Xem thêm</button>
+
+            </a>
+        </div>
+    </div>
+
+    <div class="hinh-velepetit animate__animated animate__slideInRight">
+        <img src="~/css/img/tuyendung.jpg" alt="Le Petit Café Staff" />
+    </div>
+</div>
+
+@* <hr style="padding:20px" /> *@
+
+<div class="danhmuc">
+
+    <div class="img_dm">
+        <a asp-controller="SanPhams" asp-action="Sanpham1" asp-route-category="L0002">
+            <img src="~/css/img/cf.png" alt="Cafe" />
+            <div class="title_dm">
+                <h2>Cafe</h2>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="img_dm">
+        <a asp-controller="SanPhams" asp-action="Sanpham1" asp-route-category="L0001">
+            <img src="~/css/img/tra_home.png" alt="Trà" />
+            <div class="title_dm">
+                <h2>Trà</h2>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="img_dm">
+        <a asp-controller="SanPhams" asp-action="Sanpham1" asp-route-category="L0004">
+            <img src="~/css/img/banh.png" alt="Bánh" />
+            <div class="title_dm">
+                <h2>Bánh</h2>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+<div class="videoclip">
+
+    <video id="video"
+           autoplay
+           muted
+           loop
+           src="/video/video17.mp4">
+        @*  <source src="/video/video17.mp4" type="video/mp4" class="videoclip"/> *@
+    </video>
+</div>
+
+<div class="cuahang-container">
+    <div class="cuahang-info">
+        <h1>Cửa Hàng</h1>
+        <p>
+            Lấy cảm hứng từ các vùng đất trên thế giới, Le Petit tạo ra không gian mở và thân thiện nhằm kết nối và ghi lại những khoảnh khắc tươi vui trong lúc thưởng thức.
+        </p>
+        <a asp-area="Home" asp-action="CuaHang">
+            <button type="submit" class="xemch">Xem cửa hàng</button>
+        </a>
+    </div>
+    <div class="slideshow">
+        <div class="slide-wrapper">
+            <img src="~/css/img/ch_du.png">
+            <img src="~/css/img/ch_du2.png">
+            <img src="~/css/img/ch_du3.jpg">
+            <img src="~/css/img/ch_du4.jpg">
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .videoclip {
+        /* margin-top: 25px; */
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    #video {
+        margin-top: 12px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+        transform: translate(-50%,-50%);
+        /*   width:100%;
+                margin-top:25px;
+                height:500px; */
+    }
+    /*
+             video source .videoclip {
+                height:500px;
+
+            } */
+    .ve-lepetit {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .nd-velepetit {
+        flex: 1;
+        max-width: 50%;
+    }
+
+        .nd-velepetit h1 {
+            font-weight: bold;
+            font-size: 45px;
+            color: #07522E;
+            margin-bottom: 10px;
+            font-family: 'Philosopher';
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .nd-velepetit h2 {
+            font-size: 24px;
+            color: #11633C;
+            margin-bottom: 20px;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .nd-velepetit p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #2C2A28;
+            font-family: "Space Grotesk", sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .nd-velepetit button.xemthem {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #07522E;
+            color: #07522E;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            width: 150px;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+
+            .nd-velepetit button.xemthem:hover {
+                background-color: #07522E;
+                color: #fff;
+            }
+
+    .hinh-velepetit {
+        flex: 1;
+        max-width: 40%;
+    }
+
+        .hinh-velepetit img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+</style>
+<script>
+    let slider = document.querySelector('.slider .list');
+    let items = document.querySelectorAll('.slider .list .item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    let dots = document.querySelectorAll('.slider .dots li');
+
+    let lengthItems = items.length - 1;
+    let active = 0;
+
+    next.onclick = function () {
+        active = active + 1 <= lengthItems ? active + 1 : 0;
+        reloadSlider();
+    }
+
+    prev.onclick = function () {
+        active = active - 1 >= 0 ? active - 1 : lengthItems;
+        reloadSlider();
+    }
+
+    let refreshInterval = setInterval(() => { next.click() }, 3000);
+
+    function reloadSlider() {
+        slider.style.left = -items[active].offsetLeft + 'px';
+
+        // Update dots
+        let last_active_dot = document.querySelector('.slider .dots li.active');
+        last_active_dot.classList.remove('active');
+        dots[active].classList.add('active');
+
+        // Reset interval for auto sliding
+        clearInterval(refreshInterval);
+        refreshInterval = setInterval(() => { next.click() }, 3000);
+    }
+
+    dots.forEach((li, key) => {
+        li.addEventListener('click', () => {
+            active = key;
+            reloadSlider();
+        });
+    });
+
+    window.onresize = function (event) {
+        reloadSlider();
+    };
+
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    setInterval(() => {
+        slides[currentSlide].style.opacity = 0;
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.opacity = 1;
+    }, 15000);
+</script>

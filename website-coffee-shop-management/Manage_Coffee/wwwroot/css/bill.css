@@ -1,0 +1,193 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+}
+
+.bill_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Căn đều các phần tử theo chiều dọc */
+    padding: 0 100px; /* Thêm khoảng cách cho container */
+    margin: 0 100px;
+}
+
+
+.bill_left, .bill_right {
+    width: 50%; /* Giảm chiều rộng để tạo khoảng trống */
+    margin: 0 40px; /* Tạo thêm khoảng trống giữa các phần tử */
+}
+
+.bill_left {
+    text-align: left;
+}
+
+.horizontal-container {
+    display: flex;
+    align-items: center; /* Căn chỉnh chữ vào giữa chiều cao của hình */
+}
+
+    .horizontal-container img {
+        margin-right: 10px; /* Tạo khoảng cách giữa hình ảnh và văn bản */
+        display: block;
+        height: 60px; /* Đảm bảo chiều cao nhất quán của hình */
+    }
+
+    .horizontal-container h4 {
+        line-height: 60px; /* Đặt line-height bằng chiều cao hình để căn giữa chữ */
+        margin: 0; /* Xóa khoảng cách mặc định của h4 */
+    }
+
+#bill_in4 {
+    border: 1px solid #CFCFCF;
+    padding: 15px;
+    border-radius: 3px;
+    margin-top: 20px;
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử bên trong */
+    width: 100%;
+}
+
+#left {
+    flex: 1; /* Phần tử này sẽ chiếm không gian còn lại */
+    margin-right: 10px; /* Khoảng cách giữa left và right */
+}
+
+#right {
+    display: flex; /* Sử dụng Flexbox cho phần tử right */
+    flex-direction: column; /* Đặt các phần tử bên trong theo chiều dọc */
+    justify-content: center; /* Căn giữa các phần tử bên trong */
+}
+
+#bill_in4 p {
+    margin: 5px 0;
+}
+
+.bill_right {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 30%;
+    text-align: left;
+    /*    max-width: 80%;
+*/ margin: 30px 0 30px;
+}
+
+h5 {
+    color: #07522E;
+    font-weight: 600;
+}
+
+.bill_right hr {
+    border: none;
+    height: 2px;
+    background-color: #07522E;
+    margin: 5px 0;
+    width: 20%;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total, .shipping, .discount, .xu {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.price {
+    color: #FF7F27;
+}
+
+.bill_right p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.final-section {
+    background-color: #06522e;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.final-total {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.button {
+    display: flex; /* Sử dụng flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    margin-top: 20px; /* Khoảng cách trên với nội dung phía trên */
+}
+
+    .button a {
+        margin: 0 10px; /* Khoảng cách giữa các button */
+    }
+
+/*@media (min-width: 320px) and (max-width: 1440px) {
+}*/
+/*@media (max-width: 1024px) {
+    .bill_container {
+        flex-direction: column;*/ /* Thay đổi từ flex hàng ngang sang cột dọc */
+/*align-items: center;*/ /* Căn giữa các phần tử */
+/*}
+
+    .bill_left, .bill_right {
+        width: 80%;*/ /* Giảm chiều rộng cho mỗi phần */
+/*margin: 10px 0;*/ /* Khoảng cách giữa hai phần */
+/*}
+
+    .bill_right {
+        margin-left: 0;*/ /* Xóa khoảng cách bên trái */
+/*}
+}*/
+
+/* Màn hình dưới 768px (điện thoại lớn, tablets nhỏ) */
+/*@media (max-width: 768px) {
+    .bill_left, .bill_right {
+        width: 100%;*/ /* Cho mỗi phần chiếm toàn bộ chiều ngang */
+/*margin: 10px 0;*/ /* Tạo khoảng cách giữa hai phần */
+/*}
+
+    .bill_container {
+        padding: 0 20px;*/ /* Giảm padding khi màn hình nhỏ hơn */
+/*margin: 0;
+    }
+
+    .final-total {
+        font-size: 16px;*/ /* Giảm kích thước chữ để phù hợp */
+/*}
+}*/
+
+/* Màn hình dưới 480px (điện thoại nhỏ) */
+/*@media (max-width: 480px) {
+    .bill_container {
+        padding: 0 10px;*/ /* Giảm thêm padding cho màn hình nhỏ */
+/*}
+
+    .bill_left, .bill_right {
+        width: 100%;*/ /* Chiếm toàn bộ chiều rộng */
+/*margin: 10px 0;*/ /* Khoảng cách giữa hai phần */
+/*}
+
+    .horizontal-container h4 {
+        font-size: 16px;*/ /* Giảm kích thước chữ của tiêu đề */
+/*}
+
+    .price {
+        font-size: 14px;*/ /* Giảm kích thước giá */
+/*}
+}*/
+.bill_right .sp {
+    height: 200px; /* Chiều cao cố định của container */
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    padding: 10px; /* Khoảng cách trong để dễ nhìn */
+}

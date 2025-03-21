@@ -1,0 +1,294 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/nendn.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+    body::before {
+        height: 738px;
+        content: '';
+        position: absolute; /* Position it absolutely */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.5); /* Dark overlay with 50% opacity */
+        z-index: 1; /* Place the overlay behind other content */
+    }
+
+.login-container {
+    opacity: 80%;
+    align-items: center;
+    justify-content: center;
+    height: 580px;
+    margin: auto;
+    position: relative; /* Set position to relative */
+    display: flex;
+    /*max-width: 1028px;*/
+    width: 1000px;
+    /*min-height: 500px;*/
+    background-color: rgba(255, 255, 255, 0.9); /* White background with reduced opacity */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly reduced opacity for inner section */
+    z-index: 2; /* Bring the container above the overlay */
+}
+
+.image-container {
+    width: 45%;
+    /*background-image: url('img/coffee-beans-5712780_1280.jpg');*/ /* Replace with actual image path */
+    background-size: cover;
+    background-position: center;
+}
+
+    .image-container img {
+        object-fit: contain;
+        border-radius: 3px;
+        margin: 20px;
+        width: 438px;
+        height: 540px;
+        object-fit: cover;
+    }
+
+.login-form {
+    margin-left: auto;
+    justify-items: center;
+    width: 52%;
+    /*max-width: 500px;*/ /* Use max-width instead of fixed width */
+    padding: 60px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8); /* Optional for contrast */
+    z-index: 2; /* Ensure it's above the overlay */
+}
+
+    .login-form form input[type="number"],
+    .login-form form input[type="password"] {
+        /*width: 100%;*/
+        padding: 12px;
+        margin: 8px 0;
+        border: 2px solid #1a531b;
+        font-size: 16px;
+    }
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 366px;
+}
+
+    .input-group input {
+        border-radius: 9px !important;
+        width: 365px;
+        padding: 12px;
+        border: 2px solid #004400;
+        font-size: 16px;
+    }
+
+h2 {
+    font-weight: bold;
+    color: #1a531b;
+    margin-bottom: 20px;
+    font-size: 27px;
+}
+
+.login-btn {
+    margin: 0;
+/*    font-family: Arial;
+*/    width: 365px;
+}
+
+.forgot-password {
+    text-align: right;
+    /*margin: 5px 0;*/
+}
+
+/* Buttons */
+.login-form form button {
+    padding: 12px;
+    background-color: #07522E;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+
+/* Social Login Styles */
+.login-form .social-login {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+    .login-form .social-login a {
+        display: flex;
+        align-items: center;
+        width: 48%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        border: 1px solid rgba(217, 217, 217, 0.4); /* Light border */
+        border-radius: 5px;
+        color: #333;
+        text-decoration: none;
+        justify-content: center;
+        background-color: rgba(217, 217, 217, 0.4); /* Background color with 40% opacity */
+    }
+
+        .login-form .social-login a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+/* Links */
+.login-form .forgot-password a,
+.login-form .register a {
+    color: #07522E;
+    text-decoration: none;
+}
+
+.login-form .register a {
+    text-decoration: underline;
+}
+
+.login-form .register {
+    text-align: center;
+    margin-top: 4px;
+}
+
+
+.back a {
+    font-size: 18px;
+    color: #07522E;
+    text-decoration: none;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.login_admin a {
+    font-size: 17px;
+    color: #07522E;
+    text-decoration: none;
+    text-align: right;
+    margin-top: 10px;
+}
+/*line*/
+.login-role-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0; /* Khoảng cách trên dưới */
+}
+
+.login-role-text {
+    font-size: 18px;
+    font-weight: bold;
+    /*font-family: raleway;*/
+    color: #07522E;
+    margin: 0 20px; /* Khoảng cách giữa text và đường gạch */
+}
+
+.line {
+    width: 90px;
+    flex: 2;
+    height: 1.5px;
+    background-color: #07522E;
+}
+
+/* Responsive Styles cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column !important; /* Đặt các phần tử theo cột */
+        padding: 20px !important;
+        width: 100% !important; /* Chiếm toàn bộ chiều rộng màn hình */
+    }
+
+    .image-container {
+        display: none !important; /* Ẩn hình ảnh trên màn hình nhỏ */
+    }
+
+    .login-form {
+        width: 100% !important; /* Đảm bảo form chiếm toàn bộ chiều rộng */
+        padding: 20px !important;
+        margin: 0 auto !important; /* Căn giữa form */
+    }
+
+    .input-group input,
+    .login-btn {
+        width: 100% !important; /* Chiếm toàn bộ chiều rộng màn hình */
+        padding: 12px !important; /* Tăng padding để dễ nhập liệu hơn */
+    }
+
+    .social-login {
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+        .social-login a {
+            width: 100% !important;
+            padding: 12px !important;
+        }
+
+    .forgot-password, .register {
+        text-align: center !important;
+        margin-top: 10px !important;
+    }
+
+    h2 {
+        font-size: 24px !important;
+    }
+}
+
+/* Responsive cho màn hình từ 576px trở xuống (mobile nhỏ) */
+@media (max-width: 576px) {
+    .login-container {
+        padding: 15px !important;
+        width: 100% !important;
+    }
+
+    .login-form {
+        padding: 20px !important;
+        width: 100% !important;
+    }
+
+    .input-group input,
+    .login-btn {
+        width: 100% !important; /* Chiếm toàn bộ chiều rộng */
+        padding: 12px !important; /* Tăng padding */
+    }
+
+    .social-login {
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+        .social-login a {
+            width: 100% !important;
+            padding: 12px !important;
+        }
+
+    .forgot-password, .register {
+        margin-top: 10px !important;
+    }
+}

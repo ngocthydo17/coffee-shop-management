@@ -1,0 +1,106 @@
+﻿@model Manage_Coffee.Areas.Admin.Models.CheckoutViewModel
+@{
+    ViewData["Title"] = "Checkout";
+    var phieuOrder = ViewBag.PhieuOrder;
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+<link rel="stylesheet" href="~/css/order.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+@* <h2>Checkout</h2>
+ *@
+@* <div class="nhan-vien-info">
+    <p><strong>Nhân viên:</strong> @Model.TenNhanVien</p>
+</div> *@
+<div class="header">
+    <div class="title">
+        <img src="~/css/img/logo2.png" style="height: 50px; width: 130px;" />
+    </div>
+    @*   <div>
+    <a href="@Url.Action("PendingOrders", "ListOrder", new { area = "Admin" })" class="btn btn-danger">
+    Xác nhận đơn
+    </a>
+    </div>
+    <div>
+    <a href="@Url.Action("Orders", "ListOrder", new { area = "Admin" })" class="btn btn-danger">
+    Xác nhận đơn
+    </a>
+    </div> *@
+    <div class="user-info">
+        <span>
+            <p>@Model.TenNhanVien</p>
+        </span>
+        <a href="@Url.Action("LogoutAdmin", "PhucVu", new { area = "Admin" })" class="btn btn-danger">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </a>
+    </div>
+</div>
+<div class="container_checkout">
+    <div class="bill">
+        <p>Hóa đơn</p>
+        @if (Model.CartItems != null && Model.CartItems.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Kích thước</th>
+                        @*                 <th>Trị giá</th>
+                    *@
+                        <th>Đơn giá</th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    @foreach (var item in Model.CartItems)
+                    {
+                        <tr>
+
+                          
+                            <td>@item.Ten</td>
+                            <td>@item.Soluong</td>
+                            <td>@item.SizeName - @String.Format(formatMoney, "{0:c00}", @item.TriGia)</td>
+                            <td>   @String.Format(formatMoney, "{0:c00}", @item.Dongia)</td>
+                          
+                            <td>   @String.Format(formatMoney, "{0:c00}", item.Soluong * (item.Dongia + item.TriGia)) </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Giỏ hàng hiện không có sản phẩm nào.</p>
+        }
+        <div class="bill_total">
+           
+            <p>Tổng tiền:  @String.Format(formatMoney, "{0:c00}", Model.TongTien)</p>
+        </div>
+    </div>
+    <div class="action">
+        <form asp-action="ConfirmCheckout" method="post">
+            <div class="form-group">
+                <label for="soban">Số bàn</label>
+                <input type="number" id="soban" name="soban" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="pttt">Phương thức thanh toán</label>
+                <select id="pttt" name="pttt" class="form-control" required>
+                    <option value="Tiền mặt">Tiền mặt</option>
+                    <option value="Thẻ">Thẻ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tenKhachHang">Tên khách hàng</label>
+                <input type="text" id="tenKhachHang" name="tenKhachHang" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="sdt">Số điện thoại</label>
+                <input type="number" id="sdt" name="sdt" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-success">Xác nhận thanh toán</button>
+        </form>
+    </div>
+</div>

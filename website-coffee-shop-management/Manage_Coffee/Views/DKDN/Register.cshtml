@@ -1,0 +1,58 @@
+﻿@model Manage_Coffee.Models.DKSDT
+@{
+    ViewData["Title"] = "Đăng Ký";
+    ViewBag.HideHeaderFooter = true;
+    <link rel="stylesheet" href="~/css/dangky.css" />
+}
+
+<div class="dk-container">
+    <div class="img-containerdk">
+        <img src="~/css/img/coffee-3759005_640.jpg" alt="Coffee Beans" />
+    </div>
+
+    <div class="dk-form">
+        <form asp-action="Register" method="post">
+            <h2>ĐĂNG KÝ</h2>
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="Ten">Tên / Name</label>
+                <input asp-for="Ten" id="Ten" maxlength="30" pattern="[A-Za-z\s]+" placeholder="Nhập tên" required style="" />
+                <span asp-validation-for="Ten"></span>
+            </div>
+
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="Sdt">Số điện thoại / Phone Number</label>
+                <input asp-for="Sdt" id="Sdt" type="text" maxlength="10" inputmode="numeric" pattern="\d{10,11}" placeholder="Nhập số điện thoại" required />
+                <span asp-validation-for="Sdt"></span>
+            </div>
+
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="Matkhau">Mật khẩu / Password</label>
+                <input asp-for="Matkhau" id="Matkhau" type="password" minlength="8" maxlength="15" pattern="[A-Za-z0-9]+" placeholder="Nhập mật khẩu" required />
+                <span asp-validation-for="Matkhau"></span>
+            </div>
+
+            <div class="input-group" style="border-radius: 5px;">
+                <label for="MatkhauNhapLai">Xác nhận mật khẩu / Confirm Password</label>
+                <input asp-for="MatkhauNhapLai" id="MatkhauNhapLai" type="password" minlength="8" maxlength="15" pattern="[A-Za-z0-9]+" placeholder="Xác nhận mật khẩu" required />
+                <span asp-validation-for="MatkhauNhapLai"></span>
+            </div>
+
+            <div class="dangky">
+                Đã có tài khoản? <a style="font-weight:bold;" asp-controller="DKDN" asp-action="Login">Đăng nhập</a>
+            </div>
+
+            <button type="submit" class="dk-btn">Đăng Ký</button>
+
+        </form>
+        <div class="login-role-container">
+            <span class="line"></span>
+            <span class="login-role-text">Đăng ký với</span>
+            <span class="line"></span>
+        </div>
+
+        <div class="social-login">
+            <a asp-controller="Account" asp-action="Signup"> <img src="~/css/icon/icons8-email-48.png" alt="Email Icon">Email</a>
+        </div>
+    </div>
+
+</div>

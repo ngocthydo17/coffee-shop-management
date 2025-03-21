@@ -1,0 +1,155 @@
+﻿@model Manage_Coffee.Models.NguyenVatLieu
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<}
+<div class="dk-container">
+
+    <div class="dk-form">
+
+        <form asp-action="Create" method="post">
+
+            <h2>Thêm nguyên vật liệu mới</h2>
+
+            <div class="form-group">
+                <label for="Ten">Tên Nguyên Vật Liệu</label>
+                <input type="text" class="form-control" id="Ten" name="Ten"/>
+                <span asp-validation-for="Ten" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Dongia">Đơn Giá</label>
+                <input type="number" class="form-control" id="Dongia" name="Dongia"/>
+                <span asp-validation-for="Dongia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Dvt">Đơn Vị Tính</label>
+                <input type="text" class="form-control" id="Dvt" name="Dvt" />
+                <span asp-validation-for="Dvt" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Mota">Mô Tả</label>
+                <input type="text" class="form-control" id="Mota" name="Mota"/>
+                <span asp-validation-for="Mota" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Anh">Ảnh</label>
+                <input type="text" class="form-control" id="Anh" name="Anh"/>
+                <span asp-validation-for="Anh" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="dk-btn">Lưu</button>
+        </form>
+    </div>
+</div>
+<style>
+    .dk-container {
+        margin-bottom: 20px;
+        margin-left: 35%;
+        margin-top: 20px;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        height: 580px;
+        position: relative; /* Set position to relative */
+        display: flex;
+        width: 500px;
+        background-color: rgba(255, 255, 255, 0.9); /* White background with reduced opacity */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.8); /* Slightly reduced opacity for inner section */
+        z-index: 2; /* Bring the container above the overlay */
+    }
+
+
+    .dk-form {
+        height: 640px;
+        width: 500px;
+        /*max-width: 500px;*/ /* Use max-width instead of fixed width */
+        padding: 60px 30px;
+        display: flex;
+        margin-right: auto;
+        justify-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.8); /* Optional for contrast */
+        z-index: 2; /* Ensure it's above the overlay */
+    }
+
+        .dk-form form input[type="number"],
+        .dk-form form input[type="text"] {
+            /*width: 100%;*/
+            padding: 12px;
+            margin: 7px 0;
+            border: 2px solid #1a531b;
+            font-size: 16px;
+        }
+
+    .form-group {
+        margin-top: 10px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 366px;
+    }
+
+        .form-group input {
+            border-radius: 9px !important;
+            width: 365px;
+            padding: 12px;
+            border: 2px solid #004400;
+            font-size: 16px;
+        }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        color: #1a531b;
+        /*margin-bottom: 20px;*/
+        font-size: 27px;
+    }
+
+    .dk-btn {
+        margin: 0;
+        font-family: Arial;
+        width: 365px;
+    }
+    /* Buttons */
+    .dk-form form button {
+        padding: 12px;
+        background-color: #07522E;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 9px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+
+    .dk-form .dangky a {
+        color: #07522E;
+        text-decoration: none;
+    }
+
+    .dk-form .dangky a {
+        text-decoration: underline;
+    }
+
+    .dk-form .dangky {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dk-form label {
+        color: #1a531b;
+    }
+
+</style>

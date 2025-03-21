@@ -1,0 +1,260 @@
+﻿@model Manage_Coffee.Models.SanPham
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+
+@* <div>
+    <label>Mã Sản Phẩm:</label>
+    <span>@Model.MaSp</span>
+</div>
+
+<div>
+    <label>Tên Sản Phẩm:</label>
+    <p>@Model.Ten</p>
+</div>
+
+<div>
+    <label>Đơn Giá:</label>
+    <p>@Model.Dongia VND</p>
+</div>
+
+<div>
+    <label>Đơn Vị Tính:</label>
+    <p>@Model.Dvt</p>
+</div>
+
+<div>
+    <label>Mô Tả:</label>
+    <p>@Model.Mota</p>
+</div>
+
+<div>
+    <label>Đường Dẫn Ảnh:</label>
+    <p>@Model.Anh</p>
+</div>
+
+<div>
+    <label>Trạng Thái:</label>
+    <span>@(Model.TrangThai ? "Hoạt động" : "Không hoạt động")</span>
+</div>
+
+<div>
+    <label>Loại:</label>
+    @if (ViewData["LoaiList"] is List<Manage_Coffee.Models.Loai> loaiList)
+    {
+        var loai = loaiList.FirstOrDefault(l => l.Maloai == Model.Maloai);
+        if (loai != null)
+        {
+            <p>@loai.Ten</p>
+        }
+        else
+        {
+            <p>Không xác định</p>
+        }
+    }
+    else
+    {
+        <p>Không xác định</p>
+    }
+</div>
+
+<div>
+    <label>Topping:</label>
+    @if (ViewData["ToppingList"] is List<Manage_Coffee.Models.SanPham> toppingList)
+    {
+        var topping = toppingList.FirstOrDefault(t => t.MaSp == Model.MaTopping);
+        if (topping != null)
+        {
+            <p>@topping.Ten</p>
+        }
+        else
+        {
+            <p>Không có</p>
+        }
+    }
+    else
+    {
+        <p>Không có</p>
+    }
+
+</div> *@
+@* <button class="btn btn-danger" onclick="confirmDelete('@Model.MaSp')">Xóa</button> *@
+
+<div class="product-details-container">
+    <div class="product-details">
+        <h2>CHI TIẾT SẢN PHẨM</h2>
+
+        <dl class="row">
+
+            <dt>Mã Sản Phẩm: </dt>
+            <dd>@Model.MaSp</dd>
+
+            <dt>Tên Sản Phẩm: </dt>
+            <dd>@Model.Ten</dd>
+
+            <dt>Đơn Giá: </dt>
+            <dd>@String.Format(formatMoney, "{0:c00}", Model.Dongia) </dd>
+
+            <dt>Đơn Vị Tính: </dt>
+            <dd>@Model.Dvt</dd>
+
+            <dt>Mô Tả: </dt>
+            <dd>@Model.Mota</dd>
+
+            <dt>Đường Dẫn Ảnh:</dt>
+            <dd>@Model.Anh</dd>
+
+            <dt>Trạng Thái:</dt>
+            <dd>@(Model.TrangThai ? "Hoạt động" : "Không hoạt động")</dd>
+
+            <dt>Loại:</dt>
+            <dd>
+                @if (ViewData["LoaiList"] is List<Manage_Coffee.Models.Loai> loaiList)
+                {
+                    var loai = loaiList.FirstOrDefault(l => l.Maloai == Model.Maloai);
+                    if (loai != null)
+                    {
+                        <p>@loai.Ten</p>
+                    }
+                    else
+                    {
+                        <p>Không xác định</p>
+                    }
+                }
+                else
+                {
+                    <p>Không xác định</p>
+                }
+            </dd>
+            <dt>Topping:</dt>
+            <dd>
+                @if (ViewData["ToppingList"] is List<Manage_Coffee.Models.SanPham> toppingList)
+                {
+                    var topping = toppingList.FirstOrDefault(t => t.MaSp == Model.MaTopping);
+                    if (topping != null)
+                    {
+                        <p>@topping.Ten</p>
+                    }
+                    else
+                    {
+                        <p>Không có</p>
+                    }
+                }
+                else
+                {
+                    <p>Không có</p>
+                }
+            </dd>
+        </dl>
+
+    </div>
+</div>
+
+<div class="action-buttons">
+    <a href="@Url.Action("Index", "SPAdmin")" class="back-home">Quay lại</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function confirmDelete(id) {
+        if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+            $.ajax({
+                url: '@Url.Action("DeleteConfirmed", "SPAdmin")',
+                type: 'POST',
+                data: { id: id },
+                success: function (response) {
+                    alert('Sản phẩm đã được xóa thành công.');
+                    // Xóa sản phẩm khỏi bảng hoặc làm mới danh sách sản phẩm
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    alert('Có lỗi xảy ra, vui lòng thử lại.');
+                }
+            });
+        }
+    }
+</script>
+
+<style>
+    .product-details-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 120px auto;
+    }
+
+    .product-details {
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 7px;
+        background-color: #fff;
+        width: 400px;
+        text-align: left;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 30px;
+        margin-top: 7px;
+    }
+
+    dl.row {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        column-gap: 25px;
+        row-gap: 13px;
+    }
+
+    dt {
+        width: 155px;
+        margin-left: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+        color: #333;
+    }
+
+    dd {
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-bottom: 8px;
+        font-size: 17px;
+        color: #555;
+        width: 120px;
+    }
+
+        dd img {
+            display: block;
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+    .back-home {
+        margin: 20px;
+        display: inline-block;
+        width: 8%;
+        padding: 10px;
+        color: #fff;
+        background-color: #a47c65;
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+        .back-home:hover {
+            background-color: #8a634e;
+        }
+
+</style>

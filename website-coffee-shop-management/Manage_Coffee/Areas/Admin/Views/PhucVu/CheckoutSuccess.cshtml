@@ -1,0 +1,212 @@
+﻿@using System.Globalization
+@{
+    ViewData["Title"] = "Thanh toán thành công";
+}
+@{
+    var phieuOrder = ViewBag.PhieuOrder;
+    var vietnamCulture = new CultureInfo("vi-VN"); // Định dạng văn hóa Việt Nam
+
+}
+
+
+<div class="thanhtoan-pdf">
+
+    <h2>Thanh toán thành công!</h2>
+    @*     <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
+    *@
+    <div class="order-info">
+        <h2>Chi tiết đơn hàng: @phieuOrder.MaOrder</h2>
+        <p><strong>Ngày giờ đặt:</strong> @phieuOrder.Ngaygiodat</p>
+        <p><strong>Số bàn:</strong> @phieuOrder.Soban</p>
+        <p><strong>Khách hàng:</strong> @phieuOrder.Ten</p>
+        <p><strong>Số điện thoại:</strong> @phieuOrder.Sdt</p>
+        <p><strong>Phương thức thanh toán:</strong> @phieuOrder.Pttt</p>
+        <p><strong>Tổng tiền:</strong> @phieuOrder.Tongtien.ToString("C0", vietnamCulture)</p>
+    </div>
+
+    <div class="product-info">
+        <h3>Chi tiết sản phẩm:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in phieuOrder.ChiTietSanPhams)
+                {
+                    <tr>
+                        <td>@item.MaSp</td>
+                        <td>@item.SanPham</td>
+                        <td>@item.Soluong</td>
+                        <td>@item.Gia.ToString("C0", vietnamCulture)</td>
+                        <td>@item.TongTien.ToString("C0", vietnamCulture)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button onclick="downloadPdf('@ViewBag.MaOrder')" class="pdf">Tải hóa đơn PDF</button>
+    </div>
+</div>
+
+<div class="action-buttons">
+    <a href="@Url.Action("Index", "PhucVu")" class="back-home">Quay lại</a>
+</div>
+
+
+<script>
+    function downloadPdf(maOrder) {
+        if (maOrder) {
+            window.location.href = `/Admin/PhucVu/DownloadPdf?maOrder=${maOrder}`;
+        } else {
+            alert("Không tìm thấy mã đơn hàng!");
+        }
+    }
+</script>
+<style>
+    /* Container for order details */
+    .order-info, .product-info {
+        background-color: #f6f5f3;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        /* Header for order details */
+        .order-info h2 {
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        /* Order details text styling */
+        .order-info p, .product-info table {
+            text-align: left;
+            color: #555;
+            font-size: 19px;
+        }
+
+        /* Table styling */
+        .product-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .product-info th {
+            text-align: left;
+            font-weight: bold;
+            color: #333;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-info td {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            color: #555;
+        }
+
+            .product-info td:last-child, .product-info th:last-child {
+                text-align: right;
+            }
+
+    /* PDF download button styling */
+    .pdf {
+        display: block;
+        margin: 20px auto 0;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #b58d70;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .pdf:hover {
+            background-color: #9f7c5c;
+        }
+
+    /* Overall layout */
+    .thanhtoan-pdf {
+        max-width: 45%;
+        margin: 25px auto;
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        color: #777;
+        font-size: 16px;
+    }
+
+
+    .pdf, .back-home {
+        /*  display: inline-block; */
+        width: 40%;
+        padding: 10px;
+        margin-top: 10px;
+        color: #fff;
+        background-color: #a47c65;
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+        .pdf:hover, .back-home:hover {
+            background-color: #8a634e;
+        }
+
+    .back-home {
+        display: inline-block;
+        width: 8%;
+        padding: 10px;
+        margin-top: 10px;
+        color: #fff;
+        background-color: #a47c65;
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+        .back-home:hover {
+            background-color: #8a634e;
+        }
+
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+</style>

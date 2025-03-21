@@ -1,0 +1,268 @@
+﻿/* Cấu hình chung cho body */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/nendk.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        z-index: 1;
+    }
+
+/* Container đăng ký */
+.signup-container {
+    opacity: 80%;
+    height: 90%;
+    margin: auto;
+    position: relative; /* Set position to relative */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
+    overflow: hidden;
+    z-index: 2;
+    flex-direction: row-reverse; /* Đổi thứ tự các phần tử */
+}
+
+/* Hộp chứa ảnh */
+.img-container-signup {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+    .img-container-signup img {
+        object-fit: cover;
+        border-radius: 9px;
+        /*margin: 20px;*/
+        width: 92%;
+        height: 560px;
+    }
+
+/* Form đăng ký */
+.signup-form {
+    height: 100%;
+    /*width: 100%;
+    max-width: 500px;*/
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+    flex: 1;
+    margin: 0 auto; /* Căn giữa form theo chiều ngang */
+    box-sizing: border-box; /* Đảm bảo padding không thay đổi kích thước */
+}
+
+    .signup-form form input {
+        height: 51.2px;
+        width: 100%; /* Giữ cho các trường gọn gàng hơn */
+        margin: 10px 0; /* Khoảng cách giữa các trường */
+        padding: 12px; /* Đệm bên trong trường */
+        font-size: 16px; /* Kích thước chữ */
+        border-radius: 9px; /* Đường viền bo tròn nhẹ */
+        border: 2px solid #1a531b; /* Màu sắc và độ dày của đường viền */
+        box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+    }
+        /* Input fields */
+        .signup-form form input[type="email"],
+        .signup-form form input[type="password"] {
+            height: 51.2px;
+            width: 100%;
+            /*        max-width: 600px;
+*/          padding: 10px;
+              font-size: 16px;
+            border: 2px solid #1a531b;
+            border-radius: 9px;
+            color: #333;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+    /* Hiệu ứng khi hover */
+    .signup-form input:hover {
+        border-color: #0a6d3a;
+    }
+
+    /* Hiệu ứng khi focus (khi người dùng click vào) */
+    .signup-form input:focus {
+        border-color: #0a6d3a;
+        outline: none;
+    }
+
+
+.ten {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    gap: 10px; /* Khoảng cách giữa các trường */
+}
+
+    .ten input {
+        width: 100%;
+    }
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Căn các phần tử theo chiều dọc */
+    width: 100%;
+    max-width: 365px;
+    /*margin-bottom: 15px;*/
+}
+
+    .form-group label {
+        font-weight: bold;
+        color: #1a531b;
+    }
+
+    .form-group input {
+        height: 45px;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #1a531b;
+        border-radius: 5px;
+        box-sizing: border-box; /* Tránh kích thước bị ảnh hưởng bởi padding */
+    }
+
+
+/* Nút đăng ký */
+.dk-btn {
+    width: 90%;
+    padding: 12px;
+    background-color: #07522E;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+    /* Hiệu ứng hover cho nút */
+    .dk-btn:hover {
+        background-color: #0a6d3a;
+    }
+
+.signup-form .login a {
+    color: #07522E;
+    text-decoration: underline;
+}
+
+/* Tiêu đề */
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #1a531b;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+/*line*/
+.login-role-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 50px 0 0 ; /* Khoảng cách trên dưới */
+}
+
+.login-role-text {
+    font-size: 18px;
+    font-weight: bold;
+    /*font-family: raleway;*/
+    color: #07522E;
+    margin: 0 20px; /* Khoảng cách giữa text và đường gạch */
+}
+
+.line {
+    width: 90px;
+    flex: 2;
+    height: 1.5px;
+    background-color: #07522E;
+}
+
+.signup-form .social-login {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+    .signup-form .social-login a {
+        margin-right:50px;
+        display: flex;
+        align-items: center;
+        width: 48%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        border: 1px solid rgba(217, 217, 217, 0.4); /* Light border */
+        border-radius: 5px;
+        color: #333;
+        text-decoration: none;
+        justify-content: center;
+        background-color: rgba(217, 217, 217, 0.4); /* Background color with 40% opacity */
+    }
+
+        .signup-form .social-login a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+/* Tablet: Co giãn theo chiều dọc */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 600px;
+        margin: 10px auto;
+    }
+
+    .img-container-signup {
+        display: none;
+    }
+
+    .signup-form {
+        width: 100%;
+    }
+}
+
+/* Điện thoại: Thêm padding và giảm font-size */
+@media (max-width: 576px) {
+    .signup-form {
+        padding: 10px;
+    }
+
+        .signup-form input {
+            font-size: 14px;
+        }
+
+    h2 {
+        font-size: 22px;
+    }
+}

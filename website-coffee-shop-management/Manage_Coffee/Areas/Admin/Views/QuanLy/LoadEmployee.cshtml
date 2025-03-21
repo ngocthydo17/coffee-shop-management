@@ -1,0 +1,146 @@
+﻿@model List<Manage_Coffee.Models.NhanVien>
+@{
+
+    Layout = ViewData["Layout"]?.ToString();
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+}
+<link rel="stylesheet" href="~/css/order.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+<h1>DANH SÁCH NHÂN VIÊN PHỤC VỤ</h1>
+
+<button class="themnhannvien"> @Html.ActionLink("Thêm nhân viên mới", "Register", "AccountAdmin", new { area = "Admin" }, new { @class = "btn btn-primary" })</button>
+
+
+@if (Model == null || !Model.Any())
+{
+    <div style="color: red;">Không tìm thấy nhân viên nào có chức vụ phục vụ.</div>
+}
+else
+{
+    <div class="nhanvien">
+
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Mã chi nhánh</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var nv in Model)
+                {
+                    <tr>
+                        <td>@nv.Ten</td>
+                        <td>@nv.Sdt</td>
+                        <td>@nv.Diachi</td>
+                        <td>@nv.Ngaysinh.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @if (nv.GioiTinh == true)
+                            {
+                                <p>Nữ</p>
+                            }
+                            else if (nv.GioiTinh == false)
+                            {
+                                <p>Nam</p>
+                            }
+                            else
+                            {
+                                <p></p>
+                            }
+                        </td>
+                        <td>@nv.MaCn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<style>
+    h1 {
+        margin-bottom: 10px;
+        color: #07524E;
+        margin-top: 30px;
+        TEXT-ALIGN: center;
+    }
+
+    .nhanvien {
+        display: flex;
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        align-items: center; /* Căn giữa theo chiều dọc */
+    }
+
+    thead tr {
+        background-color: #E9DFB8 !important;
+    }
+
+    /* Hàng lẻ: 1, 3, 5,... */
+    table tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    /* Hàng chẵn: 2, 4, 6,... */
+    table tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    table, th, tr, td {
+        border: 2px solid;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        height: 40px;
+        margin-bottom: 20px;
+        border: 1px solid #868585;
+    }
+
+    table {
+        width: 85%;
+        border-collapse: collapse;
+    }
+
+    td {
+        height: 55px;
+        width: 120px;
+        text-align: center;
+    }
+
+    th {
+        color: #414042;
+    }
+
+    .themnhannvien {
+        margin-left: 45px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        border-radius: 5px;
+        width: 220px;
+        height: 45px;
+        background-color: #07522E;
+    }
+
+        .themnhannvien:hover {
+            color: #414042;
+            background-color: #E9DFB8;
+        }
+
+        .themnhannvien .btn {
+            text-decoration: none;
+            color: white;
+        }
+
+            .themnhannvien .btn:hover {
+                color: #414042;
+                background-color: #E9DFB8;
+            }
+</style>

@@ -1,0 +1,235 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 1400px; /* Chiều rộng tối đa của container */
+    margin: 0 auto; /* Căn giữa trang */
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #07522E;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h5 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+i {
+    color: #07522E;
+    margin-right: 5px;
+    font-size: 20px;
+    width: fit-content;
+}
+
+.giongKH {
+    margin: 10px 0;
+}
+
+.form {
+    flex: 1;
+    margin: 10px 0;
+}
+
+    .form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .form input {
+        background-color: #F5F4F7;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .form textarea {
+        width: 100%;
+        height: 100px;
+        background-color: #F5F4F7;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .form select {
+        background-color: #F5F4F7;
+        border: none;
+        border-radius: 10px;
+    }
+
+.payment-methods {
+    display: flex; /* Use flexbox for layout */
+    /*justify-content: space-between;*/ /* Distribute space evenly */
+    align-items: center;
+}
+
+.pay1, .pay2 {
+    margin-right: 60px;
+}
+
+.payment-methods button {
+    width: 250px;
+    margin-bottom: 15px;
+    height: 35px;
+    border-radius: 3px;
+    background-color: #E98B03;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+.btn2 {
+    width: 250px;
+    margin-bottom: 25px;
+    height: 35px;
+    border-radius: 3px;
+    background-color: #0071BC;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+    .btn2:hover {
+        color: #FF0000;
+    }
+
+.payment-methods button i {
+    color: white;
+}
+
+#paypal-button-container {
+    width: 250px;
+}
+/*.btn {
+    border: 2px solid #07522E;
+    width: 35%;
+    color: #07522E;
+    font-weight: 600;
+    align-items: center;
+    display: block;
+    margin: 0 auto;
+}*/
+/*.btn2 {
+    border: 2px solid #07522E;
+    width: 35%;
+    color: #07522E;
+    font-weight: 600;
+    align-items: center;
+    display: block;
+    margin: 0 auto;
+}*/
+
+.diuyn2 .form-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.diuyn2 .highlight {
+    font-weight: bold;
+    color: #FFD700; /* Gold color for the points */
+}
+
+.diuyn2 .form-inline input {
+    padding: 5px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.order {
+    border: 2px solid #07522E;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+    .order .section-title {
+        text-align: center;
+    }
+
+    .order label {
+        font-weight: 600;
+    }
+
+    .order select {
+        margin-bottom: 10px;
+        border: 2px solid #07522E;
+        width: 100%;
+        height: 30%;
+        border-radius: 5px;
+    }
+
+    .order #DiscountCode {
+        border: 2px solid #07522E;
+        padding: 7px;
+        width: 100%;
+        border-radius: 4px;
+    }
+
+.order-summary table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15px auto;
+}
+
+.order-summary table, th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.total {
+    /*border: 2px solid #07522E;*/
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    background-color: #07522E;
+    color: white;
+}
+
+    .total i {
+        color: white;
+    }
+
+.total-section {
+    display: flex;
+    justify-content: space-between; /* Tạo khoảng cách giữa các phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    width: 100%;
+}
+/*    .total-section #totalValue {
+        margin-left: 368px;
+    }
+.dis p{
+    margin-bottom: 3px;
+    font-weight: 600;
+}*/
+.order tbody {
+    display: block;
+    max-height: 250px; /* Chiều cao cố định, bạn có thể thay đổi */
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    width: 100%; /* Đảm bảo tbody chiếm toàn bộ chiều rộng bảng */
+}
+
+.order thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Đặt cố định chiều rộng các cột */
+}
+
+.order td, th {
+    word-wrap: break-word;
+    white-space: normal;
+}

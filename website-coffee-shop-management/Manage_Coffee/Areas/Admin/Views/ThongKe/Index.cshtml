@@ -1,0 +1,299 @@
+﻿@model IEnumerable<Manage_Coffee.Areas.Admin.Models.ThongKeSanPham>
+@{
+    var firstThongKe = Model.FirstOrDefault(); // Lấy dòng đầu tiên trong Model
+    var currentYear = DateTime.Now.Year;
+    int stt = 1;
+    <link rel="stylesheet" href="~/css//thongke.css" />
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Thống Kê Sản Phẩm</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="diuynne">
+            <h2>Thống Kê Sản Phẩm</h2>
+            <form id="thongKeForm" method="get" action="@Url.Action("Index", "ThongKe")">
+                <input type="hidden" name="selectedLabel" id="selectedLabel" />
+                <label for="loaiThongKe">Loại thống kê:</label>
+                <select name="loaiThongKe" id="loaiThongKe" onchange="submitForm()">
+                    <option value="nam" @(ViewBag.LoaiThongKe == "nam" ? "selected" : "")>Năm</option>
+                    <option value="thang" @(ViewBag.LoaiThongKe == "thang" ? "selected" : "")>Tháng</option>
+                    <option value="quy" @(ViewBag.LoaiThongKe == "quy" ? "selected" : "")>Quý</option>
+                    <option value="khoangthoigian" @(ViewBag.LoaiThongKe == "khoangthoigian" ? "selected" : "")>Khoảng thời gian</option>
+                </select>
+                @if (ViewBag.LoaiThongKe == "thang" || ViewBag.LoaiThongKe == "quy")
+                {
+                    <label for="nam">Năm:</label>
+                    <select name="nam" id="nam" onchange="submitForm()">
+                        @for (int i = currentYear - 5; i <= currentYear; i++)
+                        {
+                            <option value="@i" @(i == ViewBag.Nam ? "selected" : "")>@i</option>
+                        }
+                    </select>
+                }
+                <label for="loaiBanHang">Loại bán hàng:</label>
+                <select name="loaiBanHang" id="loaiBanHang" onchange="submitForm()">
+                    <option value="all" @(ViewBag.LoaiBanHang == "all" ? "selected" : "")>Tất cả</option>
+                    <option value="onl" @(ViewBag.LoaiBanHang == "onl" ? "selected" : "")>Trực tuyến</option>
+                    <option value="off" @(ViewBag.LoaiBanHang == "off" ? "selected" : "")>Tại cửa hàng</option>
+                </select>
+
+                @if (ViewBag.LoaiThongKe == "khoangthoigian")
+                {
+                    <label for="tuNgay">Từ ggày:</label>
+                    <input type="date" id="tuNgay" name="tuNgay" value="@ViewBag.TuNgay?.ToString("yyyy-MM-dd")" onchange="submitForm()" />
+
+                    <label for="denNgay">Đến ngày:</label>
+                    <input type="date" id="denNgay" name="denNgay" value="@ViewBag.DenNgay?.ToString("yyyy-MM-dd")" onchange="submitForm()" />
+                }
+            </form>
+            <label for="chartType">Loại biểu đồ:</label>
+            <select id="chartType" onchange="updateChart()">
+                <option value="bar">Cột</option>
+                <option value="line">Đường</option>
+            </select>
+            <canvas id="doanhThuChart"></canvas>
+            @if (ViewBag.Chon != null)
+            {
+                <canvas id="doanhSoSanPhamChart" style="display:none;"></canvas>
+            }
+        </div>
+        <div class="diuynne2">
+            <h2>Thống Kê Doanh Thu</h2>
+            <table>
+@*                 <thead>
+ *@                    <tr>
+                        <th>@(ViewBag.LoaiThongKe == "nam" ? "Năm" : (ViewBag.LoaiThongKe == "thang" ? "Tháng" : (ViewBag.LoaiThongKe == "quy" ? "Quý" : "Ngày"))) </th>
+                        <th>Tổng doanh thu</th>
+                    </tr>
+      @*           </thead> *@
+@*                 <tbody>
+ *@                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @(ViewBag.LoaiThongKe == "nam" ? item.Nam.ToString() :
+                                    ViewBag.LoaiThongKe == "thang" ? $"{item.Thang}/{item.Nam}" :
+                                    ViewBag.LoaiThongKe == "quy" ? $"Q{item.Quy}/{item.Nam}" :
+                                    item.Ngay?.ToString("dd/MM/yyyy"))
+                            </td>
+                            <td>@item.TongDoanhThu.ToString("N0") VNĐ</td>
+                        </tr>
+                    }
+@*                 </tbody>
+ *@            </table>
+            <h2>Danh sách sản phẩm theo @(ViewBag.LoaiThongKe == "nam" ? "5 năm gần nhất" : "")@(ViewBag.LoaiThongKe == "thang" || ViewBag.LoaiThongKe == "quy" ? "năm " + ViewBag.Nam : "")@(ViewBag.LoaiThongKe == "khoangthoigian" ? "từ " + ViewBag.TuNgay + " đến " + ViewBag.DenNgay : "")</h2>
+            <table>
+                 @if (Model != null && Model.Any())
+                 {
+                            @if (firstThongKe.SanPhamBanDuoc != null && firstThongKe.SanPhamBanDuoc.Any())
+                            {
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên Sản Phẩm</th>
+                                    <th>Số Lượng Bán</th>
+                                    <th>Tổng Tiền</th>
+                                </tr>
+                                @foreach (var sp in firstThongKe.SanPhamBanDuoc.OrderByDescending(sp => sp.SoLuong))
+                                {
+                                    <tr>
+                                        <td>@stt</td>
+                                        <td>@sp.TenSp</td>
+                                        <td>@sp.SoLuong</td>
+                                        <td>@sp.TongTien.ToString("N0")</td>
+                                    </tr>
+                                    stt++;
+                                }
+                            }
+
+                 }
+            </table>
+                    <h2>@(ViewBag.chon != null ? "Danh sách sản phẩm " + ViewBag.chon : "")</h2>
+                            <table>
+                                @if (Model != null && Model.Any())
+                                {
+                                    @if (firstThongKe.YourProductSales != null && firstThongKe.YourProductSales.Any())
+                                    {
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên Sản Phẩm</th>
+                                            <th>Số Lượng Bán</th>
+                                            <th>Tổng Tiền</th>
+                                        </tr>
+                                        @foreach (var sp in firstThongKe.YourProductSales.OrderByDescending(sp => sp.Soluong))
+                                        {
+                                            <tr>
+                                                <td>@stt</td>
+                                                <td>@sp.ProductName</td>
+                                                <td>@sp.Soluong</td>
+                                                <td>@sp.SalesAmount.ToString("N0")</td>
+                                            </tr>
+                                            stt++;
+                                        }
+                                    }
+                                }
+                            </table>
+        </div>
+    </div>
+
+    <script>
+        let myChart;
+        let myProductChart; // Biến để lưu biểu đồ doanh số sản phẩm
+        let lastSelectedLabel;
+        var selectedLabelFromViewBag = '@ViewBag.chon';
+
+        function submitForm() {
+            $('#thongKeForm').submit(); // Gửi form
+        }
+
+        function updateChart() {
+            var ctx = document.getElementById('doanhThuChart').getContext('2d');
+            var labels = @Html.Raw(Json.Serialize(
+                Model.Select(m => ViewBag.LoaiThongKe == "nam" ? m.Nam.ToString() :
+                ViewBag.LoaiThongKe == "thang" ? $"{m.Thang}/{m.Nam}" :
+                ViewBag.LoaiThongKe == "quy" ? $"Q{m.Quy}/{m.Nam}" :
+                m.Ngay?.ToString("dd/MM/yyyy"))
+                ));
+            var dataValues = @Html.Raw(Json.Serialize(Model.Select(m => m.TongDoanhThu)));
+
+            if (myChart) {
+                myChart.destroy(); // Hủy biểu đồ cũ nếu tồn tại
+            }
+
+            myChart = new Chart(ctx, {
+                type: $('#chartType').val(), // Lấy loại biểu đồ từ dropdown
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Doanh Thu',
+                        data: dataValues,
+                        backgroundColor: 'rgba(7, 82, 46, 1)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Thêm sự kiện click cho biểu đồ
+            myChart.canvas.onclick = function (evt) {
+                var activePoints = myChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, false);
+                if (activePoints.length > 0) {
+                    var index = activePoints[0].index;
+                    selectedLabel = labels[index]; // Lưu nhãn được chọn
+                    $('#selectedLabel').val(selectedLabel); // Cập nhật giá trị của ô nhập liệu
+                    submitForm(); // Gọi hàm submitForm
+                }
+            };
+            fetchSalesByTime(selectedLabelFromViewBag);
+        }
+
+        // Hàm để gửi yêu cầu tới controller và lấy dữ liệu doanh số sản phẩm
+        function fetchSalesByTime(selectedLabel) {
+            $.ajax({
+                url: '@Url.Action("GetSalesByTime", "ThongKe", new { area = "Admin" })', 
+                type: 'GET',
+                data: {
+                    time: selectedLabel,
+                    timeType: '@ViewBag.LoaiThongKe', // Gửi loại thời gian (năm/tháng/quý/ngày)
+                    hinhthuc: '@ViewBag.LoaiBanHang'
+                },
+                success: function (data) {
+                    displayProductSalesChart(data); // Gọi hàm hiển thị biểu đồ doanh số sản phẩm
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching sales data: " + error);
+                }
+            });
+        }
+
+        // Hiện doanhSoSanPhamChart khi cần thiết
+        function displayProductSalesChart(data) {
+            var ctx = document.getElementById('doanhSoSanPhamChart').getContext('2d');
+            var productLabels = data.productLabels; // Nhãn sản phẩm từ dữ liệu trả về
+            var productSalesData = data.productSalesData; // Dữ liệu doanh số sản phẩm từ dữ liệu trả về
+
+            if (myProductChart) {
+                myProductChart.destroy(); // Hủy biểu đồ cũ nếu tồn tại
+            }
+            // Vẽ biểu đồ doanh số sản phẩm
+            myProductChart = new Chart(ctx, {
+                type: 'bar', // Loại biểu đồ doanh số sản phẩm
+                data: {
+                    labels: productLabels,
+                    datasets: [{
+                        label: 'Doanh Số Sản Phẩm',
+                        data: productSalesData,
+                        backgroundColor: 'rgba(7, 82, 46, 1)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            $('#doanhSoSanPhamChart').show(); // Hiện biểu đồ thứ hai
+            adjustChartLayout(); // Điều chỉnh bố cục dựa trên trạng thái hiển thị
+        }
+        // Hàm hiển thị biểu đồ doanh số sản phẩm
+        function displayProductSalesChart(data) {
+            var ctx = document.getElementById('doanhSoSanPhamChart').getContext('2d');
+            var productLabels = data.productLabels; // Nhãn sản phẩm từ dữ liệu trả về
+            var productSalesData = data.productSalesData; // Dữ liệu doanh số sản phẩm từ dữ liệu trả về
+
+            if (myProductChart) {
+                myProductChart.destroy(); // Hủy biểu đồ cũ nếu tồn tại
+            }
+
+            // Vẽ biểu đồ doanh số sản phẩm
+            myProductChart = new Chart(ctx, {
+                type: 'bar', // Loại biểu đồ doanh số sản phẩm
+                data: {
+                    labels: productLabels,
+                    datasets: [{
+                        label: 'Doanh Số Sản Phẩm',
+                        data: productSalesData,
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            $('#doanhSoSanPhamChart').show(); // Hiện biểu đồ doanh số sản phẩm
+        }
+        $(document).ready(function () {
+            updateChart(); // Gọi hàm để vẽ biểu đồ ngay khi trang được tải
+        });
+    </script>
+
+
+</body>
+</html>
